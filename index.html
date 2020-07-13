@@ -85,6 +85,15 @@
               <li class="nav-item active">
                 <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="tel:+919425032877">Call Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="mailto:owner.meatbucket@gmail.com">Email Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="https://goo.gl/maps/nf1Ww4whCcbjMyb17" target="_blank">Shop Location</a>
+              </li>    
             </ul>
           </div>
     </nav>
@@ -227,7 +236,7 @@
               <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="fish in fishes">
                     <div class="card shadow-sm">
-                      <img src="asset/images/{{fish.gsx$image.$t }}" class="card-img-top" alt="...">
+                      <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top" alt="...">
                       <div class="card-body">
                         <div class="row">
                             <div class="col-8">
@@ -251,11 +260,11 @@
                            <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
-                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{fish.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
+                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20|%20Price:%20{{fish.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
                           </div>
                           <div>
                             <a 
-                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{fish.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
+                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20|%20Price:%20{{fish.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
                             <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
@@ -300,11 +309,11 @@
                            <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
-                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{chicken.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
+                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20|%20Price:%20{{chicken.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
                           </div>
                           <div>
                             <a 
-                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{chicken.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
+                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20|%20Price:%20{{chicken.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
                             <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
@@ -348,11 +357,11 @@
                            <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
-                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{seafood.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
+                            <a href="sms:+919425032877;?&body=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQTY:{{seafood.gsx$qty.$t}}%20|%20{{seafood.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
                           </div>
                           <div>
                             <a 
-                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQTY:1%20kg%20|%20{{seafood.gsx$sellingprice.$t}} INR.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
+                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$qty.$t}}%20|%20Price:%20{{seafood.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-outline-success"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a>
                           </div>    
                           <div>
                             <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></a>
