@@ -66,10 +66,10 @@
     </table>
 -->
       
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-1 shadow-sm" style="background-color:#f8615a !important;">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-1 px-2 shadow-sm" style="background-color:#f8615a !important;">
           
           
-          <nav class="navbar navbar-light">
+          <nav class="navbar navbar-light p-2">
             <a class="navbar-brand text-white" href="#">
               <img src="asset/images/bucket.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
               Fresh Meat Bucket
@@ -148,7 +148,7 @@
         
         
    
-        <div id="carouselExampleIndicators" class="carousel slide bg-light" data-ride="carousel" style="margin-top:66px;">    
+        <div id="carouselExampleIndicators" class="carousel slide bg-light p-3" data-ride="carousel" style="margin-top:68px;">    
           <div class="carousel-inner">    
             <div class="carousel-item active" data-interval="2000">
               <div class="d-flex justify-content-around align-items-center">
@@ -208,7 +208,7 @@
         
         <div class="row mt-3">
             <div class="col">
-                <ul class="nav nav-pills justify-content-center" id="productTab" role="tablist">
+                <ul class="nav nav-pills justify-content-center " id="productTab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link active" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" aria-controls="fishes" aria-selected="true">Fishes  <span class="badge badge-pill badge-light">{{fishes.length}}</span></a>
                   </li>
@@ -224,8 +224,8 @@
         <div class="tab-content" id="productTabContent">
           <div class="tab-pane fade show active" id="fishes" role="tabpanel" aria-labelledby="fishes-tab">
   
-              <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="fish in fishes">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="fish in fishes">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{fish.gsx$image.$t }}" class="card-img-top" alt="...">
                       <div class="card-body">
@@ -234,7 +234,12 @@
                                 <h6>{{fish.gsx$productname.$t}}</h6>
                             </div>
                             <div class="col-4">
-                                 <h5 class="float-right"><b>{{fish.gsx$sellingprice.$t}} &#8377</b></h5>
+                                <div class="d-flex flex-column">
+                                  <div>
+                                    <h5 class="float-right"><b>{{fish.gsx$sellingprice.$t}} &#8377</b></h5>  
+                                  </div>
+                                  <div><h6 class="float-right">{{fish.gsx$qty.$t}}</h6></div>
+                                </div>
                             </div>
                         </div>  
                         <p class="card-text text-muted">{{fish.gsx$description.$t }}</p>
@@ -268,8 +273,8 @@
         </div>
         <div class="tab-pane fade" id="chicken" role="tabpanel" aria-labelledby="chicken-tab">
             
-            <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="chicken in chickens">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="chicken in chickens">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{chicken.gsx$image.$t }}" class="card-img-top" alt="...">
                       <div class="card-body">                     
@@ -279,6 +284,7 @@
                             </div>
                             <div class="col-4">
                                  <h5 class="float-right"><b>{{chicken.gsx$sellingprice.$t}} &#8377</b></h5>
+                                <h6 class="float-right">{{chicken.gsx$qty.$t}}</h6>
                             </div>
                         </div>   
                         <p class="card-text text-muted">{{chicken.gsx$description.$t }}</p>
@@ -311,8 +317,8 @@
             </div>
           <div class="tab-pane fade" id="seafood" role="tabpanel" aria-labelledby="seafood-tab">
             
-             <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="seafood in seafoods">
+             <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="seafood in seafoods">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top" alt="...">
                       <div class="card-body">
@@ -322,6 +328,7 @@
                             </div>
                             <div class="col-4">
                                  <h5 class="float-right"><b>{{seafood.gsx$sellingprice.$t}} &#8377</b></h5>
+                                <h6 class="float-right">{{seafood.gsx$qty.$t}}</h6>
                             </div>
                         </div>   
                         <p class="card-text text-muted">{{seafood.gsx$description.$t }}</p>
