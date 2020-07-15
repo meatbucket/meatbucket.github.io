@@ -20,3 +20,12 @@ var app = angular.module('fmbApp', []);
               });
                                 
             });
+
+        app.config( [
+            '$compileProvider',
+            function( $compileProvider )
+            {   
+                $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|sms|chrome-extension):/);
+                // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+            }
+        ]);
