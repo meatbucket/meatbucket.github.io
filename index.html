@@ -31,8 +31,7 @@
                       }
                   }
               });
-                
-                
+                                
             });
       </script>
 
@@ -234,7 +233,7 @@
           <div class="tab-pane fade show active" id="fishes" role="tabpanel" aria-labelledby="fishes-tab">
   
               <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="fish in fishes">
+                <div ng-if="fishes.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="fish in fishes">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top" alt="...">
                       <div class="card-body">
@@ -273,7 +272,87 @@
                         </div>  
                     </div>
                 </div>
-            </div>
+                </div>
+                <div ng-if="fishes.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+                    <div class="card shadow-sm border-warning">
+                <div class="d-flex justify-content-around">
+                    <div>
+                         <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                         
+                    </div>
+                </div>
+                <h6 class="text-center mt-2">Bulk Order Needed!</h6>
+                      <div class="card-body">
+                         <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Product You Want?</label>
+                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                              <option selected>Choose...</option>    
+                              <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                              </option>
+                            </select>
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                              Product Selection Required
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                            <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   ng-required="true">    
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                              Quantity Required
+                            </div>  
+                          </div>
+                          <a 
+                           href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                          role="button" class="btn btn-success float-right"
+                             ng-class="{disabled:!enquiryForm.$valid}"
+                               ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                          </form>
+                      </div>
+                </div>
+                </div>  
+               
+                <div ng-if="fishes.length ==0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+
+                    <div class="card shadow-sm border-danger">
+                <div class="d-flex justify-content-around">
+                    <div>
+                         <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                         
+                    </div>
+                </div>
+                <h6 class="text-center mt-2">No Product Found !</h6>
+                      <div class="card-body">
+                         <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Product You Want?</label>
+                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                              <option selected>Choose...</option>    
+                              <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                              </option>
+                            </select>
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                              Product Selection Required
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                            <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   ng-required="true">    
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                              Quantity Required
+                            </div>  
+                          </div>
+                          <a 
+                           href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                          role="button" class="btn btn-success float-right"
+                             ng-class="{disabled:!enquiryForm.$valid}"
+                               ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                          </form>
+                      </div>
+                </div>
+                </div>
    
           </div>
               
@@ -283,7 +362,7 @@
         <div class="tab-pane fade" id="chicken" role="tabpanel" aria-labelledby="chicken-tab">
             
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="chicken in chickens">
+                <div ng-if="chickens.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="chicken in chickens">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{chicken.gsx$image.$t }}" class="card-img-top" alt="...">
                       <div class="card-body">                     
@@ -322,16 +401,94 @@
                         </div>  
                     </div>
                 </div>
+                </div>
+                <div ng-if="chickens.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+                    <div class="card shadow-sm border-warning">
+                <div class="d-flex justify-content-around">
+                    <div>
+                         <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                         
+                    </div>
+                </div>
+                <h6 class="text-center mt-2">Bulk Order Needed!</h6>
+                      <div class="card-body">
+                         <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Product You Want?</label>
+                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                              <option selected>Choose...</option>    
+                              <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                              </option>
+                            </select>
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                              Product Selection Required
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                            <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   ng-required="true">    
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                              Quantity Required
+                            </div>  
+                          </div>
+                          <a 
+                           href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                          role="button" class="btn btn-success float-right"
+                             ng-class="{disabled:!enquiryForm.$valid}"
+                               ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                          </form>
+                      </div>
+                </div>
+                </div> 
+                <div ng-if="chickens.length ==0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+
+                <div class="card shadow-sm border-danger">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                             <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-2">No Product Found !</h6>
+                          <div class="card-body">
+                             <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                              <div class="form-group">
+                                <label for="exampleFormControlSelect1">What Product You Want?</label>
+                                <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                                  <option selected>Choose...</option>    
+                                  <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                                  </option>
+                                </select>
+                                <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                                  Product Selection Required
+                                </div>  
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                                <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                       ng-required="true">    
+                                <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                                  Quantity Required
+                                </div>  
+                              </div>
+                              <a 
+                               href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                              role="button" class="btn btn-success float-right"
+                                 ng-class="{disabled:!enquiryForm.$valid}"
+                                   ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                              </form>
+                          </div>
+                    </div>
             </div>
-   
-          </div>
+            </div>
             
             
             </div>
           <div class="tab-pane fade" id="seafood" role="tabpanel" aria-labelledby="seafood-tab">
             
              <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="seafood in seafoods">
+                <div ng-if="seafoods.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3" ng-repeat="seafood in seafoods">
                     <div class="card shadow-sm">
                       <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top" alt="...">
                       <div class="card-body">
@@ -369,6 +526,85 @@
                           
                         </div>  
                     </div>
+                </div>
+                </div>
+                <div ng-if="seafoods.length !=0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+                    <div class="card shadow-sm border-warning">
+                <div class="d-flex justify-content-around">
+                    <div>
+                         <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                         
+                    </div>
+                </div>
+                <h6 class="text-center mt-2">Bulk Order Needed!</h6>
+                      <div class="card-body">
+                         <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Product You Want?</label>
+                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                              <option selected>Choose...</option>    
+                              <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                              </option>
+                            </select>
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                              Product Selection Required
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                            <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   ng-required="true">    
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                              Quantity Required
+                            </div>  
+                          </div>
+                          <a 
+                           href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                          role="button" class="btn btn-success float-right"
+                             ng-class="{disabled:!enquiryForm.$valid}"
+                               ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                          </form>
+                      </div>
+                </div>
+                </div>  
+            <div ng-if="seafoods.length ==0" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mt-3">
+
+            <div class="card shadow-sm border-danger">
+                <div class="d-flex justify-content-around">
+                    <div>
+                         <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                         
+                    </div>
+                </div>
+                <h6 class="text-center mt-2">No Product Found !</h6>
+                      <div class="card-body">
+                         <form  id="enquiryForm" name="enquiryForm" novalidate>  
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">What Product You Want?</label>
+                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
+                              <option selected>Choose...</option>    
+                              <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                              </option>
+                            </select>
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
+                              Product Selection Required
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
+                            <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                   ng-required="true">    
+                            <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
+                              Quantity Required
+                            </div>  
+                          </div>
+                          <a 
+                           href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                          role="button" class="btn btn-success float-right"
+                             ng-class="{disabled:!enquiryForm.$valid}"
+                               ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
+                          </form>
+                      </div>
                 </div>
             </div>
    
