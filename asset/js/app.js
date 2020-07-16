@@ -25,13 +25,13 @@ var app = angular.module('fmbApp', []);
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 1200);
+            }, 1600);
                 
              setTimeout(function () {
               $scope.$apply(function(){
                   $scope.showContent=true;
               });
-            }, 1200);                     
+            }, 1600);                     
                                 
             });
 
