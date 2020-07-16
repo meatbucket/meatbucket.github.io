@@ -1,6 +1,8 @@
 var app = angular.module('fmbApp', []);
             app.controller('ProductCtrl', function($scope, $http) { 
-              $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+            $scope.welcomeScreen=true;     
+            $scope.showContent=false;
+             $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
                     $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];
@@ -18,6 +20,18 @@ var app = angular.module('fmbApp', []);
                       }
                   }
               });
+                
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 1200);
+                
+             setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.showContent=true;
+              });
+            }, 1200);                     
                                 
             });
 
