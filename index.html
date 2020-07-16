@@ -10,10 +10,11 @@
     <script src="asset/js/fontawesome.js"></script>
     <script src="asset/js/angular.min.js"></script>
     <script src="asset/js/app.js"></script>
+   
     <title>Fresh meats at your door!</title>
   </head>
   <body ng-app="fmbApp" ng-controller="ProductCtrl">
-    <div ng-if="welcomeScreen" style="background-color:#f8615a !important; height:1000px !important; width:100% !important; z-index: 2000 !important;">
+    <div ng-show="welcomeScreen" style="background-color:#f8615a !important; height:1000px !important; width:100% !important; z-index: 2000 !important; display:block; position: fixed !important;">
     <div class="d-flex justify-content-around align-items-center" >
       <div>
         <img src="asset/images/bucket.png" style="height:100px;width:120px;margin-top:150px;" >
@@ -24,8 +25,8 @@
      <i class="fa fa-cog fa-spin fa-3x fa-fw text-white"></i>
 <span class="sr-only">Loading...</span>    
     </div>
-    </div>
-    <div ng-if="showContent">  
+    </div>  
+    <div ng-show="showContent">  
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-1 px-2 shadow-sm" style="background-color:#f8615a !important;">
       <nav class="navbar navbar-light p-2">
         <a class="navbar-brand text-white" href="#">
@@ -55,48 +56,98 @@
     </nav>
     <div>  
     <div class="container-fluid m-0 p-0">
-      <div id="carouselExampleIndicators" class="carousel slide bg-light p-3" data-ride="carousel" style="margin-top:68px;">
+      <div id="carouselExampleIndicators" class="carousel slide p-3" style="background-color:#f8615a !important; margin-top:64px;" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-interval="3000">
+          <div class="carousel-item active" data-interval="1500">
             <div class="d-flex justify-content-around align-items-center">
               <div>
-                <img src="asset/images/fish.png" style="height:100px;width:120px;" >
+                <img src="asset/images/bucket.png" style="height:104px;width:120px;" >
               </div>
             </div>
-            <div class="text-center mt-3">
+            <div class="text-center text-white mt-3">
+              <h5><b><u>Fresh Meat Bucket</u></b></h5>
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="4500">
+            <div class="d-flex justify-content-around align-items-center">
+              <div class="text-center text-white"> 
+                <h5>AN ONLINE INITIATIVE BY<br>
+                <b>TTG FISH CENTER</b></h5>  
+                <br>
+                <div>
+                    39, BHOI MOHALLA<br> INDORE<br>
+            CONTACT US @ +919425032877</div>
+              </div>
+            </div>
+          </div>      
+          <div class="carousel-item" data-interval="4500">
+            <div class="d-flex justify-content-around align-items-center">
+              <div class="text-center text-white"> 
+                <h5><b>HELLO INDORE !!<br>
+                WE'RE ONLINE NOW !!</b></h5>  
+            <br>
+            <div><b><u>      
+            SPECIAL LAUNCH OFFER !<br>
+            GET FLAT 20% OFF !!<br>
+            ON ORDER ABOVE 300Rs. *</u></b></div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="4500">
+            <div class="d-flex justify-content-around align-items-center">
+              <div class="text-center text-white"> 
+                <h5><b>STORE OPEN FROM<br>
+                8 AM TO 8 PM</b></h5>  
+            <br>
+            <div><b><u>      
+            ORDER ON<br>
+             WhatsApp, Facebook, Message, Call<br>
+            www.freshmeatbucket.com</u></b></div>
+              </div>
+            </div>
+          </div>    
+
+          <div class="carousel-item" data-interval="3000">
+            <div class="d-flex justify-content-around align-items-center">
+              <div>
+                <img src="asset/images/fish.png" style="height:104px;width:120px;" >
+              </div>
+            </div>
+            <div class="text-center text-white mt-3">
               <h5><b>Fresh Fishes</b></h5>
             </div>
           </div>
           <div class="carousel-item" data-interval="2000">
             <div class="d-flex justify-content-around align-items-center">
               <div>
-                <img src="asset/images/chicken.png" style="height:100px;width:120px;" >
+                <img src="asset/images/chicken.png" style="height:104px;width:120px;" >
               </div>
             </div>
-            <div class="text-center mt-3">
+            <div class="text-center text-white mt-3">
               <h5><b>Fresh Chicken</b></h5>
             </div>
           </div>
           <div class="carousel-item" data-interval="3000">
             <div class="d-flex justify-content-around align-items-center">
               <div>
-                <img src="asset/images/seafoods.png" style="height:100px;width:100px;" >
+                <img src="asset/images/seafoods.png" style="height:104px;width:100px;" >
               </div>
             </div>
-            <div class="text-center mt-3">
+            <div class="text-center text-white mt-3">
               <h5><b>Fresh Seafood</b></h5>
             </div>
           </div>
           <div class="carousel-item" data-interval="3000">
             <div class="d-flex justify-content-around align-items-center">
               <div>
-                <img src="asset/images/FMB_food-delivery.png" style="height:100px;width:100px;" >
+                <img src="asset/images/FMB_food-delivery.png" style="height:104px;width:100px;" >
               </div>
             </div>
-            <div class="text-center mt-3">
-              <h5><b>Free Home Delivery</b></h5>
+            <div class="text-center text-white mt-3">
+              <h5><b>Home Delivery</b></h5>
             </div>
           </div>
+
         </div>
         <a class="carousel-control-prev text-dark" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon " aria-hidden="true"></span>
@@ -112,7 +163,7 @@
       <div class="row mt-4">
         <div class="col">
           <div class="d-flex justify-content-around">
-            <ul class="nav nav-pills" id="productTab" role="tablist">
+            <ul class="nav nav-pills round" id="productTab" role="tablist" style="border: 1px solid #007bff">
               <li class="nav-item">
                 <a class="nav-link p-2 active" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" aria-controls="fishes" aria-selected="true">Fishes  <span class="badge badge-pill badge-light">{{fishes.length}}</span></a>
               </li>
@@ -506,8 +557,20 @@
     </div>    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  -->
     <script src="asset/js/jquery-3.5.1.slim.min.js"></script>
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+     <script>
+    $(document).ready(function () {
+    $(document).click(function (event) {
+        var click = $(event.target);
+        var _open = $(".navbar-collapse").hasClass("show");
+        if (_open === true && !click.hasClass("navbar-toggler")) {
+            $(".navbar-toggler").click();
+                }
+            });
+        });  
+    </script>  
   </body>
 </html>
