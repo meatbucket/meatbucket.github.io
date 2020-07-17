@@ -182,7 +182,7 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
             <div ng-if="fishes.length !=0" class="col mt-4" ng-repeat="fish in fishes">
               <div class="card shadow-sm h-100">
-                <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top" alt="...">
+                <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-8">
@@ -198,14 +198,20 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <p class="card-text text-muted">{{fish.gsx$description.$t }}</p>
-                  <div class="float-right">
-                      <span class="text-muted">Delivery Time:</span>
-                      <span class="text-primary"> 
-                          <i class="fa fa-clock-o" aria-hidden="true"></i> {{fish.gsx$processingtime.$t }}
-                      </span>      
-                  </div>    
+                  </div>  
+                  <p class="card-text text-muted text-justify"><small>{{fish.gsx$description.$t }}</small></p>
+                <div ng-if="fish.gsx$halal.$t == 'y'" class="float-left">
+                    <ul class="list-unstyled text-center mb-0">
+                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
+                      <li><span class="text-success"><small>Cut Available</small></span></li>
+                    </ul>
+                </div>  
+                <div class="float-right">
+                  <ul class="list-unstyled text-center mb-0">
+                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
+                      <li><span class="text-primary">{{fish.gsx$processingtime.$t }}</span></li>
+                    </ul>
+                </div>      
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
                   <p class="mb-1 text-primary text-center">
@@ -311,7 +317,7 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
             <div ng-if="chickens.length !=0" class="col mt-4" ng-repeat="chicken in chickens">
               <div class="card shadow-sm h-100">
-                <img src="asset/images/{{chicken.gsx$image.$t }}" class="card-img-top" alt="...">
+                <img src="asset/images/{{chicken.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-8">
@@ -328,13 +334,19 @@
                       </div>
                     </div>
                   </div>
-                  <p class="card-text text-muted">{{chicken.gsx$description.$t }}</p>
-                  <div class="float-right">
-                      <span class="text-muted">Delivery Time:</span>
-                      <span class="text-primary"> 
-                          <i class="fa fa-clock-o" aria-hidden="true"></i> {{chicken.gsx$processingtime.$t }}
-                      </span>      
-                  </div>     
+                  <p class="card-text text-muted text-justify"><small>{{chicken.gsx$description.$t }}</small></p>
+                <div ng-if="chicken.gsx$halal.$t == 'y'" class="float-left">
+                    <ul class="list-unstyled text-center mb-0">
+                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
+                      <li><span class="text-success"><small>Cut Available</small></span></li>
+                    </ul>
+                </div>  
+                <div class="float-right">
+                  <ul class="list-unstyled text-center mb-0">
+                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
+                      <li><span class="text-primary">{{chicken.gsx$processingtime.$t }}</span></li>
+                    </ul>
+                </div>     
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
                   <p class="mb-1 text-primary text-center">
@@ -440,7 +452,7 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
             <div ng-if="seafoods.length !=0" class="col mt-4" ng-repeat="seafood in seafoods">
               <div class="card shadow-sm h-100">
-                <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top" alt="...">
+                <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-8">
@@ -457,13 +469,19 @@
                       </div>
                     </div>
                   </div>
-                  <p class="card-text text-muted">{{seafood.gsx$description.$t }}</p>
-                  <div class="float-right">
-                      <span class="text-muted">Delivery Time:</span>
-                      <span class="text-primary"> 
-                          <i class="fa fa-clock-o" aria-hidden="true"></i> {{seafood.gsx$processingtime.$t }}
-                      </span>      
-                  </div>     
+                  <p class="card-text text-muted text-justify"><small>{{seafood.gsx$description.$t }}</small></p>
+                  <div ng-if="seafood.gsx$halal.$t == 'y'" class="float-left">
+                    <ul class="list-unstyled text-center mb-0">
+                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
+                      <li><span class="text-success"><small>Cut Available</small></span></li>
+                    </ul>
+                </div>  
+                <div class="float-right">
+                  <ul class="list-unstyled text-center mb-0">
+                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
+                      <li><span class="text-primary">{{seafood.gsx$processingtime.$t }}</span></li>
+                    </ul>
+                </div>     
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
                   <p class="mb-1 text-primary text-center">
