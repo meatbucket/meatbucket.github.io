@@ -247,11 +247,18 @@
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
-                      <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
-                        <option selected>Choose...</option>
-                        <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
-                        </option>
-                      </select>
+                    <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true" >
+                    <option value="">Choose...</option>
+                    <optgroup label="Fishes" ng-if="fishes.length !=0">
+                      <option value="{{fish.gsx$productname.$t}}" ng-repeat="fish in fishes">{{fish.gsx$productname.$t}}</option>
+                    </optgroup>
+                    <optgroup label="Chicken" ng-if="chickens.length !=0">
+                      <option value="{{chicken.gsx$productname.$t}}" ng-repeat="chicken in chickens">{{chicken.gsx$productname.$t}}</option>
+                    </optgroup>
+                    <optgroup label="Seafood" ng-if="seafoods.length !=0">
+                      <option value="{{seafood.gsx$productname.$t}}" ng-repeat="seafood in seafoods">{{seafood.gsx$productname.$t}}</option>
+                    </optgroup>    
+                  </select>    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
                         Product Selection Required
                       </div>
@@ -382,11 +389,18 @@
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
-                      <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
-                        <option selected>Choose...</option>
-                        <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
-                        </option>
-                      </select>
+                      <select ng-model="user.product" class="form-control" id="exampleFormControlSelect2"  ng-required="true" >
+                        <option value="">Choose...</option>
+                        <optgroup label="Fishes" ng-if="fishes.length !=0">
+                          <option value="{{fish.gsx$productname.$t}}" ng-repeat="fish in fishes">{{fish.gsx$productname.$t}}</option>
+                        </optgroup>
+                        <optgroup label="Chicken" ng-if="chickens.length !=0">
+                          <option value="{{chicken.gsx$productname.$t}}" ng-repeat="chicken in chickens">{{chicken.gsx$productname.$t}}</option>
+                        </optgroup>
+                        <optgroup label="Seafood" ng-if="seafoods.length !=0">
+                          <option value="{{seafood.gsx$productname.$t}}" ng-repeat="seafood in seafoods">{{seafood.gsx$productname.$t}}</option>
+                        </optgroup>    
+                      </select> 
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
                         Product Selection Required
                       </div>
@@ -517,11 +531,18 @@
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
-                      <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
-                        <option selected>Choose...</option>
-                        <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
-                        </option>
-                      </select>
+                      <select ng-model="user.product" class="form-control" id="exampleFormControlSelect3"  ng-required="true" >
+                        <option value="">Choose...</option>
+                        <optgroup label="Fishes" ng-if="fishes.length !=0">
+                          <option value="{{fish.gsx$productname.$t}}" ng-repeat="fish in fishes">{{fish.gsx$productname.$t}}</option>
+                        </optgroup>
+                        <optgroup label="Chicken" ng-if="chickens.length !=0">
+                          <option value="{{chicken.gsx$productname.$t}}" ng-repeat="chicken in chickens">{{chicken.gsx$productname.$t}}</option>
+                        </optgroup>
+                        <optgroup label="Seafood" ng-if="seafoods.length !=0">
+                          <option value="{{seafood.gsx$productname.$t}}" ng-repeat="seafood in seafoods">{{seafood.gsx$productname.$t}}</option>
+                        </optgroup>    
+                      </select> 
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
                         Product Selection Required
                       </div>
