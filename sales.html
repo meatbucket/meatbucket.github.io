@@ -1,0 +1,73 @@
+<div ng-controller="salesCtrl">
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    Enter Sales Detail
+                  </div>      
+                  <div class="card-body">
+                    <form id="productForm" name="productForm" novalidate>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Billing To</label>
+                        <input type="email" ng-model="customerName" ng-required="true" class="form-control" id="exampleFormControlInput1" placeholder="Customer Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Address</label>
+                        <textarea class="form-control" ng-model="customerAddress" ng-required="true" id="exampleFormControlTextarea1" rows="3" placeholder="Customer Address"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Mobile Number</label>
+                        <input type="number" ng-model="mobileNumber" ng-required="true" class="form-control" id="exampleFormControlInput1" placeholder="Customer Mobile">
+                      </div>
+                      <div class="card border-primary">
+                          <div class="card-body">
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Product</label>
+                            <select class="form-control" ng-model="item" id="exampleFormControlSelect1" ng-required="true" 
+                                    ng-change="totalCalculation(item)"
+                                    >
+                              <option ng-repeat="item in allProducts" value="{{item}}">{{item.name}}</option>        
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Qty in Kg</label>
+                            <input ng-required="true" ng-model="qty" type="number" class="form-control" id="exampleFormControlInput1">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Price in INR</label>
+                            <input ng-required="true" ng-model="price" type="number" class="form-control" id="exampleFormControlInput1">
+                          </div>
+                          <div class="form-group">
+                              <div class="input-group">
+                                  
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Discount</span>
+                                  </div>
+                                  <input ng-required="true" ng-model="discount" type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="Discount" >
+                                  <div class="input-group-append">
+                                    <select class="form-control" id="exampleFormControlSelect1" ng-model="uom">
+                                      <option selected>%</option>
+                                      <option>INR</option>
+                                    </select>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Total</label>
+                            <input ng-required="true" ng-model="total" type="number" class="form-control" id="exampleFormControlInput1">
+                          </div>      
+                          <button type="submit" class="btn btn-outline-primary float-right">Add</button>      
+                          </div>             
+                      </div>    
+
+                    </form>
+                  </div>
+                  <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">Submit Entry</button> 
+                  </div>      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
