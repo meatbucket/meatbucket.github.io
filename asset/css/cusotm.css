@@ -1,0 +1,13 @@
+#mobiletab .nav-link.active, .nav-pills .show>.nav-link {
+    
+    background-color:transparent !important;
+}
+
+.brand-color {
+    color: #f8615a !important;
+}
+
+.brand-background-color {
+    background-color: #f8615a !important;
+    color: white !important;
+}

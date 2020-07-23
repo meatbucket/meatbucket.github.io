@@ -31,7 +31,51 @@ var app = angular.module('fmbApp', ['ngRoute']);
               $scope.$apply(function(){
                   $scope.showContent=true;
               });
-            }, 1600);                     
+            }, 1600); 
+                
+             
+            $scope.fish = "fish-button-active.png";
+            $scope.fishtab = true;
+            $scope.chicken = "chicken-button.png";
+            $scope.chickentab = false;
+            $scope.seafood = "seafood-button.png";
+            $scope.seafoodtab = false;    
+                
+            $scope.changeTab = function (param){
+                if (param == 'fish'){
+                    if ($scope.fish == 'fish-button.png'){
+                        $scope.fish = 'fish-button-active.png';
+                        $scope.fishtab = true;
+                        $scope.chickentab = false;
+                        $scope.seafoodtab = false;  
+                        $scope.chicken = 'chicken-button.png';
+                        $scope.seafood = 'seafood-button.png';
+                    }     
+                }
+                if (param == 'chicken'){
+                    if ($scope.chicken == 'chicken-button.png'){
+                        $scope.fish = 'fish-button.png';
+                        $scope.chicken = 'chicken-button-active.png';
+                        $scope.fishtab = false;
+                        $scope.chickentab = true;
+                        $scope.seafoodtab = false;
+                        $scope.seafood = 'seafood-button.png';
+                    }    
+                }
+                if (param == 'seafood'){
+                    if ($scope.seafood == 'seafood-button.png'){
+                         $scope.fish = 'fish-button.png';
+                        $scope.chicken = 'chicken-button.png';
+                        $scope.seafood = 'seafood-button-active.png';
+                         $scope.fishtab = false;
+                        $scope.chickentab = false;
+                        $scope.seafoodtab = true;
+                    }      
+                }
+                
+            }    
+                
+                
                                 
             });
 
@@ -45,11 +89,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
            $scope.discount=0;
            $scope.total=0;
            $scope.uom="%";
-           
-  
-           
-         //  $scope.productList = [{item:'',price:'', total:'',discount:0,qty:''}];
-           $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+                    $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
                     $scope.allProducts=[];
@@ -66,7 +106,6 @@ var app = angular.module('fmbApp', ['ngRoute']);
                            }
                      
                       }
-                console.log("====all=====",$scope.allProducts);
               });
            
            $scope.totalCalculation = function(item) {
