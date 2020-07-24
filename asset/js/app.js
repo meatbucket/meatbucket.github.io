@@ -34,39 +34,39 @@ var app = angular.module('fmbApp', ['ngRoute']);
             }, 1600); 
                 
              
-            $scope.fish = "fish-button-active.png";
+            $scope.fish = "fish-button-active.svg";
             $scope.fishtab = true;
-            $scope.chicken = "chicken-button.png";
+            $scope.chicken = "chicken-button.svg";
             $scope.chickentab = false;
-            $scope.seafood = "seafood-button.png";
+            $scope.seafood = "seafood-button.svg";
             $scope.seafoodtab = false;    
                 
             $scope.changeTab = function (param){
                 if (param == 'fish'){
-                    if ($scope.fish == 'fish-button.png'){
-                        $scope.fish = 'fish-button-active.png';
+                    if ($scope.fish == 'fish-button.svg'){
+                        $scope.fish = 'fish-button-active.svg';
                         $scope.fishtab = true;
                         $scope.chickentab = false;
                         $scope.seafoodtab = false;  
-                        $scope.chicken = 'chicken-button.png';
-                        $scope.seafood = 'seafood-button.png';
+                        $scope.chicken = 'chicken-button.svg';
+                        $scope.seafood = 'seafood-button.svg';
                     }     
                 }
                 if (param == 'chicken'){
-                    if ($scope.chicken == 'chicken-button.png'){
-                        $scope.fish = 'fish-button.png';
-                        $scope.chicken = 'chicken-button-active.png';
+                    if ($scope.chicken == 'chicken-button.svg'){
+                        $scope.fish = 'fish-button.svg';
+                        $scope.chicken = 'chicken-button-active.svg';
                         $scope.fishtab = false;
                         $scope.chickentab = true;
                         $scope.seafoodtab = false;
-                        $scope.seafood = 'seafood-button.png';
+                        $scope.seafood = 'seafood-button.svg';
                     }    
                 }
                 if (param == 'seafood'){
-                    if ($scope.seafood == 'seafood-button.png'){
-                         $scope.fish = 'fish-button.png';
-                        $scope.chicken = 'chicken-button.png';
-                        $scope.seafood = 'seafood-button-active.png';
+                    if ($scope.seafood == 'seafood-button.svg'){
+                         $scope.fish = 'fish-button.svg';
+                        $scope.chicken = 'chicken-button.svg';
+                        $scope.seafood = 'seafood-button-active.svg';
                          $scope.fishtab = false;
                         $scope.chickentab = false;
                         $scope.seafoodtab = true;
