@@ -21,6 +21,11 @@ var app = angular.module('fmbApp', ['ngRoute']);
                   }
               });
                 
+            $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/2/public/values?alt=json")
+                    .success(function(response) {
+                    $scope.banners = response.feed.entry;
+              });    
+                
             setTimeout(function () {
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
@@ -89,7 +94,10 @@ var app = angular.module('fmbApp', ['ngRoute']);
            $scope.discount=0;
            $scope.total=0;
            $scope.uom="%";
-                    $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+           $scope.originalQty = "";
+           $scope.originalPrice = "";
+           
+           $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
                     $scope.allProducts=[];
@@ -100,7 +108,8 @@ var app = angular.module('fmbApp', ['ngRoute']);
                                              price:$scope.tools[i].gsx$sellingprice.$t,
                                              qty:$scope.tools[i].gsx$qty.$t,
                                              discount:0,
-                                             total:$scope.tools[i].gsx$sellingprice.$t
+                                             total:$scope.tools[i].gsx$sellingprice.$t,
+                                             uom:$scope.tools[i].gsx$uom.$t
                                             });
                              
                            }
@@ -113,13 +122,65 @@ var app = angular.module('fmbApp', ['ngRoute']);
      
 
            $scope.price= Number($scope.tempItem.price);
+           $scope.originalPrice = $scope.price;
            $scope.qty=Number($scope.tempItem.qty);
-           $scope.discount=Number($scope.tempItem.discount);
+           $scope.originalQty = $scope.qty; 
+           $scope.discount=Number($scope.tempItem.discount);       
+           $scope.originaldiscount=$scope.discount;
+           $scope.originalUom = $scope.tempItem.uom;  
 
            $scope.total=Number($scope.price - ($scope.price * (($scope.discount)/100) ));
                
            }
            
+//           $scope.calculateBill = function (qty, discount, total){
+//               if (discount != null && qty != null && total != null){
+//                   $scope.price = $scope.originalPrice * qty;
+//                   
+//                   if ($scope.uom == "%"){
+//                        $scope.total=$scope.total=Number(($scope.originalPrice * $scope.qty) - (($scope.originalPrice * $scope.qty) * (($scope.discount)/100) ));
+//                   } else { 
+//                       $scope.total=Number( ($scope.originalPrice * $scope.qty) - $scope.discount); 
+//                   }
+//                }
+//               
+//           }
+           
+           $scope.qtyChange= function(qty){
+                $scope.qty = qty;
+                if (qty != null){
+                    $scope.price=$scope.originalPrice * qty;
+                    $scope.total=$scope.price; 
+                }else {
+                    $scope.price=$scope.originalPrice * $scope.originalQty;
+                    $scope.total=$scope.price; 
+                }
+           }
+           
+           $scope.discountChange= function(discount){
+               if (discount != null){
+                        $scope.discount = discount;
+                        if ($scope.uom == "%"){
+                            $scope.total=Number(($scope.originalPrice * $scope.qty) - (($scope.originalPrice * $scope.qty) * (($scope.discount)/100) ));
+                        }else {
+                          $scope.total=Number( ($scope.originalPrice * $scope.qty) - $scope.discount);   
+                        }
+                   
+               } else {
+                   $scope.discount = $scope.originaldiscount;
+                   $scope.total = Number( ($scope.price * $scope.qty) - $scope.discount); 
+               } 
+           
+           }
+           
+           
+           $scope.discountChangebyTotal= function(total){
+               if (total != null){
+                   $scope.discount = (total - $scope.price);
+                   
+               }
+           
+           }
            
            
        });

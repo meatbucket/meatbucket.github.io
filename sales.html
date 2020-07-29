@@ -31,12 +31,16 @@
                             </select>
                           </div>
                           <div class="form-group">
-                            <label for="exampleFormControlInput1">Qty in Kg</label>
-                            <input ng-required="true" ng-model="qty" type="number" class="form-control" id="exampleFormControlInput1">
+                            <label class="text-success" ng-if="originalPrice.length !=0">Original Price and QTY</label>
+                            <label class="text-danger"  ng-if="originalPrice.length !=0">{{originalPrice}} INR for {{originalQty}} {{originalUom}}</label>    
+                          </div>    
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Qty in {{originalUom}}</label>
+                            <input ng-required="true" ng-change="qtyChange(qty)" ng-model="qty" type="number" class="form-control" id="exampleFormControlInput1">
                           </div>
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Price in INR</label>
-                            <input ng-required="true" ng-model="price" type="number" class="form-control" id="exampleFormControlInput1">
+                            <input ng-required="true" ng-model="price" type="number" class="form-control" id="exampleFormControlInput1" readonly>
                           </div>
                           <div class="form-group">
                               <div class="input-group">
@@ -44,9 +48,9 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Discount</span>
                                   </div>
-                                  <input ng-required="true" ng-model="discount" type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="Discount" >
+                                  <input ng-required="true"  ng-change="discountChange(discount)" ng-model="discount" type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="Discount" >
                                   <div class="input-group-append">
-                                    <select class="form-control" id="exampleFormControlSelect1" ng-model="uom">
+                                    <select class="form-control"  ng-change="discountChange(discount)" id="exampleFormControlSelect1" ng-model="uom">
                                       <option selected>%</option>
                                       <option>INR</option>
                                     </select>

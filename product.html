@@ -54,45 +54,21 @@
               <h5><b><u>Fresh Meat Bucket</u></b></h5>
             </div>
           </div>
-          <div class="carousel-item" data-interval="4500">
+    
+          <div ng-repeat="banner in banners" class="carousel-item" ng-if="banner.gsx$show.$t == 'y'" data-interval={{banner.gsx$duration.$t}}>
             <div class="d-flex justify-content-around align-items-center">
               <div class="text-center text-white"> 
-                <h5>AN ONLINE INITIATIVE BY<br>
-                <b>TTG FISH CENTER</b></h5>  
+                <h5>{{banner.gsx$lineone.$t}}<br>
+                <b>{{banner.gsx$linetwo.$t}}</b></h5>  
                 <br>
                 <div>
-                    39, BHOI MOHALLA<br> INDORE<br>
-            CONTACT US @ +919425032877</div>
-              </div>
-            </div>
-          </div>      
-          <div class="carousel-item" data-interval="4500">
-            <div class="d-flex justify-content-around align-items-center">
-              <div class="text-center text-white"> 
-                <h5><b>HELLO INDORE !!<br>
-                WE'RE ONLINE NOW !!</b></h5>  
-            <br>
-            <div><b><u>      
-            SPECIAL LAUNCH OFFER !<br>
-            GET FLAT 20% OFF !!<br>
-            ON ORDER ABOVE 300Rs. *</u></b></div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item" data-interval="4500">
-            <div class="d-flex justify-content-around align-items-center">
-              <div class="text-center text-white"> 
-                <h5><b>STORE OPEN FROM<br>
-                8 AM TO 8 PM</b></h5>  
-            <br>
-            <div><b><u>      
-            ORDER ON<br>
-             WhatsApp, Facebook, Message, Call<br>
-            www.freshmeatbucket.com</u></b></div>
+                    {{banner.gsx$linethree.$t}}<br> 
+                    {{banner.gsx$linefour.$t}}<br>
+                    {{banner.gsx$linefive.$t}}</div>
               </div>
             </div>
           </div>    
-
+     
           <div class="carousel-item" data-interval="3000">
             <div class="d-flex justify-content-around align-items-center">
               <div>
@@ -143,7 +119,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div>   
     </div>
     <div class="container">
       <div class="row mt-2">
@@ -620,9 +596,32 @@
               </li>
             </ul>
     </div>
-    <div class="text-center bg-light p-1 mt-5 shadow-sm border-sm" >
-      <a href="https://goo.gl/maps/nf1Ww4whCcbjMyb17" class="text-decoration-none text-reset text-center" target="_blank" >&copy; 2020 TTG Fish Center | Indore</a>
+    <div class="text-center bg-light p-1 mt-5 mb-7 shadow-sm border-sm" >
+        <div class="d-flex flex-column justify-content-center">
+          <div><img src="/asset/images/fssai.png" style="height:30px; width:60px;"></div>
+          <div class="mt-1">Lic No. 21420850003168</div>
+          <div class="p-2 bd-highlight"><a href="https://goo.gl/maps/nf1Ww4whCcbjMyb17" class="text-decoration-none text-reset text-center" target="_blank" >&copy; 2020 Freshmeatbucket by TTG Fish Center</a></div>
+          <div>
+            Indore (M.P.)  
+          </div>   
+        </div>
+        <div class="d-flex justify-content-around mt-2 mb-2 border-top">
+            <div class="mt-3">
+                <b>Follow Us On:</b>
+            </div>
+            <div class="mt-2">
+                <a href="https://www.facebook.com/Fresh-Meat-Bucket-101676998300302/" target="_blank">
+                    <i class="fa fa-2x fa-facebook-square text-primary" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="mt-2">
+                <a href="https://www.instagram.com/freshmeatbucket/" target="_blank">
+                    <i class="fa fa-2x fa-instagram text-danger" aria-hidden="true"></i>  
+                </a>    
+            </div>
+        </div>
     </div>
+  
     </div> 
     </div>    
     </div>  
