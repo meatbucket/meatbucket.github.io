@@ -20,55 +20,105 @@
                         <label for="exampleFormControlInput1">Mobile Number</label>
                         <input type="number" ng-model="mobileNumber" ng-required="true" class="form-control" id="exampleFormControlInput1" placeholder="Customer Mobile">
                       </div>
-                      <div class="card border-primary">
-                          <div class="card-body">
-                          <div class="form-group">
-                            <label for="exampleFormControlSelect1">Product</label>
-                            <select class="form-control" ng-model="item" id="exampleFormControlSelect1" ng-required="true" 
-                                    ng-change="totalCalculation(item)"
-                                    >
-                              <option ng-repeat="item in allProducts" value="{{item}}">{{item.name}}</option>        
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label class="text-success" ng-if="originalPrice.length !=0">Original Price and QTY</label>
-                            <label class="text-danger"  ng-if="originalPrice.length !=0">{{originalPrice}} INR for {{originalQty}} {{originalUom}}</label>    
-                          </div>    
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1">Qty in {{originalUom}}</label>
-                            <input ng-required="true" ng-change="qtyChange(qty)" ng-model="qty" type="number" class="form-control" id="exampleFormControlInput1">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1">Price in INR</label>
-                            <input ng-required="true" ng-model="price" type="number" class="form-control" id="exampleFormControlInput1" readonly>
-                          </div>
-                          <div class="form-group">
-                              <div class="input-group">
-                                  
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Discount</span>
-                                  </div>
-                                  <input ng-required="true"  ng-change="discountChange(discount)" ng-model="discount" type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="Discount" >
-                                  <div class="input-group-append">
-                                    <select class="form-control"  ng-change="discountChange(discount)" id="exampleFormControlSelect1" ng-model="uom">
-                                      <option selected>%</option>
-                                      <option>INR</option>
+                         
+                      <table class="table table-sm table-bordered" ng-if="bill.length != 0">
+                          <thead>
+                            <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Qty</th>
+                              <th scope="col">Discount</th>
+                              <th scope="col">Total</th>
+                              <th scope="col"></th>    
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="item in bill">
+                              <td>{{item.productName}}</td>
+                              <td>{{item.qty}} {{item.itemQtyUOM}}</td>
+                              <td>{{item.discount}} {{item.uom}}</td>
+                              <td>{{item.total}}</td>
+                              <td><button type="button" class="close" ng-click="removeRow($index)">
+                                  <span aria-hidden="true">&times;</span>
+                                </button></td>    
+                            </tr>
+                            <tr>
+                              <td colspan="5">
+                                <span class="float-right">Total: </span>
+                              </td>
+                            </tr>  
+                          </tbody>
+                        </table>      
+               
+                      <div class="form-group">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                          Add Products
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Product</label>
+                                    <select class="form-control" ng-model="item" id="exampleFormControlSelect1" ng-required="true" 
+                                            ng-change="totalCalculation(item)"
+                                            >
+                                      <option ng-repeat="item in allProducts" value="{{item}}">{{item.name}}</option>        
                                     </select>
                                   </div>
-                                </div>
+                                  <div class="form-group">
+                                    <label class="text-success" ng-if="originalPrice.length !=0">Original Price and QTY</label>
+                                    <label class="text-danger"  ng-if="originalPrice.length !=0">{{originalPrice}} INR for {{originalQty}} {{originalUom}}</label>    
+                                  </div>    
+                                  <div class="form-group">
+                                    <label for="exampleFormControlInput1">Qty in {{originalUom}}</label>
+                                    <input ng-required="true" ng-change="qtyChange(qty)" ng-model="qty" type="number" class="form-control" id="exampleFormControlInput1">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleFormControlInput1">Price in INR</label>
+                                    <input ng-required="true" ng-model="price" type="number" class="form-control" id="exampleFormControlInput1" readonly>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="input-group">
+
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Discount</span>
+                                          </div>
+                                          <input ng-required="true"  ng-change="discountChange(discount)" ng-model="discount" type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="Discount" >
+                                          <div class="input-group-append">
+                                            <select class="form-control"  ng-change="discountChange(discount)" id="exampleFormControlSelect1" ng-model="uom">
+                                              <option selected>%</option>
+                                              <option>INR</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleFormControlInput1">Total</label>
+                                    <input ng-change="discountChangebyTotal(total)" ng-required="true" ng-model="total" type="number" class="form-control" id="exampleFormControlInput1">
+                                  </div>      
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" data-dismiss="modal" ng-click="addBillData(item,originalUom,qty,price,discount,total,uom)" class="btn btn-primary">Add</button>
+                              </div>
+                            </div>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleFormControlInput1">Total</label>
-                            <input ng-required="true" ng-model="total" type="number" class="form-control" id="exampleFormControlInput1">
-                          </div>      
-                          <button type="submit" class="btn btn-outline-primary float-right">Add</button>      
-                          </div>             
+                        </div>  
+                        
                       </div>    
 
                     </form>
                   </div>
-                  <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit Entry</button> 
+                  <div class="card-footer p-0">
+                      <button type="submit" class="btn btn-primary btn-block">Print & Send</button> 
                   </div>      
                 </div>
             </div>

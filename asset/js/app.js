@@ -39,6 +39,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
             }, 1600); 
                 
              
+                
             $scope.fish = "fish-button-active.svg";
             $scope.fishtab = true;
             $scope.chicken = "chicken-button.svg";
@@ -78,17 +79,15 @@ var app = angular.module('fmbApp', ['ngRoute']);
                     }      
                 }
                 
-            }    
-                
-                
-                                
+            }     
+                        
             });
 
        app.controller('salesCtrl', function($scope, $http) { 
 
-            $scope.customerName="";
-            $scope.customerAddress="";
-            $scope.mobileNumber="";
+           $scope.customerName="";
+           $scope.customerAddress="";
+           $scope.mobileNumber="";
            $scope.qty=0;
            $scope.price=0;
            $scope.discount=0;
@@ -96,6 +95,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
            $scope.uom="%";
            $scope.originalQty = "";
            $scope.originalPrice = "";
+           $scope.bill = [];
            
            $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
@@ -176,11 +176,35 @@ var app = angular.module('fmbApp', ['ngRoute']);
            
            $scope.discountChangebyTotal= function(total){
                if (total != null){
-                   $scope.discount = (total - $scope.price);
+                   if ($scope.uom == "%"){
+                       
+                       
+                   } else {   
+                      $scope.discount = (total - $scope.price); 
+                   }
+                   
                    
                }
            
            }
+           
+           $scope.addBillData= function(item,originalUom,qty,price,discount,total,uom){
+               $scope.tempItem = JSON.parse(item);
+               $scope.bill.push ({"productName":$scope.tempItem.name,
+                                 "qty":qty,"itemQtyUOM":originalUom,"price":price,"discount":discount,
+                                  "total":total,"uom":uom});
+               $scope.qty=0;
+           $scope.price=0;
+           $scope.discount=0;
+           $scope.total=0;
+           $scope.uom="%";
+           $scope.originalQty = "";
+           $scope.originalPrice = ""; 
+           }
+           
+           $scope.removeRow = function (idx) {
+              $scope.bill.splice(idx, 1);
+           };
            
            
        });
