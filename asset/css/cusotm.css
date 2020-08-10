@@ -15,3 +15,28 @@
 .mb-7{
     margin-bottom: 5rem!important;
 }
+
+.btn-outline-brand {
+    color: #f8615a;
+    border-color: #f8615a;
+}
+
+.btn-brand {
+    color: #fff;
+    background-color:#f8615a;
+    border-color: #f8615a;
+}
+
+.btn-brand:not(:disabled):not(.disabled).active, .btn-brand:not(:disabled):not(.disabled):active, .show>.btn-brand.dropdown-toggle {
+    color: #fff;
+    background-color: #f8615a;
+    border-color: #f8615a;
+}
+
+.price-font{
+    font-size: 20px;
+}
+
+.uom-font{
+    font-size: 16px;
+}

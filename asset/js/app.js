@@ -5,7 +5,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
              $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
-                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];
+                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.restaurants=[];
                   for (i=0; i<$scope.tools.length; i++){
                       if($scope.tools[i].gsx$available.$t == "y"){
                           if($scope.tools[i].gsx$category.$t == "fish"){
@@ -16,6 +16,9 @@ var app = angular.module('fmbApp', ['ngRoute']);
                            }
                           if($scope.tools[i].gsx$category.$t == "seafood"){
                              $scope.seafoods.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "restaurant"){
+                             $scope.restaurants.push($scope.tools[i]);
                            }
                       }
                   }
@@ -39,13 +42,15 @@ var app = angular.module('fmbApp', ['ngRoute']);
             }, 1600); 
                 
              
-                
-            $scope.fish = "fish-button-active.svg";
-            $scope.fishtab = true;
-            $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;
+            
+            $scope.chicken = "chicken-button-active.svg";
+            $scope.chickentab = true;    
+            $scope.fish = "fish-button.svg";
+            $scope.fishtab = false;
             $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;    
+            $scope.seafoodtab = false;
+            $scope.restaurant = "restaurant-button.svg";
+            $scope.restauranttab = false;     
                 
             $scope.changeTab = function (param){
                 if (param == 'fish'){
@@ -53,9 +58,11 @@ var app = angular.module('fmbApp', ['ngRoute']);
                         $scope.fish = 'fish-button-active.svg';
                         $scope.fishtab = true;
                         $scope.chickentab = false;
-                        $scope.seafoodtab = false;  
+                        $scope.seafoodtab = false;
+                        $scope.restauranttab = false; 
                         $scope.chicken = 'chicken-button.svg';
                         $scope.seafood = 'seafood-button.svg';
+                        $scope.restaurant = "restaurant-button.svg";
                     }     
                 }
                 if (param == 'chicken'){
@@ -65,7 +72,9 @@ var app = angular.module('fmbApp', ['ngRoute']);
                         $scope.fishtab = false;
                         $scope.chickentab = true;
                         $scope.seafoodtab = false;
+                        $scope.restauranttab = false; 
                         $scope.seafood = 'seafood-button.svg';
+                        $scope.restaurant = "restaurant-button.svg";
                     }    
                 }
                 if (param == 'seafood'){
@@ -76,6 +85,21 @@ var app = angular.module('fmbApp', ['ngRoute']);
                          $scope.fishtab = false;
                         $scope.chickentab = false;
                         $scope.seafoodtab = true;
+                        $scope.restauranttab = false;
+                        $scope.restaurant = "restaurant-button.svg";
+                    }      
+                }
+                if (param == 'restaurant'){
+                    if ($scope.restaurant == 'restaurant-button.svg'){
+                         $scope.fish = 'fish-button.svg';
+                        $scope.chicken = 'chicken-button.svg';
+                        $scope.seafood = 'seafood-button.svg';
+                        $scope.restaurant = "restaurant-button-active.svg";
+                         $scope.fishtab = false;
+                        $scope.chickentab = false;
+                        $scope.seafoodtab = false;
+                        $scope.restauranttab = true;
+                        
                     }      
                 }
                 
@@ -222,6 +246,10 @@ var app = angular.module('fmbApp', ['ngRoute']);
                 .when('/fmbsales',{
                     templateUrl : '/sales.html',
                     controller: 'salesCtrl'
+                })
+                .when('/product/:productId',{
+                    templateUrl : '/productDetail.html',
+                    controller: 'ProductCtrl'
                 })
                 .otherwise ({
                     redirectTo: '/'
