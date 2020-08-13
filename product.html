@@ -178,7 +178,7 @@
                               <p class="uom-font"><b>{{fish.gsx$qty.$t}} {{fish.gsx$uom.$t}}</b></p>
                             </div>
                             <div>
-                                <span class="text-muted"><s>{{fish.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{fish.gsx$finalprice.$t}}</s></span>   
                               <span class="price-font"><b> {{fish.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
@@ -199,7 +199,7 @@
                         <div>
                             <ul class="list-unstyled text-center mb-0">
                                 <li class="text-muted">
-                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                    <i class="fa fa-motorcycle " aria-hidden="true"></i> Delivery
                                 </li>
                                 <li>
                                     <small>{{fish.gsx$processingtime.$t}}</small>
@@ -228,7 +228,7 @@
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20{{fish.gsx$uom.$t}}%20|%20Price:%20{{fish.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20{{fish.gsx$uom.$t}}%20|%20Price:%20{{fish.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
@@ -275,7 +275,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -313,7 +313,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -352,7 +352,7 @@
                               <p class="uom-font"><b>{{chicken.gsx$qty.$t}} {{chicken.gsx$uom.$t}}</b></p>
                             </div>
                             <div>
-                                <span class="text-muted"><s>{{chicken.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{chicken.gsx$finalprice.$t}}</s></span>   
                               <span class="price-font"><b> {{chicken.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
@@ -373,7 +373,7 @@
                         <div>
                             <ul class="list-unstyled text-center mb-0">
                                 <li class="text-muted">
-                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                    <i class="fa fa-motorcycle " aria-hidden="true"></i> Delivery
                                 </li>
                                 <li>
                                     <small>{{chicken.gsx$processingtime.$t}}</small>
@@ -402,7 +402,7 @@
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20{{chicken.gsx$uom.$t}}%20|%20Price:%20{{chicken.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20{{chicken.gsx$uom.$t}}%20|%20Price:%20{{chicken.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
@@ -449,7 +449,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -487,7 +487,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -526,7 +526,7 @@
                               <p class="uom-font"><b>{{seafood.gsx$qty.$t}} {{seafood.gsx$uom.$t}}</b></p>
                             </div>
                             <div>
-                                <span class="text-muted"><s>{{seafood.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{seafood.gsx$finalprice.$t}}</s></span>   
                               <span class="price-font"><b> {{seafood.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
@@ -547,7 +547,7 @@
                         <div>
                             <ul class="list-unstyled text-center mb-0">
                                 <li class="text-muted">
-                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                    <i class="fa fa-motorcycle " aria-hidden="true"></i> Delivery
                                 </li>
                                 <li>
                                     <small>{{seafood.gsx$processingtime.$t}}</small>
@@ -576,7 +576,7 @@
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$qty.$t}}%20{{seafood.gsx$uom.$t}}%20|%20Price:%20{{seafood.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$qty.$t}}%20{{seafood.gsx$uom.$t}}%20|%20Price:%20{{seafood.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
@@ -623,7 +623,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -661,7 +661,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -701,7 +701,7 @@
                               <p class="uom-font"><b>{{restaurant.gsx$qty.$t}} {{restaurant.gsx$uom.$t}}</b></p>
                             </div>
                             <div>
-                                <span class="text-muted"><s>{{restaurant.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{restaurant.gsx$finalprice.$t}}</s></span>   
                               <span class="price-font"><b> {{restaurant.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
@@ -723,7 +723,7 @@
                     <div>
                         <ul class="list-unstyled text-center mb-0">
                             <li class="text-muted">
-                                <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                <i class="fa fa-motorcycle " aria-hidden="true"></i> Delivery
                             </li>
                             <li>
                                 <small>{{restaurant.gsx$processingtime.$t}}</small>
@@ -752,7 +752,7 @@
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hello%FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$qty.$t}}%20{{restaurant.gsx$uom.$t}}%20|%20Price:%20{{restaurant.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$qty.$t}}%20{{restaurant.gsx$uom.$t}}%20|%20Price:%20{{restaurant.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
@@ -799,7 +799,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -837,7 +837,7 @@
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
