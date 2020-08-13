@@ -47,14 +47,34 @@
           <div class="carousel-item active" data-interval="1500">
             <div class="d-flex justify-content-around align-items-center">
               <div>
-                <img src="asset/images/bucket.png" style="height:104px;width:120px;" >
+                <img src="asset/images/chicken.png" style="height:104px;width:120px;" >
               </div>
             </div>
             <div class="text-center text-white mt-3">
-              <h5><b><u>Fresh Meat Bucket</u></b></h5>
+              <h5><b>Fresh Chicken</b></h5>
             </div>
           </div>
-    
+          <div class="carousel-item" data-interval="2500">
+            <div class="d-flex justify-content-around align-items-center">
+              <div>
+                <img src="asset/images/fish.png" style="height:104px;width:120px;" >
+              </div>
+            </div>
+            <div class="text-center text-white mt-3">
+              <h5><b>Fresh Fishes</b></h5>
+            </div>
+          </div>    
+          <div class="carousel-item" data-interval="2500">
+            <div class="d-flex justify-content-around align-items-center">
+              <div>
+                <img src="asset/images/restaurant.png" style="height:104px;width:100px;" >
+              </div>
+            </div>
+            <div class="text-center text-white mt-3">
+              <h5><b>Restaurant</b></h5>
+            </div>
+          </div>      
+            
           <div ng-repeat="banner in banners" class="carousel-item" ng-if="banner.gsx$show.$t == 'y'" data-interval={{banner.gsx$duration.$t}}>
             <div class="d-flex justify-content-around align-items-center">
               <div class="text-center text-white"> 
@@ -69,36 +89,8 @@
             </div>
           </div>    
      
-          <div class="carousel-item" data-interval="3000">
-            <div class="d-flex justify-content-around align-items-center">
-              <div>
-                <img src="asset/images/fish.png" style="height:104px;width:120px;" >
-              </div>
-            </div>
-            <div class="text-center text-white mt-3">
-              <h5><b>Fresh Fishes</b></h5>
-            </div>
-          </div>
-          <div class="carousel-item" data-interval="2000">
-            <div class="d-flex justify-content-around align-items-center">
-              <div>
-                <img src="asset/images/chicken.png" style="height:104px;width:120px;" >
-              </div>
-            </div>
-            <div class="text-center text-white mt-3">
-              <h5><b>Fresh Chicken</b></h5>
-            </div>
-          </div>
-          <div class="carousel-item" data-interval="3000">
-            <div class="d-flex justify-content-around align-items-center">
-              <div>
-                <img src="asset/images/restaurant.png" style="height:104px;width:100px;" >
-              </div>
-            </div>
-            <div class="text-center text-white mt-3">
-              <h5><b>Restaurant</b></h5>
-            </div>
-          </div>    
+          
+            
 <!--
           <div class="carousel-item" data-interval="3000">
             <div class="d-flex justify-content-around align-items-center">
@@ -159,48 +151,62 @@
       <div class="tab-content" id="productTabContent">
         <div class="tab-pane fade" id="fishes" role="tabpanel" aria-labelledby="fishes-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
-            <div ng-if="fishes.length !=0" class="col mt-4" ng-repeat="fish in fishes">
-              <div class="card shadow-sm h-100">
+            <div ng-if="fishes.length !=0" class="col mt-4 px-3half py-2" ng-repeat="fish in fishes">
+              <div class="card shadow h-100">
                 <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
+                <div class="card-body p-3">
                   <div class="row">
-                    <div class="col-9">
-                      <h6>{{fish.gsx$productname.$t}}</h6>
-                    </div>
-                    <div class="col-3">
-                        <span class="badge badge-light brand-color">{{fish.gsx$discountpercentage.$t}} % OFF</span> 
-                    </div>
+                        <div class="col-9">
+                            <h6>{{fish.gsx$productname.$t}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <span class="badge badge-light brand-color">{{fish.gsx$discountpercentage.$t}} % OFF</span> 
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                          <div class="d-flex justify-content-end">
+                        <div class="col-5">
+                            <div ng-if="fish.gsx$halal.$t == 'y'" class="float-left">
+                                <ul class="list-inline text-center mb-0">
+                                  <li class="list-inline-item"><img src="asset/images/halal.svg" style="height:30px;width:30px;"></li>
+                                  <li class="list-inline-item"><span class="text-success"><small>{{fish.gsx$halaldescription.$t }}</small></span></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="col-7">
+                          <div class="d-flex justify-content-between">
                             <div>
                               <p class="uom-font"><b>{{fish.gsx$qty.$t}} {{fish.gsx$uom.$t}}</b></p>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="d-flex justify-content-end">
                             <div>
-                                <span class="text-muted small"><s>{{fish.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{fish.gsx$sellingprice.$t}}</s></span>   
                               <span class="price-font"><b> {{fish.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
                         </div>    
                     </div>  
                   <p class="card-text text-muted text-justify"><small>{{fish.gsx$description.$t }}</small></p>
-                <div ng-if="fish.gsx$halal.$t == 'y'" class="float-left">
-                    <ul class="list-unstyled text-center mb-0">
-                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
-                      <li><span class="text-success"><small>{{fish.gsx$halaldescription.$t}}</small></span></li>
-                    </ul>
-                </div>  
-                <div class="float-right">
-                  <ul class="list-unstyled text-center mb-0">
-                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
-                      <li><span class="text-primary">{{fish.gsx$processingtime.$t }}</span></li>
-                    </ul>
-                </div>      
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-cube" aria-hidden="true"></i> Pakcing
+                                </li>
+                                <li>
+                                   <small>{{fish.gsx$packing.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                </li>
+                                <li>
+                                    <small>{{fish.gsx$processingtime.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>       
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
 <!--
@@ -218,26 +224,26 @@
                     </div>
 -->
                     <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
+                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20{{fish.gsx$uom.$t}}%20|%20Price:%20{{fish.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20{{fish.gsx$uom.$t}}%20|%20Price:%20{{fish.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
                 </div>
               </div>
             </div>
-            <div ng-if="fishes.length !=0" class="col mt-3">
-              <div class="card shadow-sm h-100 border-warning">
+            <div ng-if="fishes.length !=0" class="col mt-3 px-3half py-2">
+              <div class="card shadow h-100 border-warning">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2"><b>Bulk Special Order!</b></h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -261,15 +267,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -277,15 +283,15 @@
                 </div>
               </div>
             </div>
-            <div ng-if="fishes.length ==0" class="col mt-3">
-              <div class="card shadow-sm border-danger">
+            <div ng-if="fishes.length ==0" class="col mt-3 px-3half py-2">
+              <div class="card shadow border-danger">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2">No Product Found !</h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -299,15 +305,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -319,48 +325,62 @@
         </div>
         <div class="tab-pane fade show active" id="chicken" role="tabpanel" aria-labelledby="chicken-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
-            <div ng-if="chickens.length !=0" class="col mt-4" ng-repeat="chicken in chickens">
-              <div class="card shadow-sm h-100">
+            <div ng-if="chickens.length !=0" class="col mt-4 px-3half py-2" ng-repeat="chicken in chickens">
+              <div class="card shadow h-100">
                 <img src="asset/images/{{chicken.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-9">
-                      <h6>{{chicken.gsx$productname.$t}}</h6>
-                    </div>
-                    <div class="col-3">
-                        <span class="badge badge-light brand-color">{{chicken.gsx$discountpercentage.$t}} % OFF</span> 
-                    </div>
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-9">
+                            <h6>{{chicken.gsx$productname.$t}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <span class="badge badge-light brand-color">{{chicken.gsx$discountpercentage.$t}} % OFF</span> 
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                          <div class="d-flex justify-content-end">
+                        <div class="col-5">
+                            <div ng-if="chicken.gsx$halal.$t == 'y'" class="float-left">
+                                <ul class="list-inline text-center mb-0">
+                                  <li class="list-inline-item"><img src="asset/images/halal.svg" style="height:30px;width:30px;"></li>
+                                  <li class="list-inline-item"><span class="text-success"><small>{{chicken.gsx$halaldescription.$t }}</small></span></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="col-7">
+                          <div class="d-flex justify-content-between">
                             <div>
                               <p class="uom-font"><b>{{chicken.gsx$qty.$t}} {{chicken.gsx$uom.$t}}</b></p>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="d-flex justify-content-end">
                             <div>
-                                <span class="text-muted small"><s>{{chicken.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{chicken.gsx$sellingprice.$t}}</s></span>   
                               <span class="price-font"><b> {{chicken.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
                         </div>    
                     </div>  
                   <p class="card-text text-muted text-justify"><small>{{chicken.gsx$description.$t }}</small></p>
-                <div ng-if="chicken.gsx$halal.$t == 'y'" class="float-left">
-                    <ul class="list-unstyled text-center mb-0">
-                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
-                      <li><span class="text-success"><small>{{chicken.gsx$halaldescription.$t }}</small></span></li>
-                    </ul>
-                </div>  
-                <div class="float-right">
-                  <ul class="list-unstyled text-center mb-0">
-                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
-                      <li><span class="text-primary">{{chicken.gsx$processingtime.$t }}</span></li>
-                    </ul>
-                </div>     
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-cube" aria-hidden="true"></i> Pakcing
+                                </li>
+                                <li>
+                                   <small>{{chicken.gsx$packing.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                </li>
+                                <li>
+                                    <small>{{chicken.gsx$processingtime.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>       
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
 <!--
@@ -378,26 +398,26 @@
                     </div>
 -->
                     <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
+                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20{{chicken.gsx$uom.$t}}%20|%20Price:%20{{chicken.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20{{chicken.gsx$uom.$t}}%20|%20Price:%20{{chicken.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
                 </div>
               </div>
             </div>
-            <div ng-if="chickens.length !=0" class="col mt-4">
-              <div class="card shadow-sm h-100 border-warning">
+            <div ng-if="chickens.length !=0" class="col mt-4 px-3half py-2">
+              <div class="card shadow h-100 border-warning">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2"><b>Bulk Special Order!</b></h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -421,15 +441,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -437,15 +457,15 @@
                 </div>
               </div>
             </div>
-            <div ng-if="chickens.length ==0" class="col mt-4">
-              <div class="card shadow-sm border-danger h-100 mb-4">
+            <div ng-if="chickens.length ==0" class="col mt-4 px-3half py-2">
+              <div class="card shadow border-danger h-100 mb-4">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2">No Product Found !</h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -459,15 +479,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -479,48 +499,62 @@
         </div>
         <div class="tab-pane fade" id="seafood" role="tabpanel" aria-labelledby="seafood-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
-            <div ng-if="seafoods.length !=0" class="col mt-4" ng-repeat="seafood in seafoods">
-              <div class="card shadow-sm h-100">
+            <div ng-if="seafoods.length !=0" class="col mt-4 px-3half py-2" ng-repeat="seafood in seafoods">
+              <div class="card shadow h-100">
                 <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-9">
-                      <h6>{{seafood.gsx$productname.$t}}</h6>
-                    </div>
-                    <div class="col-3">
-                        <span class="badge badge-light brand-color">{{seafood.gsx$discountpercentage.$t}} % OFF</span> 
-                    </div>
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-9">
+                            <h6>{{seafood.gsx$productname.$t}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <span class="badge badge-light brand-color">{{seafood.gsx$discountpercentage.$t}} % OFF</span> 
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                          <div class="d-flex justify-content-end">
+                        <div class="col-5">
+                            <div ng-if="seafood.gsx$halal.$t == 'y'" class="float-left">
+                                <ul class="list-inline text-center mb-0">
+                                  <li class="list-inline-item"><img src="asset/images/halal.svg" style="height:30px;width:30px;"></li>
+                                  <li class="list-inline-item"><span class="text-success"><small>{{seafood.gsx$halaldescription.$t }}</small></span></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="col-7">
+                          <div class="d-flex justify-content-between">
                             <div>
                               <p class="uom-font"><b>{{seafood.gsx$qty.$t}} {{seafood.gsx$uom.$t}}</b></p>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="d-flex justify-content-end">
                             <div>
-                                <span class="text-muted small"><s>{{seafood.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{seafood.gsx$sellingprice.$t}}</s></span>   
                               <span class="price-font"><b> {{seafood.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
                         </div>    
-                    </div> 
-                  <p class="card-text text-muted text-justify"><small>{{seafood.gsx$description.$t }}</small></p>
-                  <div ng-if="seafood.gsx$halal.$t == 'y'" class="float-left">
-                    <ul class="list-unstyled text-center mb-0">
-                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
-                      <li><span class="text-success"><small>{{seafood.gsx$halaldescription.$t }}</small></span></li>
-                    </ul>
-                </div>  
-                <div class="float-right">
-                  <ul class="list-unstyled text-center mb-0">
-                      <li><i class="fa fa-clock-o" aria-hidden="true"></i> <span>Delivery Time</span></li>
-                      <li><span class="text-primary">{{seafood.gsx$processingtime.$t }}</span></li>
-                    </ul>
-                </div>     
+                    </div>   
+                  <p class="card-text text-muted text-justify"><small>{{seafood.gsx$description.$t }}</small></p> 
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-cube" aria-hidden="true"></i> Pakcing
+                                </li>
+                                <li>
+                                   <small>{{seafood.gsx$packing.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled text-center mb-0">
+                                <li class="text-muted">
+                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                                </li>
+                                <li>
+                                    <small>{{seafood.gsx$processingtime.$t}}</small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>      
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
 <!--
@@ -538,26 +572,26 @@
                     </div>
 -->
                     <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
+                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$qty.$t}}%20{{seafood.gsx$uom.$t}}%20|%20Price:%20{{seafood.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$qty.$t}}%20{{seafood.gsx$uom.$t}}%20|%20Price:%20{{seafood.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
                 </div>
               </div>
             </div>
-            <div ng-if="seafoods.length !=0" class="col mt-4">
-              <div class="card shadow-sm h-100 border-warning mb-4">
+            <div ng-if="seafoods.length !=0" class="col mt-4 px-3half py-2">
+              <div class="card shadow h-100 border-warning mb-4">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2"><b>Bulk Special Order!</b></h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -581,15 +615,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -597,15 +631,15 @@
                 </div>
               </div>
             </div>
-            <div ng-if="seafoods.length ==0" class="col mt-4">
-              <div class="card shadow-sm border-danger h-100 mb-4">
+            <div ng-if="seafoods.length ==0" class="col mt-4 px-3half py-2">
+              <div class="card shadow border-danger h-100 mb-4">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2">No Product Found !</h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -619,15 +653,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -640,59 +674,63 @@
       
         <div class="tab-pane fade" id="restaurant" role="tabpanel" aria-labelledby="restaurant-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
-            <div ng-if="restaurants.length !=0" class="col mt-4" ng-repeat="restaurant in restaurants">
-              <div class="card shadow-sm h-100">
+            <div ng-if="restaurants.length !=0" class="col mt-4 px-3half py-2" ng-repeat="restaurant in restaurants">
+              <div class="card shadow h-100">
                 <img src="asset/images/{{restaurant.gsx$image.$t }}" class="card-img-top img-fluid" alt="..."> 
-                <div class="card-body">       
-                  <div class="row">
-                    <div class="col-9">
-                      <h6>{{restaurant.gsx$productname.$t}}</h6>
-                    </div>
-                    <div class="col-3">
-                        <span class="badge badge-light brand-color">{{restaurant.gsx$discountpercentage.$t}} % OFF</span> 
-                    </div>
+                <div class="card-body p-3">       
+                    <div class="row">
+                        <div class="col-9">
+                            <h6>{{restaurant.gsx$productname.$t}}</h6>
+                        </div>
+                        <div class="col-3">
+                            <span class="badge badge-light brand-color">{{restaurant.gsx$discountpercentage.$t}} % OFF</span> 
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                          <div class="d-flex justify-content-end">
+                        <div class="col-5">
+                            <div ng-if="restaurant.gsx$halal.$t == 'y'" class="float-left">
+                                <ul class="list-inline text-center mb-0">
+                                  <li class="list-inline-item"><img src="asset/images/halal.svg" style="height:30px;width:30px;"></li>
+                                  <li class="list-inline-item"><span class="text-success"><small>{{restaurant.gsx$halaldescription.$t }}</small></span></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="col-7">
+                          <div class="d-flex justify-content-between">
                             <div>
                               <p class="uom-font"><b>{{restaurant.gsx$qty.$t}} {{restaurant.gsx$uom.$t}}</b></p>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-4">
-                          <div class="d-flex justify-content-end">
                             <div>
-                                <span class="text-muted small"><s>{{restaurant.gsx$sellingprice.$t}}</s></span>   
+                                <span class="text-muted"><s>{{restaurant.gsx$sellingprice.$t}}</s></span>   
                               <span class="price-font"><b> {{restaurant.gsx$finalprice.$t}} &#8377</b></span>
                             </div>
                           </div>
                         </div>    
-                    </div>   
+                    </div>  
              
-                  <p class="card-text text-muted text-justify"><small>{{restaurant.gsx$description.$t }}</small></p>
-                  <div ng-if="restaurant.gsx$halal.$t == 'y'" class="float-left">
-                    <ul class="list-unstyled text-center mb-0">
-                      <li><img data-brackets-id="11980" src="asset/images/halal.png"></li>
-                      <li><span class="text-success"><small>{{restaurant.gsx$halaldescription.$t }}</small></span></li>
-                    </ul>
+                  <p class="card-text text-muted text-justify"><small>{{restaurant.gsx$description.$t }}</small></p> 
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <ul class="list-unstyled text-center mb-0">
+                            <li class="text-muted">
+                                <i class="fa fa-cube" aria-hidden="true"></i> Pakcing
+                            </li>
+                            <li>
+                               <small>{{restaurant.gsx$packing.$t}}</small>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-unstyled text-center mb-0">
+                            <li class="text-muted">
+                                <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
+                            </li>
+                            <li>
+                                <small>{{restaurant.gsx$processingtime.$t}}</small>
+                            </li>
+                        </ul>
+                    </div>
                 </div>  
-                <div>
-                    
-                    <dl class="row">
-                      <dt class="col-6"><i class="fa fa-clock-o" aria-hidden="true"></i> Delivery Time</dt>
-                      <dd class="col-6">{{restaurant.gsx$processingtime.$t }}</dd>
-                 
-                      <dt class="col-6"><i class="fa fa-tint" aria-hidden="true"></i> Washed</dt>
-                      <dd class="col-6">2 Times</dd>
-                      
-                      <dt class="col-6"><i class="fa fa-cube" aria-hidden="true"></i> Pakcing</dt>
-                      <dd class="col-6">Aluminium Sealed</dd>    
-                    
-                        
-                        
-                    </dl>    
-                </div>     
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
 <!--
@@ -710,26 +748,26 @@
                     </div>
 -->
                     <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-primary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
+                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
                     </div>  
                     <div>
                       <a 
-                        href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$qty.$t}}%20{{restaurant.gsx$uom.$t}}%20|%20Price:%20{{restaurant.gsx$sellingprice.$t}} &#8377.%0AIs%20it%20available?" class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        href="https://wa.me/919425032877?text=Hello%FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$qty.$t}}%20{{restaurant.gsx$uom.$t}}%20|%20Price:%20{{restaurant.gsx$sellingprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                     </div>
                     
                   </div>
                 </div>
               </div>
             </div>
-            <div ng-if="restaurants.length !=0" class="col mt-4">
-              <div class="card shadow-sm h-100 border-warning mb-4">
+            <div ng-if="restaurants.length !=0" class="col mt-4 px-3half py-2">
+              <div class="card shadow h-100 border-warning mb-4">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2"><b>Bulk Special Order!</b></h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -753,15 +791,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -769,15 +807,15 @@
                 </div>
               </div>
             </div>
-            <div ng-if="restaurants.length ==0" class="col mt-4">
-              <div class="card shadow-sm border-danger h-100 mb-4">
+            <div ng-if="restaurants.length ==0" class="col mt-4 px-3half py-2">
+              <div class="card shadow border-danger h-100 mb-4">
                 <div class="d-flex justify-content-around">
                   <div>
                     <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                   </div>
                 </div>
                 <h6 class="text-center mt-2">No Product Found !</h6>
-                <div class="card-body">
+                <div class="card-body p-3">
                   <form  id="enquiryForm" name="enquiryForm" novalidate>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">What Product You Want?</label>
@@ -791,15 +829,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Quantity in Kilogram?</label>
-                      <input type="number" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        ng-required="true" maxlength="3" minlength="1" min = "1">    
+                      <label for="exampleFormControlSelect1">Quantity</label>
+                      <input type="text" ng-model="user.quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        ng-required="true">    
                       <div  class="invalid-feedback" ng-show="enquiryForm.user.quantity.$error.required && enquiryForm.user.quantity.$dirty">
                         Quantity Required
                       </div>
                     </div>
                     <a 
-                      href="https://wa.me/919425032877?text=Hi%20Gourav,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg.%0ACan%20you%20arrange?"
+                      href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{user.product}}%0AQuantity:%20{{user.quantity}}%20kg."
                       role="button" class="btn btn-success float-right"
                       ng-class="{disabled:!enquiryForm.$valid}"
                       ><i class="fa fa-whatsapp" aria-hidden="true"></i> Send Enquiry</a>
@@ -826,7 +864,7 @@
                 <a class="nav-link  text-body p-0" style="border-radius: 0;" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" target="_self"  aria-controls="fishes" aria-selected="false" ng-click="changeTab('fish')">
                     <ul class="list-unstyled text-center mb-0">
                         <li><img src="/asset/images/{{fish}}" style=" width: 32px; height: 32px;"></li>
-                        <li ng-class="{'brand-color': fishtab}"><b>Fish</b> <span class="badge badge-pill badge-secondary" ng-class="{'brand-background-color': fishtab}">{{fishes.length}}</span></li>
+                        <li ng-class="{'brand-color': fishtab}"><span><b>Fish</b></span> <span class="badge badge-pill badge-secondary" ng-class="{'brand-background-color': fishtab}">{{fishes.length}}</span></li>
                     </ul>
                 </a>
               </li>  

@@ -247,7 +247,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
                     templateUrl : '/sales.html',
                     controller: 'salesCtrl'
                 })
-                .when('/product/:productId',{
+                .when('/product/:productName',{
                     templateUrl : '/productDetail.html',
                     controller: 'ProductCtrl'
                 })
