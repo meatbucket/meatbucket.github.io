@@ -1,7 +1,8 @@
 var app = angular.module('fmbApp', ['ngRoute']);
-            app.controller('ProductCtrl', function($scope, $http) { 
+            app.controller('ProductCtrl', function($scope, $http,$routeParams) { 
             $scope.welcomeScreen=true;     
             $scope.showContent=false;
+            $scope.newObject = {};
              $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
@@ -40,17 +41,60 @@ var app = angular.module('fmbApp', ['ngRoute']);
                   $scope.showContent=true;
               });
             }, 1600); 
-                
+                   
              
-            
-            $scope.chicken = "chicken-button-active.svg";
+            if( $routeParams.categoryName == 'chicken'){
+               $scope.chicken = "chicken-button-active.svg";
             $scope.chickentab = true;    
             $scope.fish = "fish-button.svg";
             $scope.fishtab = false;
             $scope.seafood = "seafood-button.svg";
             $scope.seafoodtab = false;
             $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;     
+            $scope.restauranttab = false;
+            }
+            else if ($routeParams.categoryName == 'fish'){
+                $scope.chicken = "chicken-button.svg";
+            $scope.chickentab = false;    
+            $scope.fish = "fish-button-active.svg";
+            $scope.fishtab = true;
+            $scope.seafood = "seafood-button.svg";
+            $scope.seafoodtab = false;
+            $scope.restaurant = "restaurant-button.svg";
+            $scope.restauranttab = false;  
+            }
+            else if($routeParams.categoryName == 'restaurant'){
+                $scope.chicken = "chicken-button.svg";
+            $scope.chickentab = false;    
+            $scope.fish = "fish-button.svg";
+            $scope.fishtab = false;
+            $scope.seafood = "seafood-button.svg";
+            $scope.seafoodtab = false;
+            $scope.restaurant = "restaurant-button-active.svg";
+            $scope.restauranttab = true;       
+            }
+            
+            else if($routeParams.categoryName == 'seafood'){
+                $scope.chicken = "chicken-button.svg";
+            $scope.chickentab = false;    
+            $scope.fish = "fish-button.svg";
+            $scope.fishtab = false;
+            $scope.seafood = "seafood-button-active.svg";
+            $scope.seafoodtab = true;
+            $scope.restaurant = "restaurant-button.svg";
+            $scope.restauranttab = false;
+         
+            } else {
+                $scope.chicken = "chicken-button-active.svg";
+            $scope.chickentab = true;    
+            $scope.fish = "fish-button.svg";
+            $scope.fishtab = false;
+            $scope.seafood = "seafood-button.svg";
+            $scope.seafoodtab = false;
+            $scope.restaurant = "restaurant-button.svg";
+            $scope.restauranttab = false;
+            }     
+                 
                 
             $scope.changeTab = function (param){
                 if (param == 'fish'){
@@ -103,7 +147,9 @@ var app = angular.module('fmbApp', ['ngRoute']);
                     }      
                 }
                 
-            }     
+            }    
+            
+                   $scope.changeTab($routeParams.categoryName);
                         
             });
 
@@ -233,6 +279,37 @@ var app = angular.module('fmbApp', ['ngRoute']);
            
        });
 
+        app.controller("ProductDetailCtrl", function ($scope, $routeParams,$http) {
+            $scope.welcomeScreen=true;     
+            $scope.showContent=false;
+            $scope.productName = $routeParams.productName;
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+                    .success(function(response) {
+                    $scope.tools = response.feed.entry;
+                  $scope.singleProduct=[];            
+                  for (i=0; i<$scope.tools.length; i++){
+                      if($scope.tools[i].gsx$productshortname.$t == $scope.productName){
+                          $scope.singleProduct.push($scope.tools[i]);
+                          $scope.requiredQty=Number($scope.tools[i].gsx$qty.$t); 
+                      }
+                  }
+              });
+            
+            
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 1600);
+                
+             setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.showContent=true;
+              });
+            }, 1600); 
+            
+        });
+
         app.config( [
             '$compileProvider','$routeProvider',
             function( $compileProvider,$routeProvider )
@@ -249,8 +326,12 @@ var app = angular.module('fmbApp', ['ngRoute']);
                 })
                 .when('/product/:productName',{
                     templateUrl : '/productDetail.html',
-                    controller: 'ProductCtrl'
+                    controller: 'ProductDetailCtrl'
                 })
+                .when("/:categoryName", {
+                    templateUrl : "product.html",
+                    controller: 'ProductCtrl'
+                 })
                 .otherwise ({
                     redirectTo: '/'
                 });

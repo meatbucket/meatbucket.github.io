@@ -71,7 +71,7 @@
               </div>
             </div>
             <div class="text-center text-white mt-3">
-              <h5><b>Restaurant</b></h5>
+              <h5><b>FMB's Kitchen</b></h5>
             </div>
           </div>      
             
@@ -131,10 +131,10 @@
           <div class="d-flex justify-content-around">
             <ul class="nav nav-pills round" id="productTab" role="tablist" style="border: 1px solid #007bff;">
               <li class="nav-item">
-                <a class="nav-link p-2 active" style="border-radius: 0;" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" target="_self"  aria-controls="fishes" aria-selected="true">Fishes  <span class="badge badge-pill badge-light">{{fishes.length}}</span></a>
+                <a class="nav-link p-2" ng-class="{'active' : fishtab}" style="border-radius: 0;" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" target="_self"  aria-controls="fishes" aria-selected="true">Fishes  <span class="badge badge-pill badge-light">{{fishes.length}}</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link p-2" id="chicken-tab" target="_self" style="border-radius: 0;" data-toggle="tab" href="#chicken" role="tab" aria-controls="chicken" aria-selected="false">Chicken <span class="badge badge-pill badge-light"> {{chickens.length}}</span></a>
+                <a class="nav-link p-2" ng-class="{'active' : chickentab}" id="chicken-tab" target="_self" style="border-radius: 0;" data-toggle="tab" href="#chicken" role="tab" aria-controls="chicken" aria-selected="false">Chicken <span class="badge badge-pill badge-light"> {{chickens.length}}</span></a>
               </li>
 <!--
               <li class="nav-item">
@@ -142,14 +142,14 @@
               </li>
 -->
                <li class="nav-item">
-                <a class="nav-link p-2" id="restaurant-tab" target="_self" style="border-radius: 0;" data-toggle="tab" href="#restaurant" role="tab" aria-controls="restaurant" aria-selected="false">Restaurant <span class="badge badge-pill badge-light"> {{restaurants.length}}</span></a>
+                <a class="nav-link p-2" ng-class="{'active' : restauranttab}" id="restaurant-tab" target="_self" style="border-radius: 0;" data-toggle="tab" href="#restaurant" role="tab" aria-controls="restaurant" aria-selected="false">Restaurant <span class="badge badge-pill badge-light"> {{restaurants.length}}</span></a>
               </li>    
             </ul>
           </div>
         </div>
       </div>
       <div class="tab-content" id="productTabContent">
-        <div class="tab-pane fade" id="fishes" role="tabpanel" aria-labelledby="fishes-tab">
+        <div class="tab-pane fade" ng-class="{'show active' : fishtab}" id="fishes" role="tabpanel" aria-labelledby="fishes-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
             <div ng-if="fishes.length !=0" class="col mt-4 px-3half py-2" ng-repeat="fish in fishes">
               <div class="card shadow h-100">
@@ -209,29 +209,41 @@
                     </div>       
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Qty</span>
+                              </div>
+                              <input type="number" class="form-control" 
+                                     ng-value={{fish.gsx$qty.$t}}
+                                     ng-model="newObject[fish.gsx$productshortname.$t]"
+                              >
+                              <div class="input-group-append">
+                                <span class="input-group-text">{{fish.gsx$uom.$t}}</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                        <a 
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{newObject[fish.gsx$productshortname.$t] }}%20{{fish.gsx$uom.$t}}%20" class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        </div>
+                    
+                    </div>
+
 <!--
-                  <p class="mb-1 text-primary text-center">
-                    Order On  
-                  </p>
--->
                   <div class="d-flex justify-content-between">
-<!--
-                    <div>
-                      <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
-                    </div>
-                    <div>
-                      <a href="{{fish.gsx$sms.$t}}" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
-                    </div>
--->
+
                     <div>
                       <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
                     </div>  
                     <div>
-                      <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$qty.$t}}%20{{fish.gsx$uom.$t}}%20|%20Price:%20{{fish.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                      
                     </div>
                     
                   </div>
+-->
                 </div>
               </div>
             </div>
@@ -323,7 +335,7 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane fade show active" id="chicken" role="tabpanel" aria-labelledby="chicken-tab">
+        <div class="tab-pane fade" ng-class="{'show active' : chickentab}" id="chicken" role="tabpanel" aria-labelledby="chicken-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
             <div ng-if="chickens.length !=0" class="col mt-4 px-3half py-2" ng-repeat="chicken in chickens">
               <div class="card shadow h-100">
@@ -383,29 +395,30 @@
                     </div>       
                 </div>
                 <div class="card-footer bg-light p-2 border-0">
-<!--
-                  <p class="mb-1 text-primary text-center">
-                    Order On  
-                  </p>
--->
-                  <div class="d-flex justify-content-between">
-<!--
-                    <div>
-                      <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
-                    </div>
-                    <div>
-                      <a href="{{chicken.gsx$sms.$t}}" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
-                    </div>
--->
-                    <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
-                    </div>  
-                    <div>
-                      <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$qty.$t}}%20{{chicken.gsx$uom.$t}}%20|%20Price:%20{{chicken.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                    
+                     <div class="row">
+                        <div class="col-6">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Qty</span>
+                              </div>
+                              <input type="number" class="form-control" 
+                                     ng-value={{chicken.gsx$qty.$t}}
+                                     ng-model="newObject[chicken.gsx$productshortname.$t]"
+                              >
+                              <div class="input-group-append">
+                                <span class="input-group-text">{{chicken.gsx$uom.$t}}</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                        <a 
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{newObject[chicken.gsx$productshortname.$t] }}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        </div>
+                    
                     </div>
                     
-                  </div>
+                    
                 </div>
               </div>
             </div>
@@ -497,7 +510,7 @@
             </div>
           </div>
         </div>
-        <div class="tab-pane fade" id="seafood" role="tabpanel" aria-labelledby="seafood-tab">
+        <div class="tab-pane fade" ng-class="{'show active' : seafoodtab}" id="seafood" role="tabpanel" aria-labelledby="seafood-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
             <div ng-if="seafoods.length !=0" class="col mt-4 px-3half py-2" ng-repeat="seafood in seafoods">
               <div class="card shadow h-100">
@@ -672,7 +685,7 @@
           </div>
         </div>
       
-        <div class="tab-pane fade" id="restaurant" role="tabpanel" aria-labelledby="restaurant-tab">
+        <div class="tab-pane fade" ng-class="{'show active' : restauranttab}" id="restaurant" role="tabpanel" aria-labelledby="restaurant-tab">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
             <div ng-if="restaurants.length !=0" class="col mt-4 px-3half py-2" ng-repeat="restaurant in restaurants">
               <div class="card shadow h-100">
@@ -732,30 +745,29 @@
                     </div>
                 </div>  
                 </div>
-                <div class="card-footer bg-light p-2 border-0">
-<!--
-                  <p class="mb-1 text-primary text-center">
-                    Order On  
-                  </p>
--->
-                  <div class="d-flex justify-content-between">
-<!--
-                    <div>
-                      <a href="http://m.me/ttg.fishcentre" class="btn btn-outline-primary"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
-                    </div>
-                    <div>
-                      <a href="{{seafood.gsx$sms.$t}}" class="btn btn-outline-primary"><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i></a>
-                    </div>
--->
-                    <div>
-                      <a href="tel:+919425032877" class="btn btn-outline-secondary"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
-                    </div>  
-                    <div>
-                      <a 
-                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$qty.$t}}%20{{restaurant.gsx$uom.$t}}%20|%20Price:%20{{restaurant.gsx$finalprice.$t}} &#8377." class="btn btn-brand"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                <div class="card-footer bg-light p-2 border-0">                    
+                     <div class="row">
+                        <div class="col-6">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Qty</span>
+                              </div>
+                              <input type="number" class="form-control" 
+                                     ng-value={{restaurant.gsx$qty.$t}}
+                                     ng-model="newObject[restaurant.gsx$productshortname.$t]"
+                              >
+                              <div class="input-group-append">
+                                <span class="input-group-text">{{restaurant.gsx$uom.$t}}</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                        <a 
+                        href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{newObject[restaurant.gsx$productshortname.$t] }}%20{{restaurant.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                        </div>
+                    
                     </div>
                     
-                  </div>
                 </div>
               </div>
             </div>
@@ -882,7 +894,7 @@
                 <a class="nav-link text-body p-0" id="seafood-tab" target="_self" style="border-radius: 0;" data-toggle="tab" href="#restaurant" role="tab" aria-controls="restaurant" aria-selected="false" ng-click="changeTab('restaurant')">
                     <ul class="list-unstyled text-center mb-0">
                         <li><img src="/asset/images/{{restaurant}}" style=" width:32px; height:32px;"></li>
-                        <li ng-class="{'brand-color': restauranttab}"><b>Restaurant</b> <span class="badge badge-pill badge-secondary" ng-class="{'brand-background-color': restauranttab}">{{restaurants.length}}</span></li>
+                        <li ng-class="{'brand-color': restauranttab}"><b>Kitchen</b> <span class="badge badge-pill badge-secondary" ng-class="{'brand-background-color': restauranttab}">{{restaurants.length}}</span></li>
                     </ul>
                 </a>
               </li>
