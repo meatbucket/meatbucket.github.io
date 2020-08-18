@@ -3,6 +3,12 @@ var app = angular.module('fmbApp', ['ngRoute']);
             $scope.welcomeScreen=true;     
             $scope.showContent=false;
             $scope.newObject = {};
+            $scope.quantiyRequired='';
+                
+                
+            $scope.setRequiredQuantity = function (qty){
+                $scope.quantiyRequired = qty;
+            }
              $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
@@ -63,7 +69,7 @@ var app = angular.module('fmbApp', ['ngRoute']);
             $scope.restaurant = "restaurant-button.svg";
             $scope.restauranttab = false;  
             }
-            else if($routeParams.categoryName == 'restaurant'){
+            else if($routeParams.categoryName == 'kitchen'){
                 $scope.chicken = "chicken-button.svg";
             $scope.chickentab = false;    
             $scope.fish = "fish-button.svg";
@@ -85,10 +91,10 @@ var app = angular.module('fmbApp', ['ngRoute']);
             $scope.restauranttab = false;
          
             } else {
-                $scope.chicken = "chicken-button-active.svg";
-            $scope.chickentab = true;    
-            $scope.fish = "fish-button.svg";
-            $scope.fishtab = false;
+                $scope.chicken = "chicken-button.svg";
+            $scope.chickentab = false;    
+            $scope.fish = "fish-button-active.svg";
+            $scope.fishtab = true;
             $scope.seafood = "seafood-button.svg";
             $scope.seafoodtab = false;
             $scope.restaurant = "restaurant-button.svg";
