@@ -112,7 +112,7 @@
                                 <span class="input-group-text">Qty</span>
                               </div>
                               <input type="number" class="form-control" ng-model="requiredQty" 
-                                     value={{product.gsx$qty.$t}} autofocus>
+                                     value={{product.gsx$qty.$t}}>
                               <div class="input-group-append">
                                 <span class="input-group-text">{{product.gsx$uom.$t}}</span>
                               </div>
@@ -172,14 +172,16 @@
     </div>
     <div class="fixed-bottom">
         <div class="row">
-            <div class="col-12">
-                <a href="tel:+919425032877" class="btn btn-outline-secondary float-right mb-3 mr-3 shadow-lg"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
-            </div>
-            <div class="col-12">
-                <a class="btn btn-brand btn-lg btn-block" href="/" role="button">
+            <div class="col-7">
+                <a class="btn btn-brand mb-2 ml-3" href="/" role="button">
                     <i class="fa fa-arrow-left" aria-hidden="true"></i> View All Products
                 </a> 
             </div>
+            
+            <div class="col-5">
+                <a href="tel:+919425032877" class="btn btn-outline-secondary float-right mb-2 mr-3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
+            </div>
+            
         </div>
         
         
