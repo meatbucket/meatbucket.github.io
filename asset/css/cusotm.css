@@ -49,3 +49,8 @@
 .mt-7{
     margin-top: 5rem!important;
 }
+
+.fmb_trans{
+  background-position: center;
+  transition: background 0.8s;  
+}
