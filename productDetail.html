@@ -90,28 +90,47 @@
                         </div>    
                     </div>  
                   <p class="card-text text-muted text-justify"><small>{{product.gsx$description.$t }}</small></p>
+                  <div class="d-flex justify-content-between" ng-if=" product.gsx$note1.$t.length !=0 || product.gsx$note2.$t.length !=0 ||  product.gsx$note3.$t.length !=0 || product.gsx$note4.$t.length !=0">
+                      <div>
+                          <span class="text-muted">Extra Info</span>  
+                        <ul class="list-inline">
+                          <li class="list-inline-item" ng-if="product.gsx$note1.$t.length !=0">
+                            <i class="fa fa-check-square-o text-muted" aria-hidden="true"></i> <small>{{product.gsx$note1.$t}}</small>
+                          </li>
+                          <li class="list-inline-item" ng-if="product.gsx$note2.$t.length !=0">
+                            <i class="fa fa-check-square-o text-muted" aria-hidden="true"></i> <small>{{product.gsx$note2.$t}}</small>
+                          </li>
+                          <li class="list-inline-item" ng-if="product.gsx$note3.$t.length !=0">
+                            <i class="fa fa-check-square-o text-muted" aria-hidden="true"></i> <small>{{product.gsx$note3.$t}}</small>
+                          </li>
+                          <li class="list-inline-item" ng-if="product.gsx$note4.$t.length !=0">
+                            <i class="fa fa-check-square-o text-muted" aria-hidden="true"></i> <small>{{product.gsx$note4.$t}}</small>
+                          </li>    
+                        </ul>
+                      </div>
+                    </div>    
                     <div class="d-flex justify-content-between">
-                        <div>
-                            <ul class="list-unstyled text-center mb-0">
-                                <li class="text-muted">
-                                    <i class="fa fa-cube" aria-hidden="true"></i> Pakcing
-                                </li>
-                                <li>
-                                   <small>{{product.gsx$packing.$t}}</small>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="list-unstyled text-center mb-0">
-                                <li class="text-muted">
-                                    <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> Delivery
-                                </li>
-                                <li>
-                                    <small>{{product.gsx$processingtime.$t}}</small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>       
+                      <div>
+                        <ul class="list-unstyled text-center mb-0">
+                          <li class="text-muted">
+                            <i class="fa fa-cube" aria-hidden="true"></i> Packing
+                          </li>
+                          <li>
+                            <small>{{product.gsx$packing.$t}}</small>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul class="list-unstyled text-center mb-0">
+                          <li class="text-muted">
+                            <i class="fa fa-motorcycle " aria-hidden="true"></i> Delivery
+                          </li>
+                          <li>
+                            <small>{{product.gsx$processingtime.$t}}</small>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>      
                 </div>
                 <div class="card-footer bg-light p-1 border-0">                    
                     <div class="row">
