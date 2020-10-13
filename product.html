@@ -161,7 +161,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               <div ng-if="fishes.length !=0" class="col mt-4 px-3half py-2" ng-repeat="fish in fishes">
                 <div class="card shadow h-100">
-                  <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
+                  <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top img-fluid"  onerror=this.src="asset/images/defaultFMB.png">
                   <div class="card-body p-3">
                     <div class="row">
                       <div class="col-9">
@@ -242,17 +242,17 @@
                             <span class="input-group-text">Qty</span>
                           </div>
                           <input type="number" class="form-control"
-                            ng-value={{fish.gsx$qty.$t}}
-                            ng-model="newObject[fish.gsx$productshortname.$t]"    
+                            ng-model="fish.gsx$productshortname.$t"    
                             >
                           <div class="input-group-append">
                             <span class="input-group-text">{{fish.gsx$uom.$t}}</span>
                           </div>
                         </div>
-                      </div>
+                     </div>        
+
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{newObject[fish.gsx$productshortname.$t] }}%20{{fish.gsx$uom.$t}}%20" class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$productshortname.$t}}%20{{fish.gsx$uom.$t}}%20" class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                     <!--
@@ -362,7 +362,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               <div ng-if="chickens.length !=0" class="col mt-4 px-3half py-2" ng-repeat="chicken in chickens">
                 <div class="card shadow h-100">
-                  <img src="asset/images/{{chicken.gsx$image.$t}}" class="card-img-top img-fluid" alt="...">
+                  <img src="asset/images/{{chicken.gsx$image.$t}}" class="card-img-top img-fluid" onerror=this.src="asset/images/defaultFMB.png">
                   <div class="card-body p-3">
                     <div class="row">
                       <div class="col-9">
@@ -443,8 +443,7 @@
                             <span class="input-group-text">Qty</span>
                           </div>
                           <input type="number" class="form-control" 
-                            ng-value={{chicken.gsx$qty.$t}}
-                            ng-model="newObject[chicken.gsx$productshortname.$t]"
+                            ng-model="chicken.gsx$productshortname.$t" 
                             >
                           <div class="input-group-append">
                             <span class="input-group-text">{{chicken.gsx$uom.$t}}</span>
@@ -453,7 +452,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{newObject[chicken.gsx$productshortname.$t] }}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$productshortname.$t}}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>
@@ -551,7 +550,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               <div ng-if="seafoods.length !=0" class="col mt-4 px-3half py-2" ng-repeat="seafood in seafoods">
                 <div class="card shadow h-100">
-                  <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top img-fluid" alt="...">
+                  <img src="asset/images/{{seafood.gsx$image.$t }}" class="card-img-top img-fluid" onerror=this.src="asset/images/defaultFMB.png">
                   <div class="card-body p-3">
                     <div class="row">
                       <div class="col-9">
@@ -724,7 +723,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               <div ng-if="restaurants.length !=0" class="col mt-4 px-3half py-2" ng-repeat="restaurant in restaurants">
                 <div class="card shadow h-100">
-                  <img src="asset/images/{{restaurant.gsx$image.$t }}" class="card-img-top img-fluid" alt="..."> 
+                  <img src="asset/images/{{restaurant.gsx$image.$t }}" class="card-img-top img-fluid" onerror=this.src="asset/images/defaultFMB.png"> 
                   <div class="card-body p-3">
                     <div class="row">
                       <div class="col-9">
@@ -805,8 +804,7 @@
                             <span class="input-group-text">Qty</span>
                           </div>
                           <input type="number" class="form-control" 
-                            ng-value={{restaurant.gsx$qty.$t}}
-                            ng-model="newObject[restaurant.gsx$productshortname.$t]"
+                            ng-model="restaurant.gsx$productshortname.$t"
                             >
                           <div class="input-group-append">
                             <span class="input-group-text">{{restaurant.gsx$uom.$t}}</span>
@@ -815,7 +813,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{newObject[restaurant.gsx$productshortname.$t] }}%20{{restaurant.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$productshortname.$t}}%20{{restaurant.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>

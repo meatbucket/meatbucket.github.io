@@ -9,22 +9,37 @@ var app = angular.module('fmbApp', ['ngRoute']);
             $scope.setRequiredQuantity = function (qty){
                 $scope.quantiyRequired = qty;
             }
+            
+            //Cart Implementation
+              $scope.cart = [];
+              $scope.increment = function(cartProduct) {
+                cartProduct++;
+              };
+              $scope.decrement = function(cartProduct) {
+                cartProduct--;
+              };
+                
+        //Cart Implementation ends        
              $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
                     .success(function(response) {
                     $scope.tools = response.feed.entry;
                     $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.restaurants=[];
-                  for (i=0; i<$scope.tools.length; i++){
+                  for (var i=0; i<$scope.tools.length; i++){
                       if($scope.tools[i].gsx$available.$t == "y"){
                           if($scope.tools[i].gsx$category.$t == "fish"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);
                              $scope.fishes.push($scope.tools[i]);
                            }
                           if($scope.tools[i].gsx$category.$t == "chicken"){
+                             $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);  
                              $scope.chickens.push($scope.tools[i]);
                            }
                           if($scope.tools[i].gsx$category.$t == "seafood"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
                              $scope.seafoods.push($scope.tools[i]);
                            }
                           if($scope.tools[i].gsx$category.$t == "restaurant"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
                              $scope.restaurants.push($scope.tools[i]);
                            }
                       }
@@ -40,13 +55,13 @@ var app = angular.module('fmbApp', ['ngRoute']);
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 1600);
+            }, 500);
                 
              setTimeout(function () {
               $scope.$apply(function(){
                   $scope.showContent=true;
               });
-            }, 1600); 
+            }, 500); 
                    
              
             if( $routeParams.categoryName == 'chicken'){
@@ -306,13 +321,13 @@ var app = angular.module('fmbApp', ['ngRoute']);
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 1600);
+            }, 500);
                 
              setTimeout(function () {
               $scope.$apply(function(){
                   $scope.showContent=true;
               });
-            }, 1600); 
+            }, 500); 
             
         });
 
