@@ -54,3 +54,12 @@
   background-position: center;
   transition: background 0.8s;  
 }
+
+.bottom-bar-font {
+    font-size: 12px !important;
+}
+
+.bottom-bar-image-size {
+    height:27px;
+    width:27px;
+}
