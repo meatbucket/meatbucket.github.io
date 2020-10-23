@@ -214,7 +214,8 @@
                         </div>
                       </div>
                     </div>
-                    <p class="card-text text-muted text-justify"><small>{{fish.gsx$description.$t }}</small></p>
+                    <p class="card-text text-muted text-justify text-truncate"><small>{{fish.gsx$description.$t }} </small><span class="text-muted float-right"><small>...More</small></span> </p>
+                    
                     <div class="d-flex justify-content-between" ng-if=" fish.gsx$note1.$t.length !=0 || fish.gsx$note2.$t.length !=0 ||  fish.gsx$note3.$t.length !=0 || fish.gsx$note4.$t.length !=0">
                       <div> 
                         <ul class="list-inline">
@@ -274,7 +275,7 @@
 
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$productshortname.$t}}%20{{fish.gsx$uom.$t}}%20" class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/{{fish.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$productshortname.$t}}%20{{fish.gsx$uom.$t}}%20" class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                     <!--
@@ -474,7 +475,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$productshortname.$t}}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/{{chicken.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$productshortname.$t}}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>
@@ -662,7 +663,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$productshortname.$t}}%20{{seafood.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/{{seafood.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$productshortname.$t}}%20{{seafood.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>
@@ -850,7 +851,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$productshortname.$t}}%20{{restaurant.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/{{restaurant.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{restaurant.gsx$productname.$t}}%0AQuantity:{{restaurant.gsx$productshortname.$t}}%20{{restaurant.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>
@@ -1039,7 +1040,7 @@
                       </div>
                       <div class="col-6">
                         <a 
-                          href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{marinated.gsx$productname.$t}}%0AQuantity:{{marinated.gsx$productshortname.$t}}%20{{marinated.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
+                          href="https://wa.me/{{marinated.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{marinated.gsx$productname.$t}}%0AQuantity:{{marinated.gsx$productshortname.$t}}%20{{marinated.gsx$uom.$t}}%20." class="btn btn-brand float-right"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> Order Now</a>
                       </div>
                     </div>
                   </div>

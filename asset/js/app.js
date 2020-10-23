@@ -226,6 +226,41 @@ var app = angular.module('fmbApp', ['ngRoute']);
                         
             });
 
+
+//Home Page Controller
+app.controller('homeCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/2/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.banners = response.feed.entry;
+              console.log("==========banner==========",$scope.banners);
+              $scope.welcomeScreen=false;     
+              $scope.showContent=true;
+    });
+    
+});
+
+//Fish Product Controller
+app.controller('fishCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/4/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allFishProduct = response.feed.entry;
+              $scope.fishes=[];
+              for (var i=0; i<$scope.allFishProduct.length; i++){
+                  if($scope.allFishProduct[i].gsx$available.$t == "y"){
+                      $scope.allFishProduct[i].gsx$productshortname.$t = Number($scope.allFishProduct[i].gsx$qty.$t);
+                      $scope.fishes.push($scope.allFishProduct[i]);
+                  }
+              }
+             $scope.welcomeScreen=false;     
+             $scope.showContent=true;
+    });
+    
+});
+
        app.controller('salesCtrl', function($scope, $http) { 
 
            $scope.customerName="";
@@ -383,6 +418,8 @@ var app = angular.module('fmbApp', ['ngRoute']);
             
         });
 
+
+
         app.config( [
             '$compileProvider','$routeProvider',
             function( $compileProvider,$routeProvider )
@@ -390,9 +427,38 @@ var app = angular.module('fmbApp', ['ngRoute']);
                 
                 $routeProvider
                 .when("/", {
-                    templateUrl : "product.html",
-                    controller: 'ProductCtrl'
+                    templateUrl : "home.html",
+                    controller: 'homeCtrl'
                  })
+                .when('/fish',{
+                    templateUrl : '/asset/html/products/fish.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/chicken',{
+                    templateUrl : '/asset/html/products/chicken.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/seafood',{
+                    templateUrl : '/asset/html/products/seafood.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/goatmeat',{
+                    templateUrl : '/asset/html/products/goatmeat.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/marinated',{
+                    templateUrl : '/asset/html/products/marinated.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/masale',{
+                    templateUrl : '/asset/html/products/masale.html',
+                    controller: 'fishCtrl'
+                })
+                .when('/kitchen',{
+                    templateUrl : '/asset/html/products/kitchen.html',
+                    controller: 'fishCtrl'
+                })
+                
                 .when('/fmbsales',{
                     templateUrl : '/sales.html',
                     controller: 'salesCtrl'
