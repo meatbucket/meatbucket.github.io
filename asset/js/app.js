@@ -235,8 +235,17 @@ app.controller('homeCtrl',function($scope,$http,$routeParams){
               $scope.showContent=false;
               $scope.banners = response.feed.entry;
               console.log("==========banner==========",$scope.banners);
-              $scope.welcomeScreen=false;     
-              $scope.showContent=true;
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 786);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 786);
     });
     
 });
@@ -255,8 +264,20 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
                       $scope.fishes.push($scope.allFishProduct[i]);
                   }
               }
-             $scope.welcomeScreen=false;     
-             $scope.showContent=true;
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 786);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 786);
+     
+             
     });
     
 });

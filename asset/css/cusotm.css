@@ -7,6 +7,10 @@
     color: #f8615a !important;
 }
 
+.brand-color-dark {
+    background-color:#db534d !important;
+}
+
 .brand-background-color {
     background-color: #f8615a !important;
     color: white !important;
@@ -50,6 +54,10 @@
     margin-top: 5rem!important;
 }
 
+.mt-9{
+    margin-top: 7rem!important;
+}
+
 .fmb_trans{
   background-position: center;
   transition: background 0.8s;  
@@ -67,4 +75,36 @@
 .home-icon-style{
     height:60px;
     width:60px;
+}
+
+.fixed-top-secondary-nav {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    left: 0;
+    z-index: 1028;
+}
+
+.carousel-indicators {
+    position: inherit !important; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.dod-image-height{
+  height: 70px;
+}
+
+.scrolling-wrapper{
+	overflow-x: auto;
 }
