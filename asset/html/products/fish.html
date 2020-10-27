@@ -1,18 +1,5 @@
 <div ng-controller="fishCtrl">
-      <!-- Welcome Screen -->
-      <div ng-if="welcomeScreen" style="background-color:#f8615a !important; height:1000px !important; width:100% !important; z-index: 2000 !important; display:block; position: fixed !important;">
-        <div class="d-flex justify-content-around align-items-center" >
-          <div>
-            <img src="asset/images/bucket.png" style="height:100px;width:120px;margin-top:150px;" >
-          </div>
-        </div>
-        <div class="text-center text-white mt-3">
-          <h5><b>FreshMeatBucket</b></h5>
-          <i class="fa fa-cog fa-spin fa-3x fa-fw text-white"></i>
-          <span class="sr-only">Loading...</span>    
-        </div>
-      </div>
-    
+      <div splash-screen show="welcomeScreen"></div>
       <!-- Fish Screen --> 
       <div ng-if="showContent"  class="mt-9">
           <nav class="navbar fixed-top-secondary-nav navbar-light bg-light">

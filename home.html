@@ -1,20 +1,8 @@
 <div ng-controller="homeCtrl">
-      <!-- Welcome Screen -->
-      <div ng-show="welcomeScreen" style="background-color:#f8615a !important; height:1000px !important; width:100% !important; z-index: 2000 !important; display:block; position: fixed !important;">
-        <div class="d-flex justify-content-around align-items-center" >
-          <div>
-            <img src="asset/images/bucket.png" style="height:100px;width:120px;margin-top:150px;" >
-          </div>
-        </div>
-        <div class="text-center text-white mt-3">
-          <h5><b>FreshMeatBucket</b></h5>
-          <i class="fa fa-cog fa-spin fa-3x fa-fw text-white"></i>
-          <span class="sr-only">Loading...</span>    
-        </div>
-      </div>
-    
+      <!-- Welcome Screen --> 
+      <div splash-screen show="welcomeScreen"></div>
       <!-- Home Screen --> 
-      <div ng-show="showContent">
+      <div ng-if="showContent">
           <div class="container-fluid m-0 p-0">
               
             <!-- Carousel -->  
@@ -141,7 +129,7 @@
               <div class="row row-cols-1 row-cols-md-3">
                   <div class="col-4">
                     <a href="#fish" class="text-decoration-none">  
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/fish.png" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small>Fish</small></h5>
@@ -151,7 +139,7 @@
                   </div>
                   <div class="col-4">
                     <a href="#chicken" class="text-decoration-none">   
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/chicken.png" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small>Chicken</small></h5>
@@ -161,7 +149,7 @@
                   </div>
                   <div class="col-4">
                     <a href="#seafood" class="text-decoration-none">   
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/seafoods.png" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small>
@@ -172,7 +160,7 @@
                   </div>
                   <div class="col-4">
                     <a href="#goatmeat" class="text-decoration-none">   
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/goat.svg" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small> Goat Meat</small></h5>
@@ -182,7 +170,7 @@
                   </div>
                   <div class="col-4">
                     <a href="#marinated" class="text-decoration-none">   
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/marinated.png" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small>Marinated</small></h5>
@@ -192,7 +180,7 @@
                   </div>
                   <div class="col-4">
                     <a href="#masale" class="text-decoration-none">   
-                        <div class="card shadow">
+                        <div class="card shadow-sm">
                           <img src="asset/images/masale.svg" class="card-img-top text-center p-2" alt="...">
                           <div class="card-body p-0">
                             <h5 class="card-title text-center"><small>Masale</small></h5>

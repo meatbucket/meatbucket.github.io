@@ -1,4 +1,8 @@
 var app = angular.module('fmbApp', ['ngRoute']);
+
+
+
+
             app.controller('ProductCtrl', function($scope, $http,$routeParams) { 
             $scope.welcomeScreen=true;     
             $scope.showContent=false;
@@ -439,64 +443,75 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
             
         });
 
+//Routing
 
+app.config( [
+    '$compileProvider','$routeProvider',
+    function( $compileProvider,$routeProvider )
+    {   
 
-        app.config( [
-            '$compileProvider','$routeProvider',
-            function( $compileProvider,$routeProvider )
-            {   
-                
-                $routeProvider
-                .when("/", {
-                    templateUrl : "home.html",
-                    controller: 'homeCtrl'
-                 })
-                .when('/fish',{
-                    templateUrl : '/asset/html/products/fish.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/chicken',{
-                    templateUrl : '/asset/html/products/chicken.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/seafood',{
-                    templateUrl : '/asset/html/products/seafood.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/goatmeat',{
-                    templateUrl : '/asset/html/products/goatmeat.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/marinated',{
-                    templateUrl : '/asset/html/products/marinated.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/masale',{
-                    templateUrl : '/asset/html/products/masale.html',
-                    controller: 'fishCtrl'
-                })
-                .when('/kitchen',{
-                    templateUrl : '/asset/html/products/kitchen.html',
-                    controller: 'fishCtrl'
-                })
-                
-                .when('/fmbsales',{
-                    templateUrl : '/sales.html',
-                    controller: 'salesCtrl'
-                })
-                .when('/product/:productName',{
-                    templateUrl : '/productDetail.html',
-                    controller: 'ProductDetailCtrl'
-                })
-                .when("/:categoryName", {
-                    templateUrl : "product.html",
-                    controller: 'ProductCtrl'
-                 })
-                .otherwise ({
-                    redirectTo: '/'
-                });
-      
-                $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|sms|chrome-extension):/);
-                // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
-            }
-        ]);
+        $routeProvider
+        .when("/", {
+            templateUrl : "home.html",
+            controller: 'homeCtrl'
+         })
+        .when('/fish',{
+            templateUrl : '/asset/html/products/fish.html',
+            controller: 'fishCtrl'
+        })
+        .when('/chicken',{
+            templateUrl : '/asset/html/products/chicken.html',
+            controller: 'fishCtrl'
+        })
+        .when('/seafood',{
+            templateUrl : '/asset/html/products/seafood.html',
+            controller: 'fishCtrl'
+        })
+        .when('/goatmeat',{
+            templateUrl : '/asset/html/products/goatmeat.html',
+            controller: 'fishCtrl'
+        })
+        .when('/marinated',{
+            templateUrl : '/asset/html/products/marinated.html',
+            controller: 'fishCtrl'
+        })
+        .when('/masale',{
+            templateUrl : '/asset/html/products/masale.html',
+            controller: 'fishCtrl'
+        })
+        .when('/kitchen',{
+            templateUrl : '/asset/html/products/kitchen.html',
+            controller: 'fishCtrl'
+        })
+
+        .when('/fmbsales',{
+            templateUrl : '/sales.html',
+            controller: 'salesCtrl'
+        })
+        .when('/product/:productName',{
+            templateUrl : '/productDetail.html',
+            controller: 'ProductDetailCtrl'
+        })
+        .when("/:categoryName", {
+            templateUrl : "product.html",
+            controller: 'ProductCtrl'
+         })
+        .otherwise ({
+            redirectTo: '/'
+        });
+
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|sms|chrome-extension):/);
+        // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    }
+]);
+
+//Splash Screen Directive
+app.directive("splashScreen", function() {    
+  return {
+    restrict: 'A',
+    scope: {
+      show: '=?'
+    },
+    template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/bucket.png" class="splash-screen-image" ></div></div><div class="text-center text-white mt-3"><h5><b>FreshMeatBucket</b></h5><i class="fa fa-cog fa-spin fa-3x fa-fw text-white"></i><span class="sr-only">Loading...</span></div></div>'
+  }
+});
