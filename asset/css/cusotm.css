@@ -16,6 +16,8 @@
     color: white !important;
 }
 
+
+
 .mb-7{
     margin-bottom: 5rem!important;
 }
@@ -49,6 +51,10 @@
     padding-left: 1.25rem!important;
     padding-right: 1.25rem!important;
 } 
+
+.mt-6{
+    margin-top: 4rem!important;
+}
 
 .mt-7{
     margin-top: 5rem!important;
@@ -106,4 +112,21 @@
 
 .splash-screen-image {
     height:100px;width:120px;margin-top:150px;
+}
+
+.kitchen-logo-image {
+        height: 95px;
+    width: 95px;
+}
+
+.every-day-fresh-image {
+        height: 65px;
+    width: 65px;
+}
+
+.every-day-fresh-image-text {
+        color: black;
+    font-size: 85%;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
