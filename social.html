@@ -1,0 +1,18 @@
+<div ng-controller="SocialCtrl">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Product</label>
+        <select class="form-control" ng-model="selectedProduct" id="product" 
+                                            ng-change="selectProduct(selectedProduct)"
+                >
+          <option ng-repeat="media in social" value="{{media}}">{{media.gsx$cateogry.$t}} - {{media.gsx$productname.$t}}</option>        
+        </select>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header">
+        INSTAGRAM
+      </div>
+      <div class="card-body">
+          {{selectedProductMedia.gsx$instagram.$t}}
+      </div>
+    </div>
+</div>
