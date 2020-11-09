@@ -1,0 +1,75 @@
+<div ng-controller="SocialCtrl">
+  <div class="container-fluid mt-3">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Choose Product</label>
+      <select class="form-control" ng-model="selectedProduct" id="product" 
+        ng-change="selectProduct(selectedProduct)"
+        >
+        <option ng-repeat="media in social" value="{{media}}">{{media.gsx$cateogry.$t}} - {{media.gsx$productname.$t}}</option>
+      </select>
+    </div>
+    <div class="card mt-4 shadow-sm">
+      <div class="card-header">
+        <i class="fa fa-instagram text-danger" aria-hidden="true"></i>
+        <span class="text-danger">Instagram</span>
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(instagram)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" id="ig" ng-model="instagram" rows="25" ></textarea>
+      </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+      <div class="card-header">
+        <i class="fa fa-facebook-square text-primary" aria-hidden="true"></i>
+        <span class="text-primary">Facebook</span>
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(facebook)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" ng-model="facebook" id="fb" rows="25" ></textarea>
+      </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+      <div class="card-header">
+        Indore & Indore Food Hashtags
+          
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(indore)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>  
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" id="indore" ng-model="indore" rows="10" ></textarea>
+      </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+      <div class="card-header">
+        Category - {{selectedProductMedia.gsx$cateogry.$t}}
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(categoryRelated)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>    
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" id="fb" rows="5" ng-model="categoryRelated" ></textarea>
+      </div>
+    </div>
+    <div class="card mt-4 shadow-sm">
+      <div class="card-header">
+        Product - {{selectedProductMedia.gsx$productname.$t}}
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(productRelated)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>    
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" id="fb" rows="5" ng-model="productRelated" ></textarea>
+      </div>
+    </div>  
+    <div class="card mt-4 shadow-sm mb-4">
+      <div class="card-header">
+        FMB Brand Related
+        <button type="button" class="btn btn-outline-primary btn-sm float-right" ng-click="copyToClipboard(brand)"><i class="fa fa-clone" aria-hidden="true"></i>
+        Copy</button>    
+      </div>
+      <div class="card-body p-0">
+        <textarea class="form-control" id="fb" rows="5" ng-model="brand" > </textarea>
+      </div>
+    </div>
+  </div>
+</div>
