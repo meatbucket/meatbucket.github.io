@@ -393,27 +393,45 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http) {
 
 app.controller("SocialCtrl", function($scope, $http) {    
    
-   $scope.selectedProductMedia; 
+   $scope.selectedProductMedia;
+   $scope.facebook;
+   $scope.instagram;
+   $scope.indore;
+   $scope.productRelated;
+   $scope.categoryRelated;    
+   $scope.brand;        
        
        $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/13/public/values?alt=json")
             .success(function(response) {
             $scope.social = response.feed.entry;
-            //console.log("=================", $scope.social);
         });
     
     
     $scope.selectProduct = function(item) {
-        
-        
-        
-       $scope.selectedProductMedia = JSON.parse(item);
-        console.log("================",$scope.selectedProductMedia);
-        
+               $scope.selectedProductMedia = JSON.parse(item);
+               $scope.instagram = $scope.selectedProductMedia.gsx$instagram.$t;
+               $scope.facebook  =  $scope.selectedProductMedia.gsx$facebook.$t;
+               $scope.indore = $scope.selectedProductMedia.gsx$hashtags.$t;
+               $scope.brand  = $scope.selectedProductMedia.gsx$brandhashtags.$t;
+               $scope.productRelated = $scope.selectedProductMedia.gsx$producthashtags.$t;
+               $scope.categoryRelated = $scope.selectedProductMedia.gsx$categoryhashtags.$t
+    }
+    
+    $scope.copyToClipboard = function (name) {
+        var copyElement = document.createElement("textarea");
+        copyElement.style.position = 'fixed';
+        copyElement.style.opacity = '0';
+        copyElement.textContent =  decodeURI(name);
+        var body = document.getElementsByTagName('body')[0];
+        body.appendChild(copyElement);
+        copyElement.select();
+        document.execCommand('copy');
+        body.removeChild(copyElement);
     }
 
-
-
 });
+
+
 
 app.config([
     '$compileProvider', '$routeProvider','$httpProvider',
