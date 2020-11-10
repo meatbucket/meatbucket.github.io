@@ -461,29 +461,32 @@ app.config( [
         })
         .when('/chicken',{
             templateUrl : '/asset/html/products/chicken.html',
-            controller: 'fishCtrl'
+            controller: 'chickenCtrl'
         })
         .when('/seafood',{
             templateUrl : '/asset/html/products/seafood.html',
-            controller: 'fishCtrl'
+            controller: 'seafoodCtrl'
         })
         .when('/goatmeat',{
             templateUrl : '/asset/html/products/goatmeat.html',
-            controller: 'fishCtrl'
+            controller: 'goatCtrl'
         })
         .when('/marinated',{
             templateUrl : '/asset/html/products/marinated.html',
-            controller: 'fishCtrl'
+            controller: 'marinatedCtrl'
         })
         .when('/masale',{
             templateUrl : '/asset/html/products/masale.html',
-            controller: 'fishCtrl'
+            controller: 'masaleCtrl'
         })
         .when('/kitchen',{
             templateUrl : '/asset/html/products/kitchen.html',
-            controller: 'fishCtrl'
+            controller: 'kitchenCtrl'
         })
-
+        .when('/eggs',{
+            templateUrl : '/asset/html/products/egg.html',
+            controller: 'eggCtrl'
+        })
         .when('/fmbsales',{
             templateUrl : '/sales.html',
             controller: 'salesCtrl'
@@ -512,6 +515,6 @@ app.directive("splashScreen", function() {
     scope: {
       show: '=?'
     },
-    template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/bucket.png" class="splash-screen-image" ></div></div><div class="text-center text-white mt-3"><h5><b>FreshMeatBucket</b></h5><i class="fa fa-cog fa-spin fa-3x fa-fw text-white"></i><span class="sr-only">Loading...</span></div></div>'
+    template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-grow brand-color spinner-border mr-1 spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div></div>'
   }
 });

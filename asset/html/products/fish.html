@@ -112,7 +112,7 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               <div ng-if="fishes.length !=0" class="col mt-4 px-3half py-2" ng-repeat="fish in fishes">
                 <div class="card shadow h-100">
-                  <img src="asset/images/{{fish.gsx$image.$t}}" class="card-img-top img-fluid"  onerror=this.src="asset/images/defaultFMB.png">
+                  <img src="{{fish.gsx$imagepath.$t}}" class="card-img-top img-fluid"  onerror=this.src="asset/images/products/defaultFMB.png">
                   <div class="card-body p-3">
                     <div class="row">
                       <div class="col-9">
@@ -126,7 +126,7 @@
                       <div class="col-5">
                         <div ng-if="fish.gsx$halal.$t == 'y'" class="float-left">
                           <ul class="list-inline text-center mb-0">
-                            <li class="list-inline-item"><img src="asset/images/halal.svg" style="height:30px;width:30px;"></li>
+                            <li class="list-inline-item"><img src="asset/images/products/productfeature/halal.svg" style="height:30px;width:30px;"></li>
                             <li class="list-inline-item"><span class="text-success"><small>{{fish.gsx$halaldescription.$t }}</small></span></li>
                           </ul>
                         </div>
@@ -226,7 +226,7 @@
                 <div class="card shadow h-100 border-warning">
                   <div class="d-flex justify-content-around">
                     <div>
-                      <img src="asset/images/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                      <img src="asset/images/products/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                     </div>
                   </div>
                   <h6 class="text-center mt-2"><b>Bulk Special Order!</b></h6>
@@ -274,7 +274,7 @@
                 <div class="card shadow border-danger">
                   <div class="d-flex justify-content-around">
                     <div>
-                      <img src="asset/images/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                      <img src="asset/images/products/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                     </div>
                   </div>
                   <h6 class="text-center mt-2">No Product Found !</h6>
