@@ -243,13 +243,13 @@ app.controller('homeCtrl',function($scope,$http,$routeParams){
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 786);
+            }, 888);
      
             setTimeout(function () {
               $scope.$apply(function(){
                 $scope.showContent=true;
               });
-            }, 786);
+            }, 888);
     });
     
 });
@@ -273,13 +273,13 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 786);
+            }, 888);
      
             setTimeout(function () {
               $scope.$apply(function(){
                 $scope.showContent=true;
               });
-            }, 786);
+            }, 888);
      
              
     });
@@ -515,6 +515,9 @@ app.directive("splashScreen", function() {
     scope: {
       show: '=?'
     },
-    template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-grow brand-color spinner-border mr-1 spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div><div class="spinner-grow spinner-border mr-1 brand-color spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div></div>'
+    template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-border brand-color" role="status"><span class="sr-only">Loading...</span></div></div></div>'
   }
 });
+
+
+
