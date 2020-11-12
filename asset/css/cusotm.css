@@ -25,6 +25,7 @@
 .btn-outline-brand {
     color: #f8615a;
     border-color: #f8615a;
+    font-size:13px;
 }
 
 .btn-brand {
@@ -129,4 +130,8 @@
     font-size: 85%;
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+.list-product-image {
+    height: 65px;
 }

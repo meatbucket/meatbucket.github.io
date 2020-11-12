@@ -286,6 +286,38 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
     
 });
 
+//Chicken Product Controller
+app.controller('chickenCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/5/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allChickenProduct = response.feed.entry;
+              $scope.chickens=[];
+              for (var i=0; i<$scope.allChickenProduct.length; i++){
+                  if($scope.allChickenProduct[i].gsx$available.$t == "y"){
+                      $scope.allChickenProduct[i].gsx$productshortname.$t = Number($scope.allChickenProduct[i].gsx$qty.$t);
+                      $scope.chickens.push($scope.allChickenProduct[i]);
+                  }
+              }
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);
+     
+             
+    });
+    
+});
+
        app.controller('salesCtrl', function($scope, $http) { 
 
            $scope.customerName="";
