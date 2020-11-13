@@ -281,6 +281,10 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
               });
             }, 888);
      
+     $scope.productDetail = function (productLink){
+         console.log("==============product link=========",productLink);
+     }
+     
              
     });
     
@@ -483,56 +487,68 @@ app.config( [
     {   
 
         $routeProvider
-        .when("/", {
+        .when("/home", {
             templateUrl : "home.html",
-            controller: 'homeCtrl'
+            controller: 'homeCtrl',
+            routeName:"Home"
          })
         .when('/fish',{
             templateUrl : '/asset/html/products/fish.html',
-            controller: 'fishCtrl'
+            controller: 'fishCtrl',
+            routeName:"Fish"
         })
         .when('/chicken',{
             templateUrl : '/asset/html/products/chicken.html',
-            controller: 'chickenCtrl'
+            controller: 'chickenCtrl',
+            routeName:"Chicken"
         })
         .when('/seafood',{
             templateUrl : '/asset/html/products/seafood.html',
-            controller: 'seafoodCtrl'
+            controller: 'seafoodCtrl',
+            routeName:"Seafood"
         })
         .when('/goatmeat',{
             templateUrl : '/asset/html/products/goatmeat.html',
-            controller: 'goatCtrl'
+            controller: 'goatCtrl',
+            routeName:"Goat Meat"
         })
         .when('/marinated',{
             templateUrl : '/asset/html/products/marinated.html',
-            controller: 'marinatedCtrl'
+            controller: 'marinatedCtrl',
+            routeName:"Marinated Products"
         })
         .when('/masale',{
             templateUrl : '/asset/html/products/masale.html',
-            controller: 'masaleCtrl'
+            controller: 'masaleCtrl',
+            routeName:"Masale"
         })
         .when('/kitchen',{
             templateUrl : '/asset/html/products/kitchen.html',
-            controller: 'kitchenCtrl'
+            controller: 'kitchenCtrl',
+            routeName:"Kitchen"
         })
         .when('/eggs',{
             templateUrl : '/asset/html/products/egg.html',
-            controller: 'eggCtrl'
+            controller: 'eggCtrl',
+            routeName:"Eggs"
         })
         .when('/fmbsales',{
             templateUrl : '/sales.html',
-            controller: 'salesCtrl'
+            controller: 'salesCtrl',
+            routeName:"Sales"
         })
         .when('/product/:productName',{
             templateUrl : '/productDetail.html',
-            controller: 'ProductDetailCtrl'
+            controller: 'ProductDetailCtrl',
+            routeName:"Product Detail"
         })
         .when("/:categoryName", {
             templateUrl : "product.html",
-            controller: 'ProductCtrl'
+            controller: 'ProductCtrl',
+            routeName:"Category"
          })
         .otherwise ({
-            redirectTo: '/'
+            redirectTo: '/home'
         });
 
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|sms|chrome-extension):/);
@@ -550,6 +566,21 @@ app.directive("splashScreen", function() {
     template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-border brand-color" role="status"><span class="sr-only">Loading...</span></div></div></div>'
   }
 });
+
+app.run(function($rootScope, $route,$location){
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous, rejection) {
+        if (current){
+          $rootScope.currentPage= current.routeName;
+            $rootScope.currentPagePath = current.originalPath;  
+        }
+        if(previous){
+           $rootScope.previousPage= previous.routeName;
+        $rootScope.previousPagePath = previous.originalPath;
+           }
+        
+        
+    })
+})
 
 
 
