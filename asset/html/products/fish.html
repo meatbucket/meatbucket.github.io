@@ -1,8 +1,8 @@
 <div ng-controller="fishCtrl">
       <div splash-screen show="welcomeScreen"></div>
       <!-- Fish Screen --> 
-      <div ng-if="showContent"  class="mt-9">
-          <nav class="navbar fixed-top-secondary-nav navbar-light bg-light shadow-sm">
+      <div ng-if="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Categories') ? 'mt-9' : 'mt-6' }}">
+          <nav class="navbar fixed-top-secondary-nav navbar-light bg-light shadow-sm" ng-if="(previousPage == 'Home' || previousPage == 'Categories')">
             <ul class="list-inline mb-0">
               <li class="list-inline-item">
                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,8 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
               
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item" ng-repeat="fish in fishes" ng-click="productDetail(fish.link[0].href)">
+                  <li class="list-group-item" ng-repeat="fish in fishes" >
+              <a href="/product/{{fish.gsx$productshortname.$t}}">
                      <div class="media">
                       <div class="media-body">
                          <div class="row">
@@ -49,7 +50,7 @@
                          </div>  
                       </div>
                       
-                    </div>
+                    </div></a>
                   </li>
                 </ul>
               <div ng-if="fishes.length !=0" class="col mt-3 px-3half py-2">

@@ -1,9 +1,10 @@
+<!--
 
 
 
 
 
-<div ng-controller="ProductDetailCtrl">  
+<div >  
     <div ng-show="welcomeScreen" style="background-color:#f8615a !important; height:1000px !important; width:100% !important; z-index: 2000 !important; display:block; position: fixed !important;">
     <div class="d-flex justify-content-around align-items-center" >
       <div>
@@ -60,6 +61,16 @@
       </div>
     </nav>
     <div>  
+
+
+  
+    </div> 
+    </div>    
+    </div>  
+-->
+
+
+<div ng-controller="ProductDetailCtrl">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mt-4">
             <div ng-if="singleProduct.length !=0" class="col mt-5 px-3half py-2" ng-repeat="product in singleProduct">
@@ -203,24 +214,6 @@
                 
         
     </div>
-    <div class="fixed-bottom">
-        <div class="row">
-            <div class="col-7">
-                <a class="btn btn-brand mb-2 ml-3" href="/" role="button">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i> View All Products
-                </a> 
-            </div>
-            
-            <div class="col-5">
-                <a href="tel:+919425032877" class="btn btn-outline-secondary float-right mb-2 mr-3"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> Call Us</a>
-            </div>
-            
-        </div>
-        
-        
-    </div>
-  
-    </div> 
-    </div>    
-    </div>  
+
+</div>
       

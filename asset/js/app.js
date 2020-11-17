@@ -259,16 +259,7 @@ app.controller('ProductListCtrl',function($scope,$http,$routeParams){
  $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
     .success(function(response) {
               $scope.welcomeScreen=true;     
-              $scope.showContent=false;
-//              $scope.allProducts = response.feed.entry;
-//              $scope.products=[];
-//              for (var i=0; i<$scope.allProducts.length; i++){
-//                  if($scope.allProducts[i].gsx$available.$t == "y"){
-//                      $scope.allProducts[i].gsx$productshortname.$t = Number($scope.allProducts[i].gsx$qty.$t);
-//                      $scope.products.push($scope.allProducts[i]);
-//                  }
-//              }
-     
+              $scope.showContent=false;     
              $scope.tools = response.feed.entry;
                     $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.kitchens=[];$scope.marinateds=[];$scope.goatmeats=[];$scope.masales=[];$scope.eggs=[];
                   for (var i=0; i<$scope.tools.length; i++){
@@ -325,6 +316,39 @@ app.controller('ProductListCtrl',function($scope,$http,$routeParams){
     
 });
 
+//Product Detail Controller
+app.controller('ProductDetailCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.singleProduct = response.feed.entry;
+     console.log("========product Detail====",$scope.singleProduct);
+//              $scope.chickens=[];
+//              for (var i=0; i<$scope.allChickenProduct.length; i++){
+//                  if($scope.allChickenProduct[i].gsx$available.$t == "y"){
+//                      $scope.allChickenProduct[i].gsx$productshortname.$t = Number($scope.allChickenProduct[i].gsx$qty.$t);
+//                      $scope.chickens.push($scope.allChickenProduct[i]);
+//                  }
+//              }
+//     
+//            setTimeout(function () {
+//              $scope.$apply(function(){
+//                  $scope.welcomeScreen=false;
+//              });
+//            }, 888);
+//     
+//            setTimeout(function () {
+//              $scope.$apply(function(){
+//                $scope.showContent=true;
+//              });
+//            }, 888);
+     
+             
+    });
+    
+});
+
 //All Category List Controller
 app.controller('CategoryListCtrl',function($scope,$http,$routeParams){
  $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/5/public/values?alt=json")
@@ -371,6 +395,7 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
                       $scope.fishes.push($scope.allFishProduct[i]);
                   }
               }
+     console.log("=============fish========",$scope.fishes);
      
             setTimeout(function () {
               $scope.$apply(function(){
@@ -553,36 +578,36 @@ app.controller('chickenCtrl',function($scope,$http,$routeParams){
            
        });
 
-        app.controller("ProductDetailCtrl", function ($scope, $routeParams,$http) {
-            $scope.welcomeScreen=true;     
-            $scope.showContent=false;
-            $scope.productName = $routeParams.productName;
- $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
-                    .success(function(response) {
-                    $scope.tools = response.feed.entry;
-                  $scope.singleProduct=[];            
-                  for (i=0; i<$scope.tools.length; i++){
-                      if($scope.tools[i].gsx$productshortname.$t == $scope.productName){
-                          $scope.singleProduct.push($scope.tools[i]);
-                          $scope.requiredQty=Number($scope.tools[i].gsx$qty.$t); 
-                      }
-                  }
-              });
-            
-            
-            setTimeout(function () {
-              $scope.$apply(function(){
-                  $scope.welcomeScreen=false;
-              });
-            }, 500);
-                
-             setTimeout(function () {
-              $scope.$apply(function(){
-                  $scope.showContent=true;
-              });
-            }, 500); 
-            
-        });
+//        app.controller("ProductDetailCtrl", function ($scope, $routeParams,$http) {
+//            $scope.welcomeScreen=true;     
+//            $scope.showContent=false;
+//            $scope.productName = $routeParams.productName;
+// $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+//                    .success(function(response) {
+//                    $scope.tools = response.feed.entry;
+//                  $scope.singleProduct=[];            
+//                  for (i=0; i<$scope.tools.length; i++){
+//                      if($scope.tools[i].gsx$productshortname.$t == $scope.productName){
+//                          $scope.singleProduct.push($scope.tools[i]);
+//                          $scope.requiredQty=Number($scope.tools[i].gsx$qty.$t); 
+//                      }
+//                  }
+//              });
+//            
+//            
+//            setTimeout(function () {
+//              $scope.$apply(function(){
+//                  $scope.welcomeScreen=false;
+//              });
+//            }, 500);
+//                
+//             setTimeout(function () {
+//              $scope.$apply(function(){
+//                  $scope.showContent=true;
+//              });
+//            }, 500); 
+//            
+//        });
 
 //Routing
 
@@ -601,6 +626,11 @@ app.config( [
             templateUrl : '/asset/html/products/productList.html',
             controller: 'ProductListCtrl',
             routeName:"Products"
+        })
+        .when('/product/:productName',{
+            templateUrl : '/asset/html/products/productList.html',
+            controller: 'ProductDetailCtrl',
+            routeName:"Product"
         })
         .when('/categories',{
             templateUrl : '/asset/html/categories/categoryList.html',
@@ -700,6 +730,11 @@ app.run(function($rootScope, $route,$location){
     $rootScope.go = function ( path ) {
       $location.path( path );
     };
+    
+//    $rootScope.productDetail = function (productName ) {
+//  //    $rootScope.productLink = productLink;    
+//   //   $location.path( productName );
+//    };
 })
 
 
