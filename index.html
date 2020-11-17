@@ -74,7 +74,47 @@
       <!-- Routing -->
       <ng-view></ng-view>
       <div class="bg-primary py-2 px-1  mt-5 shadow-lg border-top fixed-bottom d-sm-none bg-light" id="">
-
+ 
+        <div class="d-flex justify-content-around">
+            <div ng-click="go('/home')">
+          
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-home fa-lg" ng-class="{'brand-color': currentPage=='Home'}" aria-hidden="true"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Home'}"><span class="bottom-bar-font"><b>Home</b></span> </li>
+                </ul>
+          
+            </div>
+            <div ng-click="go('/categories')">
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-th-large fa-lg" ng-class="{'brand-color': currentPage=='Categories'}" aria-hidden="true"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Categories'}"><span class="bottom-bar-font"><b>Categories</b>  </span> </li>
+                </ul>
+            </div>
+            <div ng-click="go('/products')">
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-cube fa-lg" aria-hidden="true" ng-class="{'brand-color': currentPage=='Products'}"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Products'}"><span class="bottom-bar-font"><b>All Products</b> </span></li>
+                </ul>
+            </div>
+            <div>
+                <a href="tel:+919425032877" class="text-body">
+                    <ul class="list-unstyled text-center mb-0">
+                        <li><i class="fa fa-phone fa-lg" aria-hidden="true"></i></li>
+                        <li ng-class="{'brand-color': marinatedtab}"><span class="bottom-bar-font"><b>Call Us</b></span></li>
+                    </ul>
+                </a>    
+            </div>
+            <div >
+                <a href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket" class="text-body">
+                    <ul class="list-unstyled text-center mb-0">
+                        <li><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></li>
+                        <li ng-class="{'brand-color': restauranttab}"><span class="bottom-bar-font"><b>WhatsApp</b> </span></li>
+                    </ul>
+                </a>    
+            </div>
+        </div>  
+          
+<!--
         <ul class="nav nav-pills round nav-fill p-0 mb-2" id="mobiletab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active text-body p-0" style="border-radius: 0;" id="fishes-tab" data-toggle="tab" href="#fishes" role="tab" target="_self"  aria-controls="fishes" aria-selected="false" ng-click="changeTab('fish')">
@@ -117,6 +157,7 @@
             </a>
           </li>
         </ul>
+-->
 
       </div>
       <div  class="text-center bg-light p-1 mt-5 mb-7 shadow-sm border-sm" >

@@ -254,6 +254,109 @@ app.controller('homeCtrl',function($scope,$http,$routeParams){
     
 });
 
+//All Product List Controller
+app.controller('ProductListCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+//              $scope.allProducts = response.feed.entry;
+//              $scope.products=[];
+//              for (var i=0; i<$scope.allProducts.length; i++){
+//                  if($scope.allProducts[i].gsx$available.$t == "y"){
+//                      $scope.allProducts[i].gsx$productshortname.$t = Number($scope.allProducts[i].gsx$qty.$t);
+//                      $scope.products.push($scope.allProducts[i]);
+//                  }
+//              }
+     
+             $scope.tools = response.feed.entry;
+                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.kitchens=[];$scope.marinateds=[];$scope.goatmeats=[];$scope.masales=[];$scope.eggs=[];
+                  for (var i=0; i<$scope.tools.length; i++){
+                      if($scope.tools[i].gsx$available.$t == "y"){
+                          if($scope.tools[i].gsx$category.$t == "fish"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);
+                             $scope.fishes.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "chicken"){
+                             $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);  
+                             $scope.chickens.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "seafood"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.seafoods.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "kitchen"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.kitchens.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "marinated"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.marinateds.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "masale"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.masales.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "goatmeat"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.goatmeats.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "egg"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.eggs.push($scope.tools[i]);
+                           }
+                      }
+                  }
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);
+     
+             
+    });
+    
+});
+
+//All Category List Controller
+app.controller('CategoryListCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/5/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allChickenProduct = response.feed.entry;
+              $scope.chickens=[];
+              for (var i=0; i<$scope.allChickenProduct.length; i++){
+                  if($scope.allChickenProduct[i].gsx$available.$t == "y"){
+                      $scope.allChickenProduct[i].gsx$productshortname.$t = Number($scope.allChickenProduct[i].gsx$qty.$t);
+                      $scope.chickens.push($scope.allChickenProduct[i]);
+                  }
+              }
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);
+     
+             
+    });
+    
+});
+
 //Fish Product Controller
 app.controller('fishCtrl',function($scope,$http,$routeParams){
  $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/4/public/values?alt=json")
@@ -321,6 +424,8 @@ app.controller('chickenCtrl',function($scope,$http,$routeParams){
     });
     
 });
+
+
 
        app.controller('salesCtrl', function($scope, $http) { 
 
@@ -492,6 +597,16 @@ app.config( [
             controller: 'homeCtrl',
             routeName:"Home"
          })
+        .when('/products',{
+            templateUrl : '/asset/html/products/productList.html',
+            controller: 'ProductListCtrl',
+            routeName:"Products"
+        })
+        .when('/categories',{
+            templateUrl : '/asset/html/categories/categoryList.html',
+            controller: 'CategoryListCtrl',
+            routeName:"Categories"
+        })
         .when('/fish',{
             templateUrl : '/asset/html/products/fish.html',
             controller: 'fishCtrl',
@@ -532,21 +647,22 @@ app.config( [
             controller: 'eggCtrl',
             routeName:"Eggs"
         })
-        .when('/fmbsales',{
-            templateUrl : '/sales.html',
-            controller: 'salesCtrl',
-            routeName:"Sales"
-        })
-        .when('/product/:productName',{
-            templateUrl : '/productDetail.html',
-            controller: 'ProductDetailCtrl',
-            routeName:"Product Detail"
-        })
-        .when("/:categoryName", {
-            templateUrl : "product.html",
-            controller: 'ProductCtrl',
-            routeName:"Category"
-         })
+
+//        .when('/fmbsales',{
+//            templateUrl : '/sales.html',
+//            controller: 'salesCtrl',
+//            routeName:"Sales"
+//        })
+//        .when('/product/:productName',{
+//            templateUrl : '/productDetail.html',
+//            controller: 'ProductDetailCtrl',
+//            routeName:"Product Detail"
+//        })
+//        .when("/:categoryName", {
+//            templateUrl : "product.html",
+//            controller: 'ProductCtrl',
+//            routeName:"Category"
+//         })
         .otherwise ({
             redirectTo: '/home'
         });
@@ -580,6 +696,10 @@ app.run(function($rootScope, $route,$location){
         
         
     })
+    
+    $rootScope.go = function ( path ) {
+      $location.path( path );
+    };
 })
 
 
