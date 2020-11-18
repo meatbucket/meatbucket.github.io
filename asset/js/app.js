@@ -616,62 +616,50 @@ app.config( [
         $routeProvider
         .when("/home", {
             templateUrl : "home.html",
-            controller: 'homeCtrl',
             routeName:"Home"
          })
         .when('/products',{
             templateUrl : '/asset/html/products/productList.html',
-            controller: 'ProductListCtrl',
             routeName:"Products"
         })
         .when('/product/:productName',{
             templateUrl : '/asset/html/products/productDetail.html',
-            controller: 'ProductDetailCtrl',
             routeName:"Product"
         })
         .when('/categories',{
             templateUrl : '/asset/html/categories/categoryList.html',
-            controller: 'CategoryListCtrl',
             routeName:"Categories"
         })
         .when('/fish',{
             templateUrl : '/asset/html/products/fish.html',
-            controller: 'fishCtrl',
             routeName:"Fish"
         })
         .when('/chicken',{
             templateUrl : '/asset/html/products/chicken.html',
-            controller: 'chickenCtrl',
             routeName:"Chicken"
         })
         .when('/seafood',{
             templateUrl : '/asset/html/products/seafood.html',
-            controller: 'seafoodCtrl',
             routeName:"Seafood"
         })
         .when('/goatmeat',{
             templateUrl : '/asset/html/products/goatmeat.html',
-            controller: 'goatCtrl',
             routeName:"Goat Meat"
         })
         .when('/marinated',{
             templateUrl : '/asset/html/products/marinated.html',
-            controller: 'marinatedCtrl',
             routeName:"Marinated Products"
         })
         .when('/masale',{
             templateUrl : '/asset/html/products/masale.html',
-            controller: 'masaleCtrl',
             routeName:"Masale"
         })
         .when('/kitchen',{
             templateUrl : '/asset/html/products/kitchen.html',
-            controller: 'kitchenCtrl',
             routeName:"Kitchen"
         })
         .when('/eggs',{
             templateUrl : '/asset/html/products/egg.html',
-            controller: 'eggCtrl',
             routeName:"Eggs"
         })
 
