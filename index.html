@@ -3,11 +3,9 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="asset/images/favicon_io/favicon-16x16.png"/>
+    <link rel="icon" type="image/png" href="asset/images/brand/favicon_io/favicon-16x16.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Description" content="The best online chicken, fish, seafood store in Indore. FreshMeatBucket meets all your daily needs of fresh chicken, fish, and seafood. FreshMeatBucket's kitchen serves hot and fresh Egg Curry, Fried Chicken, Boneless Fried Chicken, Fish Fry, Boneless Fish Fry, Fish Curry all over in Indore.">
-      
- 
+    <meta name="Description" content="The Best Online Raw Chicken, Fish, Seafood, Goat Meat Store, Nov-veg Kitchen Items in Indore. FreshMeatBucket meets all your daily needs of fresh chicken, fish, and seafood. FreshMeatBucket's kitchen serves hot and fresh Egg Curry, Fried Chicken, Boneless Fried Chicken, Fish Fry, Boneless Fish Fry, Fish Curry all over in Indore.">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="asset/css/cusotm.css">
@@ -15,44 +13,163 @@
     <script src="asset/js/angular.min.js"></script>  
     <script src="asset/js/angular-route.js"></script>
     <script src="asset/js/app.js"></script>
-      
     <!-- Global site tag (gtag.js) - Google Analytics -->
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176222898-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
+      
       gtag('config', 'UA-176222898-1');
     </script> 
-
     <title>FreshMeatBucket - Fresh Raw Chicken, Raw Fish and Restaurant Non Veg Items. Home Delivery in Indore!</title>
   </head>
-  <body>
-      
-     <div ng-app="fmbApp">
-		<ng-view></ng-view>
+  <body class="bg-light">
+    <!--Angular App starts here -->  
+    <div ng-app="fmbApp">
+      <!--NavBar -->     
+      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-1 px-2 shadow-sm">
+        <nav class="navbar navbar-light p-2">
+          <a class="navbar-brand" href="#">
+          <img src="asset/images/brand/bucket.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+          <span class="brand-color">FreshMeatBucket</span>
+          </a>
+        </nav>
+        <button class="navbar-toggler btn-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" target="_self">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/fish">Fish</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/chicken">Chicken</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/seafood">Seafood</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/marinated">Marinated</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/kitchen">Kitchen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/masale">Masale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/egg">Eggs</a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/goatmeat">Goat Meat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="https://www.freshmeatbucket.com/#/halalmeat">Halal Meat</a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link" href="tel:+919425032877">Call Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mailto:owner.meatbucket@gmail.com">Email Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://g.page/FreshMeatBucket" target="_blank">Google Map Location</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Routing -->
+      <ng-view></ng-view>
+      <div class="bg-primary py-2 px-1  mt-5 shadow-lg border-top fixed-bottom d-sm-none bg-light" id="">
+ 
+        <div class="d-flex justify-content-around">
+            <div ng-click="go('/home')">
+          
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-home fa-lg" ng-class="{'brand-color': currentPage=='Home'}" aria-hidden="true"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Home'}"><span class="bottom-bar-font"><b>Home</b></span> </li>
+                </ul>
+          
+            </div>
+            <div ng-click="go('/categories')">
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-th-large fa-lg" ng-class="{'brand-color': currentPage=='Categories'}" aria-hidden="true"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Categories'}"><span class="bottom-bar-font"><b>Categories</b>  </span> </li>
+                </ul>
+            </div>
+            <div ng-click="go('/products')">
+                <ul class="list-unstyled text-center mb-0">
+                  <li><i class="fa fa-cube fa-lg" aria-hidden="true" ng-class="{'brand-color': currentPage=='Products'}"></i></li>
+                  <li ng-class="{'brand-color': currentPage=='Products'}"><span class="bottom-bar-font"><b>All Products</b> </span></li>
+                </ul>
+            </div>
+            <div>
+                <a href="tel:+919425032877" class="text-body">
+                    <ul class="list-unstyled text-center mb-0">
+                        <li><i class="fa fa-phone fa-lg" aria-hidden="true"></i></li>
+                        <li ng-class="{'brand-color': marinatedtab}"><span class="bottom-bar-font"><b>Call Us</b></span></li>
+                    </ul>
+                </a>    
+            </div>
+            <div >
+                <a href="https://wa.me/919425032877?text=Hello%20FreshMeatBucket" class="text-body">
+                    <ul class="list-unstyled text-center mb-0">
+                        <li><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></li>
+                        <li ng-class="{'brand-color': restauranttab}"><span class="bottom-bar-font"><b>WhatsApp</b> </span></li>
+                    </ul>
+                </a>    
+            </div>
+        </div>  
+
+
+      </div>
+      <div  class="text-center bg-light p-1 mt-5 mb-7 shadow-sm border-sm" >
+        <div class="d-flex flex-column justify-content-center">
+          <div><img src="/asset/images/homepage/fssai.png" style="height:30px; width:60px;"></div>
+          <div class="mt-1">Lic No. 21420850003168</div>
+          <div class="p-2 bd-highlight"><a href="https://goo.gl/maps/nf1Ww4whCcbjMyb17" class="text-decoration-none text-reset text-center" target="_blank" >&copy; 2020 FreshMeatBucket by TTG Fish Center</a></div>
+          <div>
+            Indore (M.P.)  
+          </div>
+        </div>
+        <div class="d-flex justify-content-around mt-2 mb-2 border-top">
+          <div class="mt-3">
+            <b>Follow Us On:</b>
+          </div>
+          <div class="mt-2">
+            <a href="https://www.facebook.com/Fresh-Meat-Bucket-101676998300302/" target="_blank">
+            <i class="fa fa-2x fa-facebook-square text-primary" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="mt-2">
+            <a href="https://www.instagram.com/freshmeatbucket/" target="_blank">
+            <i class="fa fa-2x fa-instagram text-danger" aria-hidden="true"></i>  
+            </a>    
+          </div>
+        </div>
+      </div>
     </div>
-     
-      
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  -->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  -->
     <script src="asset/js/jquery-3.5.1.slim.min.js"></script>
     <script src="asset/js/popper.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
-     <script>
-        $(document).ready(function () {
-        $(document).click(function (event) {
-            var click = $(event.target);
-            var _open = $(".navbar-collapse").hasClass("show");
-            if (_open === true && !click.hasClass("navbar-toggler")) {
-                $(".navbar-toggler").click();
-                    }
-                });
-            });  
+    <script>
+      $(document).ready(function () {
+      $(document).click(function (event) {
+          var click = $(event.target);
+          var _open = $(".navbar-collapse").hasClass("show");
+          if (_open === true && !click.hasClass("navbar-toggler")) {
+              $(".navbar-toggler").click();
+                  }
+              });
+          });  
     </script>  
   </body>
 </html>

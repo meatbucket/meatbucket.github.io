@@ -7,10 +7,16 @@
     color: #f8615a !important;
 }
 
+.brand-color-dark {
+    background-color:#eb5a54 !important;
+}
+
 .brand-background-color {
     background-color: #f8615a !important;
     color: white !important;
 }
+
+
 
 .mb-7{
     margin-bottom: 5rem!important;
@@ -19,6 +25,7 @@
 .btn-outline-brand {
     color: #f8615a;
     border-color: #f8615a;
+    font-size:13px;
 }
 
 .btn-brand {
@@ -46,8 +53,20 @@
     padding-right: 1.25rem!important;
 } 
 
+.mt-6{
+    margin-top: 4rem!important;
+}
+
 .mt-7{
     margin-top: 5rem!important;
+}
+
+.mt-9{
+    margin-top: 7rem!important;
+}
+
+.mb-9{
+    margin-bottom: 9rem!important;
 }
 
 .fmb_trans{
@@ -62,4 +81,65 @@
 .bottom-bar-image-size {
     height:27px;
     width:27px;
+}
+
+.home-icon-style{
+    height:60px;
+    width:60px;
+}
+
+.fixed-top-secondary-nav {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    left: 0;
+    z-index: 1028;
+}
+
+
+.dod-image-height{
+  height: 70px;
+}
+
+.scrolling-wrapper{
+	overflow-x: auto;
+}
+
+.splash-screen{
+      background-color: white !important;
+    height: 1000px !important;
+    width: 100% !important;
+    z-index: 2080 !important;
+    display: block;
+    position: fixed !important;
+    top: 0;  
+}
+
+.splash-screen-image {
+    height:100px;width:120px;margin-top:150px;
+}
+
+.kitchen-logo-image {
+        height: 95px;
+    width: 95px;
+}
+
+.every-day-fresh-image {
+        height: 65px;
+    width: 65px;
+}
+
+.every-day-fresh-image-text {
+        color: black;
+    font-size: 85%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.list-product-image {
+    height: 65px;
+}
+
+.popular-kitchen-image {
+        height: 175px;
 }
