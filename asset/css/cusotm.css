@@ -65,6 +65,10 @@
     margin-top: 7rem!important;
 }
 
+.mb-9{
+    margin-bottom: 9rem!important;
+}
+
 .fmb_trans{
   background-position: center;
   transition: background 0.8s;  

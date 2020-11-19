@@ -381,22 +381,19 @@ app.controller('CategoryListCtrl',function($scope,$http,$routeParams){
     
 });
 
-//Fish Product Controller
-app.controller('fishCtrl',function($scope,$http,$routeParams){
- $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/4/public/values?alt=json")
+//Kitchen Product Controller
+app.controller('kitchenCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/11/public/values?alt=json")
     .success(function(response) {
               $scope.welcomeScreen=true;     
               $scope.showContent=false;
-              $scope.allFishProduct = response.feed.entry;
-              $scope.fishes=[];
-              for (var i=0; i<$scope.allFishProduct.length; i++){
-                  if($scope.allFishProduct[i].gsx$available.$t == "y"){
-//                      $scope.allFishProduct[i].gsx$productshortname.$t = Number($scope.allFishProduct[i].gsx$qty.$t);
-                      $scope.fishes.push($scope.allFishProduct[i]);
+              $scope.allKitchenProduct = response.feed.entry;
+              $scope.kitchens=[];
+              for (var i=0; i<$scope.allKitchenProduct.length; i++){
+                  if($scope.allKitchenProduct[i].gsx$available.$t == "y"){
+                      $scope.kitchens.push($scope.allKitchenProduct[i]);
                   }
               }
-     console.log("=============fish========",$scope.fishes);
-     
             setTimeout(function () {
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
@@ -407,12 +404,36 @@ app.controller('fishCtrl',function($scope,$http,$routeParams){
               $scope.$apply(function(){
                 $scope.showContent=true;
               });
+            }, 888);       
+    }); 
+    
+});
+
+//Fish Product Controller
+app.controller('fishCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/4/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allFishProduct = response.feed.entry;
+              $scope.fishes=[];
+              for (var i=0; i<$scope.allFishProduct.length; i++){
+                  if($scope.allFishProduct[i].gsx$available.$t == "y"){
+                      $scope.fishes.push($scope.allFishProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
             }, 888);
      
-     
-             
-    });
-    
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
 });
 
 //Chicken Product Controller
@@ -425,11 +446,9 @@ app.controller('chickenCtrl',function($scope,$http,$routeParams){
               $scope.chickens=[];
               for (var i=0; i<$scope.allChickenProduct.length; i++){
                   if($scope.allChickenProduct[i].gsx$available.$t == "y"){
-                      $scope.allChickenProduct[i].gsx$productshortname.$t = Number($scope.allChickenProduct[i].gsx$qty.$t);
                       $scope.chickens.push($scope.allChickenProduct[i]);
                   }
               }
-     
             setTimeout(function () {
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
@@ -440,10 +459,176 @@ app.controller('chickenCtrl',function($scope,$http,$routeParams){
               $scope.$apply(function(){
                 $scope.showContent=true;
               });
+            }, 888);       
+    }); 
+    
+});
+
+//Seafood Product Controller
+app.controller('seafoodCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/6/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allSeafoodProduct = response.feed.entry;
+              $scope.seafoods=[];
+              for (var i=0; i<$scope.allSeafoodProduct.length; i++){
+                  if($scope.allSeafoodProduct[i].gsx$available.$t == "y"){
+                      $scope.seafoods.push($scope.allSeafoodProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
             }, 888);
      
-             
-    });
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
+    
+});
+
+//GoatMeat Product Controller
+app.controller('goatmeatCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/9/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allGoatmeatProduct = response.feed.entry;
+              $scope.goatmeats=[];
+              for (var i=0; i<$scope.allGoatmeatProduct.length; i++){
+                  if($scope.allGoatmeatProduct[i].gsx$available.$t == "y"){
+                      $scope.goatmeats.push($scope.allGoatmeatProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
+    
+});
+
+//Marinated Product Controller
+app.controller('marinatedCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/7/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allMarinatedProduct = response.feed.entry;
+              $scope.marinateds=[];
+              for (var i=0; i<$scope.allMarinatedProduct.length; i++){
+                  if($scope.allMarinatedProduct[i].gsx$available.$t == "y"){
+                      $scope.marinateds.push($scope.allMarinatedProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
+    
+});
+
+//Masale Product Controller
+app.controller('masaleCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/8/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allMasaleProduct = response.feed.entry;
+              $scope.masales=[];
+              for (var i=0; i<$scope.allMasaleProduct.length; i++){
+                  if($scope.allMasaleProduct[i].gsx$available.$t == "y"){
+                      $scope.masales.push($scope.allMasaleProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
+    
+});
+
+//Eggs Product Controller
+app.controller('eggCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/12/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allEggProduct = response.feed.entry;
+              $scope.eggs=[];
+              for (var i=0; i<$scope.allEggProduct.length; i++){
+                  if($scope.allEggProduct[i].gsx$available.$t == "y"){
+                      $scope.eggs.push($scope.allEggProduct[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
+    
+});
+
+//HalalMeat Product Controller
+app.controller('halalmeatCtrl',function($scope,$http,$routeParams){
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/13/public/values?alt=json")
+    .success(function(response) {
+              $scope.welcomeScreen=true;     
+              $scope.showContent=false;
+              $scope.allHalalmeat = response.feed.entry;
+              $scope.halalmeats=[];
+              for (var i=0; i<$scope.allHalalmeat.length; i++){
+                  if($scope.allHalalmeat[i].gsx$available.$t == "y"){
+                      $scope.halalmeats.push($scope.allHalalmeat[i]);
+                  }
+              }
+            setTimeout(function () {
+              $scope.$apply(function(){
+                  $scope.welcomeScreen=false;
+              });
+            }, 888);
+     
+            setTimeout(function () {
+              $scope.$apply(function(){
+                $scope.showContent=true;
+              });
+            }, 888);       
+    }); 
     
 });
 
@@ -596,13 +781,13 @@ app.controller('chickenCtrl',function($scope,$http,$routeParams){
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
               });
-            }, 500);
+            }, 888);
                 
              setTimeout(function () {
               $scope.$apply(function(){
                   $scope.showContent=true;
               });
-            }, 500); 
+            }, 888); 
             
         });
 
@@ -644,11 +829,11 @@ app.config( [
         })
         .when('/goatmeat',{
             templateUrl : '/asset/html/products/goatmeat.html',
-            routeName:"Goat Meat"
+            routeName:"GoatMeat"
         })
         .when('/marinated',{
             templateUrl : '/asset/html/products/marinated.html',
-            routeName:"Marinated Products"
+            routeName:"Marinated"
         })
         .when('/masale',{
             templateUrl : '/asset/html/products/masale.html',
@@ -658,9 +843,13 @@ app.config( [
             templateUrl : '/asset/html/products/kitchen.html',
             routeName:"Kitchen"
         })
-        .when('/eggs',{
+        .when('/egg',{
             templateUrl : '/asset/html/products/egg.html',
             routeName:"Eggs"
+        })
+        .when('/halalmeat',{
+            templateUrl : '/asset/html/products/halalmeat.html',
+            routeName:"HalalMeat"
         })
 
 //        .when('/fmbsales',{
@@ -717,8 +906,8 @@ app.run(function($rootScope, $route,$location){
     };
     
     $rootScope.productDetail = function ( path ) {
-        console.log("===================",path);
-        
+
+      $rootScope.productName = path;    
       $location.path( "/product/"+path );
     };
     
