@@ -17,7 +17,7 @@
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mt-4">
         <div ng-if="singleProduct.length !=0" class="col mt-5 px-3half py-2 mb-9" ng-repeat="product in singleProduct">
           <div class="card shadow h-100">
-            <img src="{{product.gsx$imagepath.$t}}" class="card-img-top img-fluid" alt="...">
+            <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top img-fluid" alt="...">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-9">

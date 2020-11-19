@@ -18,7 +18,7 @@
                     <p class="uom-font mb-0 text-muted">{{kitchen.gsx$qty.$t}} {{kitchen.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{kitchen.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{kitchen.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -50,7 +50,7 @@
                     <p class="uom-font mb-0 text-muted">{{fish.gsx$qty.$t}} {{fish.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{fish.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{fish.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -82,7 +82,7 @@
                     <p class="uom-font mb-0 text-muted">{{chicken.gsx$qty.$t}} {{chicken.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{chicken.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{chicken.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -114,7 +114,7 @@
                     <p class="uom-font mb-0 text-muted">{{seafood.gsx$qty.$t}} {{seafood.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{seafood.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{seafood.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -146,7 +146,7 @@
                     <p class="uom-font mb-0 text-muted">{{goatmeat.gsx$qty.$t}} {{goatmeat.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{goatmeat.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{goatmeat.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -178,7 +178,7 @@
                     <p class="uom-font mb-0 text-muted">{{marinated.gsx$qty.$t}} {{marinated.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{marinated.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{marinated.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -210,7 +210,7 @@
                     <p class="uom-font mb-0 text-muted">{{masale.gsx$qty.$t}} {{masale.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{masale.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{masale.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -242,7 +242,7 @@
                     <p class="uom-font mb-0 text-muted">{{egg.gsx$qty.$t}} {{egg.gsx$uom.$t}}</p>
                   </div>
                   <div class="col-5">
-                    <img src="{{egg.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                    <img ng-src="{{egg.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                   </div>
                 </div>
                 <div class="row">
@@ -256,6 +256,38 @@
                     <div class="mt-2 text-center">
                       <a 
                         href="https://wa.me/{{egg.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{egg.gsx$productname.$t}}%0AQuantity:{{egg.gsx$productshortname.$t}}%20{{egg.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item p-1 text-center" ng-if="halalmeats.length !=0">
+            <img src="asset/images/category/halal.svg" class="every-day-fresh-image"> 
+          </li>
+          <li class="list-group-item" ng-repeat="halal in halalmeats" ng-click="productDetail(halal.link[0].href)">
+            <div class="media">
+              <div class="media-body">
+                <div class="row">
+                  <div class="col-7">
+                    <h6>{{halal.gsx$productname.$t}}</h6>
+                    <p class="uom-font mb-0 text-muted">{{halal.gsx$qty.$t}} {{halal.gsx$uom.$t}}</p>
+                  </div>
+                  <div class="col-5">
+                    <img ng-src="{{halal.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-7">
+                    <div class="mt-2">
+                      <span class="text-muted"><s>{{halal.gsx$sellingprice.$t}}</s></span>   
+                      <span class="price-font"><b> {{halal.gsx$finalprice.$t}} &#8377</b></span>
+                    </div>
+                  </div>
+                  <div class="col-5 px-1">
+                    <div class="mt-2 text-center">
+                      <a 
+                        href="https://wa.me/{{halal.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{halal.gsx$productname.$t}}%0AQuantity:{{halal.gsx$productshortname.$t}}%20{{halal.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>

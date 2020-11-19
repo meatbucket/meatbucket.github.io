@@ -4,101 +4,6 @@
       <!-- Home Screen --> 
       <div ng-if="showContent">
           <div class="container-fluid m-0 p-0">
-              
-            <!-- Carousel -->  
-<!--            <div id="carouselExampleIndicators" class="carousel slide p-3" style="background-color:#f8615a !important; margin-top:64px;" data-ride="carousel">
-              <div class="carousel-inner">
-
-                <div class="carousel-item active" data-interval="1500">
-                  <div class="d-flex justify-content-around align-items-center">
-                    <div>
-                      <img src="asset/images/fish.png" style="height:104px;width:120px;" >
-                    </div>
-                  </div>
-                  <div class="text-center text-white mt-3">
-                    <h5><b>Fresh Fishes</b></h5>
-                  </div>
-                </div>
-
-                <div class="carousel-item " data-interval="1500">
-                  <div class="d-flex justify-content-around align-items-center">
-                    <div>
-                      <img src="asset/images/chicken.png" style="height:104px;width:120px;" >
-                    </div>
-                  </div>
-                  <div class="text-center text-white mt-3">
-                    <h5><b>Fresh Chicken</b></h5>
-                  </div>
-                </div>
-
-                <div class="carousel-item" data-interval="1500">
-                <div class="d-flex justify-content-around align-items-center">
-                  <div>
-                    <img src="asset/images/seafoods.png" style="height:104px;width:100px;" >
-                  </div>
-                </div>
-                <div class="text-center text-white mt-3">
-                  <h5><b>Fresh Seafood</b></h5>
-                </div>
-              </div>
-
-              <div class="carousel-item" data-interval="1500">
-                <div class="d-flex justify-content-around align-items-center">
-                  <div>
-                    <img src="asset/images/marinated.png" style="height:104px;width:100px;" >
-                  </div>
-                </div>
-                <div class="text-center text-white mt-3">
-                  <h5><b>Marinated Products</b></h5>
-                </div>
-              </div>       
-
-                <div class="carousel-item" data-interval="2500">
-                  <div class="d-flex justify-content-around align-items-center">
-                    <div>
-                      <img src="asset/images/restaurant.png" style="height:104px;width:100px;" >
-                    </div>
-                  </div>
-                  <div class="text-center text-white mt-3">
-                    <h5><b>FMB's Kitchen</b></h5>
-                  </div>
-                </div>
-                <div ng-repeat="banner in banners" class="carousel-item" ng-if="banner.gsx$show.$t == 'y'" data-interval={{banner.gsx$duration.$t}}>
-                  <div class="d-flex justify-content-around align-items-center">
-                    <div class="text-center text-white">
-                      <h5>{{banner.gsx$lineone.$t}}<br>
-                        <b>{{banner.gsx$linetwo.$t}}</b>
-                      </h5>
-                      <br>
-                      <div>
-                        {{banner.gsx$linethree.$t}}<br> 
-                        {{banner.gsx$linefour.$t}}<br>
-                        {{banner.gsx$linefive.$t}}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item" data-interval="3000">
-                  <div class="d-flex justify-content-around align-items-center">
-                    <div>
-                      <img src="asset/images/FMB_food-delivery.png" style="height:104px;width:100px;" >
-                    </div>
-                  </div>
-                  <div class="text-center text-white mt-3">
-                    <h5><b>Home Delivery</b></h5>
-                  </div>
-                </div>
-              </div>
-              <a class="carousel-control-prev text-dark" href="#carouselExampleIndicators" role="button" data-slide="prev" target="_self">
-              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next text-dark" href="#carouselExampleIndicators" role="button" data-slide="next" target="_self">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>--><!-- Carousel Ends--> 
           
           <div class="container-fluid bg-white py-3 mt-6">
               <a href="#kitchen" class="text-decoration-none">
@@ -111,7 +16,7 @@
                     </div>
                   </div>
                   <div class="col-4">
-                    <img src="asset/images/category/restaurant.png" class=" kitchen-logo-image  card-img-top text-center p-2" alt="...">
+                    <img ng-src="asset/images/category/restaurant.png" class=" kitchen-logo-image  card-img-top text-center p-2" alt="...">
                   </div>
                 </div>
                 <div class="card-footer border-0 brand-color-dark py-2">
@@ -221,139 +126,41 @@
                 </div>
               </div>      
           </div>
-          <div class="container-fluid bg-white py-3 mt-3 dod-group">
+          <div class="container-fluid bg-white py-3 mt-3 dod-group" ng-if="deals.length!=0">
             <div class="mb-2">
                 <span class="text-monospace">DEAL OF THE DAY</span>
             </div>
             <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-              <div class="col-5">
+              <div class="col-5 d-flex" ng-repeat="product in deals">
                 <div class="card shadow-sm text-center">
                   <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
+                    <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top dod-image-height" alt="...">
                     <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-5">
-                <div class="card shadow-sm text-center">
-                  <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                    <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-5">
-                <div class="card shadow-sm text-center">
-                  <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                    <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-5">
-                <div class="card shadow-sm text-center">
-                  <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                    <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-5">
-                <div class="card shadow-sm text-center">
-                  <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                    <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
+                      <span class="badge badge-danger text-white">{{product.gsx$finalprice.$t}} &#8377</span>
+                      <div class="card-title text-wrap every-day-fresh-image-text">{{product.gsx$productname.$t}}</div>
                     </div>
                   </a>
                 </div>
               </div>
             </div>
-<!--
-                        
-            <div class="row flex-nowrap">
-                <div class="col-4 ">
-              
-                </div>  
-                
-                                <div class="col-4 ">
-                    <a href="#kitchen" class="text-decoration-none">    
-                        <div class="card shadow-sm text-center">
-                          <img src="asset/images/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                          <div class="card-body p-1">
-                             <span class="badge badge-danger text-white">120 INR</span>
-                            <div class="card-title text-wrap">Fish Tikka Masala</div>
-                          </div>
-                        </div>
-                    </a>      
-                </div> 
-                
-                                <div class="col-4 ">
-                    <a href="#kitchen" class="text-decoration-none">    
-                        <div class="card shadow-sm text-center">
-                          <img src="asset/images/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                          <div class="card-body p-1">
-                             <span class="badge badge-danger text-white">120 INR</span>
-                            <div class="card-title text-wrap">Fish Tikka Masala</div>
-                          </div>
-                        </div>
-                    </a>      
-                </div> 
-                
-                                <div class="col-4 ">
-                    <a href="#kitchen" class="text-decoration-none">    
-                        <div class="card shadow-sm text-center">
-                          <img src="asset/images/FMB_Fish_Tikka.jpg" class="card-img-top dod-image-height" alt="...">
-                          <div class="card-body p-1">
-                             <span class="badge badge-danger text-white">120 INR</span>
-                            <span class="card-title text-wrap">Fish Tikka Masala</span>
-                          </div>
-                        </div>
-                    </a>      
-                </div> 
-            </div>                       
--->
           </div>
-          <div class="container-fluid bg-white py-3 mt-3 ">
+          <div class="container-fluid bg-white py-3 mt-3 " ng-if="todaySpecial.length !=0">
             <div class="mb-2">
-                <span class="text-monospace">POPULAR KITCHEN ITEMS</span>
+                <span class="text-monospace">TODAY's FMB KITCHEN SPECIAL</span>
             </div>
             <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-              <div class="col-10">
+              <div class="col-10 d-flex" ng-repeat="product in todaySpecial">
                 <div class="card shadow-sm text-center">
                   <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top popular-kitchen-image" alt="...">
+                    <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top popular-kitchen-image" alt="...">
                     <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
+                      
+                      <div class="card-title text-wrap every-day-fresh-image-text">{{product.gsx$productname.$t}}</div>
+                      <p class="font-weight-bold">{{product.gsx$finalprice.$t}} &#8377</p>
                     </div>
                   </a>
                 </div>
-              </div>
-              <div class="col-10">
-                <div class="card shadow-sm text-center">
-                  <a href="#kitchen" class="text-decoration-none">
-                    <img src="/asset/images/products/kitchen/fish/FMB_Fish_Tikka.jpg" class="card-img-top popular-kitchen-image" alt="...">
-                    <div class="card-body p-1">
-                      <span class="badge badge-danger text-white">120 INR</span>
-                      <div class="card-title text-wrap every-day-fresh-image-text">Fish Tikka Masala</div>
-                    </div>
-                  </a>
-                </div>
-              </div>    
+              </div>  
               </div>    
      
           </div>      

@@ -27,7 +27,7 @@
                               <p class="uom-font mb-0 text-muted">{{halalmeat.gsx$qty.$t}} {{halalmeat.gsx$uom.$t}}</p>
                            </div>
                            <div class="col-5">
-                              <img src="{{halalmeat.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
+                              <img ng-src="{{halalmeat.gsx$imagepath.$t}}" class="list-product-image img-thumbnail" alt="...">      
                            </div>
                         </div>
                         <div class="row">
@@ -52,14 +52,14 @@
                <div class="card shadow h-100 border-warning">
                   <div class="d-flex justify-content-around">
                      <div>
-                        <img src="asset/images/products/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                        <img src="asset/images/products/productfeature/halal.svg" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                      </div>
                   </div>
-                  <h6 class="text-center mt-2"><b>Not Found Your Fish?</b></h6>
+                  <h6 class="text-center mt-2"><b>Not Found Halal Meat?</b></h6>
                   <div class="card-body p-3">
                      <form  id="enquiryForm" name="enquiryForm" novalidate>
                         <div class="form-group">
-                           <label for="exampleFormControlSelect1">Which Fish You Want?</label>
+                           <label for="exampleFormControlSelect1">What Product You Want?</label>
                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true" >
                               <option value="">Choose...</option>
                               <option value="{{halalmeat.gsx$productname.$t}}" ng-repeat="halalmeat in allHalalmeat">{{halalmeat.gsx$productname.$t}}</option>
@@ -89,7 +89,7 @@
                <div class="card shadow border-danger">
                   <div class="d-flex justify-content-around">
                      <div>
-                        <img src="asset/images/products/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                        <img src="asset/images/products/productfeature/halal.svg" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                      </div>
                   </div>
                   <h6 class="text-center mt-2">No Product Found !</h6>

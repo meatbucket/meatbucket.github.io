@@ -1,244 +1,20 @@
 var app = angular.module('fmbApp', ['ngRoute']);
 
-
-
-
-            app.controller('ProductCtrl', function($scope, $http,$routeParams) { 
-            $scope.welcomeScreen=true;     
-            $scope.showContent=false;
-            $scope.newObject = {};
-            $scope.quantiyRequired='';
-                
-                
-            $scope.setRequiredQuantity = function (qty){
-                $scope.quantiyRequired = qty;
-            }
-            
-            //Cart Implementation
-              $scope.cart = [];
-              $scope.increment = function(cartProduct) {
-                cartProduct++;
-              };
-              $scope.decrement = function(cartProduct) {
-                cartProduct--;
-              };
-                
-        //Cart Implementation ends        
-             $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/1/public/values?alt=json")
-                    .success(function(response) {
-                    $scope.tools = response.feed.entry;
-                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.restaurants=[];$scope.marinateds=[];
-                  for (var i=0; i<$scope.tools.length; i++){
-                      if($scope.tools[i].gsx$available.$t == "y"){
-                          if($scope.tools[i].gsx$category.$t == "fish"){
-                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);
-                             $scope.fishes.push($scope.tools[i]);
-                           }
-                          if($scope.tools[i].gsx$category.$t == "chicken"){
-                             $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t);  
-                             $scope.chickens.push($scope.tools[i]);
-                           }
-                          if($scope.tools[i].gsx$category.$t == "seafood"){
-                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
-                             $scope.seafoods.push($scope.tools[i]);
-                           }
-                          if($scope.tools[i].gsx$category.$t == "restaurant"){
-                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
-                             $scope.restaurants.push($scope.tools[i]);
-                           }
-                          if($scope.tools[i].gsx$category.$t == "marinated"){
-                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
-                             $scope.marinateds.push($scope.tools[i]);
-                           }
-                      }
-                  }
-              });
-                
-            $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/2/public/values?alt=json")
-                    .success(function(response) {
-                    $scope.banners = response.feed.entry;
-              });    
-                
-            setTimeout(function () {
-              $scope.$apply(function(){
-                  $scope.welcomeScreen=false;
-              });
-            }, 500);
-                
-             setTimeout(function () {
-              $scope.$apply(function(){
-                  $scope.showContent=true;
-              });
-            }, 500); 
-                   
-             
-            if( $routeParams.categoryName == 'chicken'){
-               $scope.chicken = "chicken-button-active.svg";
-            $scope.chickentab = true;    
-            $scope.fish = "fish-button.svg";
-            $scope.fishtab = false;
-            $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;
-            $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;
-                $scope.marinated = "marinated-button.svg";
-            $scope.marinatedtab = false; 
-            }
-            else if ($routeParams.categoryName == 'fish'){
-                $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;    
-            $scope.fish = "fish-button-active.svg";
-            $scope.fishtab = true;
-            $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;
-            $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;
-                $scope.marinated = "marinated-button.svg";
-            $scope.marinatedtab = false; 
-            }
-            else if($routeParams.categoryName == 'kitchen'){
-                $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;    
-            $scope.fish = "fish-button.svg";
-            $scope.fishtab = false;
-            $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;
-            $scope.restaurant = "restaurant-button-active.svg";
-            $scope.restauranttab = true; 
-                $scope.marinated = "marinated-button.svg";
-            $scope.marinatedtab = false; 
-            }
-            
-            else if($routeParams.categoryName == 'seafood'){
-                $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;    
-            $scope.fish = "fish-button.svg";
-            $scope.fishtab = false;
-            $scope.seafood = "seafood-button-active.svg";
-            $scope.seafoodtab = true;
-            $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;
-            $scope.marinated = "marinated-button.svg";
-            $scope.marinatedtab = false; 
-         
-            } else if($routeParams.categoryName == 'marinated'){
-                $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;    
-            $scope.fish = "fish-button.svg";
-            $scope.fishtab = false;
-            $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;
-            $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;
-            $scope.marinatedtab = true;
-            $scope.marinated = "marinated-button-active.svg";
-             
-         
-            } else {
-                $scope.chicken = "chicken-button.svg";
-            $scope.chickentab = false;    
-            $scope.fish = "fish-button-active.svg";
-            $scope.fishtab = true;
-            $scope.seafood = "seafood-button.svg";
-            $scope.seafoodtab = false;
-            $scope.restaurant = "restaurant-button.svg";
-            $scope.restauranttab = false;
-            $scope.marinated = "marinated-button.svg";
-            $scope.marinatedtab = false; 
-            }     
-                 
-                
-            $scope.changeTab = function (param){
-                if (param == 'fish'){
-                    if ($scope.fish == 'fish-button.svg'){
-                        $scope.fishtab = true;
-                        $scope.fish = 'fish-button-active.svg';
-                        $scope.chickentab = false;
-                        $scope.seafoodtab = false;
-                        $scope.restauranttab = false; 
-                        $scope.chicken = 'chicken-button.svg';
-                        $scope.seafood = 'seafood-button.svg';
-                        $scope.restaurant = "restaurant-button.svg";
-                        $scope.marinated = "marinated-button.svg";
-                        $scope.marinatedtab = false; 
-                    }     
-                }
-                if (param == 'chicken'){
-                    if ($scope.chicken == 'chicken-button.svg'){
-                        $scope.chickentab = true;
-                          $scope.chicken = 'chicken-button-active.svg';
-                        $scope.fish = 'fish-button.svg';
-                        $scope.fishtab = false;
-                        $scope.seafoodtab = false;
-                        $scope.restauranttab = false; 
-                        $scope.seafood = 'seafood-button.svg';
-                        $scope.restaurant = "restaurant-button.svg";
-                        $scope.marinated = "marinated-button.svg";
-                        $scope.marinatedtab = false; 
-                    }    
-                }
-                if (param == 'seafood'){
-                    if ($scope.seafood == 'seafood-button.svg'){
-                        $scope.seafoodtab = true;
-                        $scope.seafood = 'seafood-button-active.svg';
-                         $scope.fish = 'fish-button.svg';
-                        $scope.chicken = 'chicken-button.svg';
-                         $scope.fishtab = false;
-                        $scope.chickentab = false;
-                        $scope.restauranttab = false;
-                        $scope.restaurant = "restaurant-button.svg";
-                        $scope.marinated = "marinated-button.svg";
-                        $scope.marinatedtab = false; 
-                    }      
-                }
-                if (param == 'restaurant'){
-                    if ($scope.restaurant == 'restaurant-button.svg'){
-                        $scope.restauranttab = true;
-                        $scope.restaurant = "restaurant-button-active.svg";
-                         $scope.fish = 'fish-button.svg';
-                        $scope.chicken = 'chicken-button.svg';
-                        $scope.seafood = 'seafood-button.svg';
-                         $scope.fishtab = false;
-                        $scope.chickentab = false;
-                        $scope.seafoodtab = false;
-                        $scope.marinated = "marinated-button.svg";
-                        $scope.marinatedtab = false; 
-                        
-                    }      
-                }
-                
-                if (param == 'marinated'){
-                    if ($scope.marinated == 'marinated-button.svg'){
-                        $scope.marinatedtab = true; 
-                        $scope.marinated = "marinated-button-active.svg";
-                         $scope.fish = 'fish-button.svg';
-                        $scope.chicken = 'chicken-button.svg';
-                        $scope.seafood = 'seafood-button.svg';
-                        $scope.restaurant = "restaurant-button.svg";
-                         $scope.fishtab = false;
-                        $scope.chickentab = false;
-                        $scope.seafoodtab = false;
-                        $scope.restauranttab = false;
-                        
-                        
-                    }      
-                }
-                
-            }    
-            
-                   $scope.changeTab($routeParams.categoryName);
-                        
-            });
-
-
 //Home Page Controller
 app.controller('homeCtrl',function($scope,$http,$routeParams){
- $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/2/public/values?alt=json")
+ $http.get("https://spreadsheets.google.com/feeds/list/1UgxUvqufnRyc4MiIQ3xuYhH0p17DO3DSII3jNp1D0OE/14/public/values?alt=json")
     .success(function(response) {
               $scope.welcomeScreen=true;     
               $scope.showContent=false;
-              $scope.banners = response.feed.entry;
-              console.log("==========banner==========",$scope.banners);
+              $scope.tools = response.feed.entry;
+                $scope.deals=[];$scope.todaySpecial=[];
+              for (var i=0; i<$scope.tools.length; i++){
+                  if($scope.tools[i].gsx$category.$t == "kitchen"){
+                      $scope.todaySpecial.push($scope.tools[i]);
+                  } else {
+                      $scope.deals.push($scope.tools[i]);
+                  }
+              }
             setTimeout(function () {
               $scope.$apply(function(){
                   $scope.welcomeScreen=false;
@@ -261,7 +37,7 @@ app.controller('ProductListCtrl',function($scope,$http,$routeParams){
               $scope.welcomeScreen=true;     
               $scope.showContent=false;     
              $scope.tools = response.feed.entry;
-                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.kitchens=[];$scope.marinateds=[];$scope.goatmeats=[];$scope.masales=[];$scope.eggs=[];
+                    $scope.fishes=[];$scope.chickens=[];$scope.seafoods=[];$scope.kitchens=[];$scope.marinateds=[];$scope.goatmeats=[];$scope.masales=[];$scope.eggs=[];$scope.halalmeats=[];
                   for (var i=0; i<$scope.tools.length; i++){
                       if($scope.tools[i].gsx$available.$t == "y"){
                           if($scope.tools[i].gsx$category.$t == "fish"){
@@ -295,6 +71,10 @@ app.controller('ProductListCtrl',function($scope,$http,$routeParams){
                           if($scope.tools[i].gsx$category.$t == "egg"){
                               $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
                              $scope.eggs.push($scope.tools[i]);
+                           }
+                          if($scope.tools[i].gsx$category.$t == "halalmeat"){
+                              $scope.tools[i].gsx$productshortname.$t = Number($scope.tools[i].gsx$qty.$t); 
+                             $scope.halalmeats.push($scope.tools[i]);
                            }
                       }
                   }
