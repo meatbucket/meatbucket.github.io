@@ -1,0 +1,161 @@
+<div ng-controller="homeCtrl">
+<!-- Welcome Screen --> 
+<div splash-screen show="welcomeScreen"></div>
+<!-- Home Screen --> 
+<div ng-if="showContent">
+   <div class="container-fluid m-0 p-0">
+      <div class="container-fluid bg-white py-3 mt-6">
+         <a href="#kitchen" class="text-decoration-none">
+            <div class="card  brand-background-color  border-0">
+               <div class="row no-gutters shadow">
+                  <div class="col-8">
+                     <div class="card-body">
+                        <h5 class="card-title"><b>FMB's Kitchen</b></h5>
+                        <p class="card-text">घर का बना खाना</p>
+                     </div>
+                  </div>
+                  <div class="col-4">
+                     <img ng-src="asset/images/category/restaurant.png" class=" kitchen-logo-image  card-img-top text-center p-2" alt="...">
+                  </div>
+               </div>
+               <div class="card-footer border-0 brand-color-dark py-2">
+                  <b>View Menu</b> <i class="fa fa-arrow-right text-white" aria-hidden="true"></i>
+               </div>
+            </div>
+         </a>
+      </div>
+      <div class="container-fluid bg-white py-3 mt-3 ">
+         <div class="mb-2">
+            <span class="text-monospace">EVERYDAY FRESH</span>
+         </div>
+         <div class="card-deck bg-light p-3">
+            <div class="row row-cols-1 row-cols-md-3">
+               <div class="col-4">
+                  <a href="#fish" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/fish.png" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Fish</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#chicken" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/chicken.png" class="card-img-top mx-auto d-block every-day-fresh-image text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Chicken</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#seafood" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/seafoods.png" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">
+                              Seafood
+                           </h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#goatmeat" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/goat.svg" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Goat Meat</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#marinated" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/marinated.png" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Marinated</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#masale" class="text-decoration-none">
+                     <div class="card shadow-sm">
+                        <img src="asset/images/category/masale.svg" class="every-day-fresh-image mx-auto d-block card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Masale</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#egg" class="text-decoration-none">
+                     <div class="card shadow-sm mb-0">
+                        <img src="asset/images/category/egg.svg" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Eggs</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#halalmeat" class="text-decoration-none">
+                     <div class="card shadow-sm mb-0">
+                        <img src="asset/images/category/halal.svg" class="every-day-fresh-image mx-auto d-block  card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Halal Meat</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               <div class="col-4">
+                  <a href="#kitchen" class="text-decoration-none">
+                     <div class="card shadow-sm mb-0">
+                        <img src="asset/images/category/restaurant-category.svg" class="every-day-fresh-image mx-auto d-block card-img-top text-center p-2" alt="...">
+                        <div class="card-body p-0">
+                           <h5 class="card-title text-center every-day-fresh-image-text">Kitchen</h5>
+                        </div>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid bg-white py-3 mt-3 dod-group" ng-if="deals.length!=0">
+         <div class="mb-2">
+            <span class="text-monospace">DEAL OF THE DAY</span>
+         </div>
+         <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
+            <div class="col-5 d-flex" ng-repeat="product in deals">
+               <div class="card shadow-sm text-center" ng-click="productDetail(product.gsx$productshortname.$t)">
+                  <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top dod-image-height" alt="...">
+                  <div class="card-body p-1">
+                     <p class="font-weight-bold text-danger h6">{{product.gsx$finalprice.$t}} &#8377</p>
+                     <div class="card-title text-wrap every-day-fresh-image-text">{{product.gsx$productname.$t}}</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid bg-white py-3 mt-3 " ng-if="todaySpecial.length !=0">
+         <div class="mb-2">
+            <span class="text-monospace">TODAY's FMB KITCHEN SPECIAL</span>
+         </div>
+         <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
+            <div class="col-10 d-flex" ng-repeat="product in todaySpecial">
+               <div class="card shadow-sm text-center" ng-click="productDetail(product.gsx$productshortname.$t)">
+                  <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top popular-kitchen-image" alt="...">
+                  <div class="card-body p-1">
+                     <div class="card-title text-wrap every-day-fresh-image-text">{{product.gsx$productname.$t}}</div>
+                     <p class="font-weight-bold text-info h5">{{product.gsx$finalprice.$t}} &#8377</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
