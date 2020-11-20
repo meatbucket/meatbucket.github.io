@@ -1,7 +1,7 @@
 <div ng-controller="ProductListCtrl">
   <div splash-screen show="welcomeScreen"></div>
   <!-- Product List Screen --> 
-  <div ng-if="showContent"  class="mt-6">
+  <div ng-show="showContent"  class="mt-6">
     <div class="container-fluid">
       <!--product Card -->
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
@@ -9,10 +9,10 @@
           <li class="list-group-item p-1 text-center" ng-if="kitchens.length !=0">
             <img src="asset/images/category/restaurant.png" class="every-day-fresh-image">    
           </li>
-          <li class="list-group-item" ng-repeat="kitchen in kitchens" ng-click="productDetail(kitchen.link[0].href)">
+          <li class="list-group-item" ng-repeat="kitchen in kitchens">
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row"  ng-click="productDetail(kitchen.link[0].href)">
                   <div class="col-7">
                     <h6>{{kitchen.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{kitchen.gsx$qty.$t}} {{kitchen.gsx$uom.$t}}</p>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2"  ng-click="productDetail(kitchen.link[0].href)">
                       <span class="text-muted"><s>{{kitchen.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{kitchen.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -31,7 +31,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{kitchen.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{kitchen.gsx$productname.$t}}%0AQuantity:{{kitchen.gsx$productshortname.$t}}%20{{kitchen.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{kitchen.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{kitchen.gsx$productname.$t}}%0AQuantity:{{kitchen.gsx$productshortname.$t}}%20{{kitchen.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -41,10 +41,10 @@
           <li class="list-group-item text-center p-1" ng-if="fishes.length !=0">
             <img src="asset/images/homepage/fish-button.svg" class="every-day-fresh-image">
           </li>
-          <li class="list-group-item" ng-repeat="fish in fishes" ng-click="productDetail(fish.link[0].href)">
+          <li class="list-group-item" ng-repeat="fish in fishes" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(fish.link[0].href)">
                   <div class="col-7">
                     <h6>{{fish.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{fish.gsx$qty.$t}} {{fish.gsx$uom.$t}}</p>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(fish.link[0].href)">
                       <span class="text-muted"><s>{{fish.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{fish.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -63,7 +63,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{fish.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$productshortname.$t}}%20{{fish.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{fish.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{fish.gsx$productname.$t}}%0AQuantity:{{fish.gsx$productshortname.$t}}%20{{fish.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -73,10 +73,10 @@
           <li class="list-group-item p-1 text-center" ng-if="chickens.length !=0">
             <img src="asset/images/category/chicken.png" class="every-day-fresh-image">
           </li>
-          <li class="list-group-item" ng-repeat="chicken in chickens" ng-click="productDetail(chicken.link[0].href)">
+          <li class="list-group-item" ng-repeat="chicken in chickens" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(chicken.link[0].href)">
                   <div class="col-7">
                     <h6>{{chicken.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{chicken.gsx$qty.$t}} {{chicken.gsx$uom.$t}}</p>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(chicken.link[0].href)">
                       <span class="text-muted"><s>{{chicken.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{chicken.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -95,7 +95,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{chicken.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$productshortname.$t}}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{chicken.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{chicken.gsx$productname.$t}}%0AQuantity:{{chicken.gsx$productshortname.$t}}%20{{chicken.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -105,10 +105,10 @@
           <li class="list-group-item p-1 text-center" ng-if="seafoods.length !=0">
             <img src="asset/images/category/seafoods.png" class="every-day-fresh-image">    
           </li>
-          <li class="list-group-item" ng-repeat="seafood in seafoods" ng-click="productDetail(seafood.link[0].href)">
+          <li class="list-group-item" ng-repeat="seafood in seafoods" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(seafood.link[0].href)">
                   <div class="col-7">
                     <h6>{{seafood.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{seafood.gsx$qty.$t}} {{seafood.gsx$uom.$t}}</p>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(seafood.link[0].href)">
                       <span class="text-muted"><s>{{seafood.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{seafood.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -127,7 +127,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{seafood.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$productshortname.$t}}%20{{seafood.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{seafood.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$productshortname.$t}}%20{{seafood.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -137,10 +137,10 @@
           <li class="list-group-item p-1 text-center" ng-if="goatmeats.length !=0">
             <img src="asset/images/category/goat.svg" class="every-day-fresh-image">    
           </li>
-          <li class="list-group-item" ng-repeat="goatmeat in goatmeats" ng-click="productDetail(goatmeat.link[0].href)">
+          <li class="list-group-item" ng-repeat="goatmeat in goatmeats" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(goatmeat.link[0].href)">
                   <div class="col-7">
                     <h6>{{goatmeat.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{goatmeat.gsx$qty.$t}} {{goatmeat.gsx$uom.$t}}</p>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(goatmeat.link[0].href)">
                       <span class="text-muted"><s>{{goatmeat.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{goatmeat.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -159,7 +159,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{goatmeat.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{goatmeat.gsx$productname.$t}}%0AQuantity:{{goatmeat.gsx$productshortname.$t}}%20{{goatmeat.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{goatmeat.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{goatmeat.gsx$productname.$t}}%0AQuantity:{{goatmeat.gsx$productshortname.$t}}%20{{goatmeat.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -169,10 +169,10 @@
           <li class="list-group-item p-1 text-center" ng-if="marinateds.length !=0">
             <img src="asset/images/category/marinated.png" class="every-day-fresh-image">    
           </li>
-          <li class="list-group-item" ng-repeat="marinated in marinateds" ng-click="productDetail(marinated.link[0].href)">
+          <li class="list-group-item" ng-repeat="marinated in marinateds" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(marinated.link[0].href)">
                   <div class="col-7">
                     <h6>{{marinated.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{marinated.gsx$qty.$t}} {{marinated.gsx$uom.$t}}</p>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(marinated.link[0].href)">
                       <span class="text-muted"><s>{{marinated.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{marinated.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -191,7 +191,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{marinated.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{marinated.gsx$productname.$t}}%0AQuantity:{{marinated.gsx$productshortname.$t}}%20{{marinated.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{marinated.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{marinated.gsx$productname.$t}}%0AQuantity:{{marinated.gsx$productshortname.$t}}%20{{marinated.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -201,10 +201,10 @@
           <li class="list-group-item p-1 text-center" ng-if="masales.length !=0">
             <img src="asset/images/category/masale.svg" class="every-day-fresh-image">    
           </li>
-          <li class="list-group-item" ng-repeat="masale in masales" ng-click="productDetail(masale.link[0].href)">
+          <li class="list-group-item" ng-repeat="masale in masales" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(masale.link[0].href)">
                   <div class="col-7">
                     <h6>{{masale.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{masale.gsx$qty.$t}} {{masale.gsx$uom.$t}}</p>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(masale.link[0].href)">
                       <span class="text-muted"><s>{{masale.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{masale.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -223,7 +223,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{masale.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{masale.gsx$productname.$t}}%0AQuantity:{{masale.gsx$productshortname.$t}}%20{{masale.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{masale.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{masale.gsx$productname.$t}}%0AQuantity:{{masale.gsx$productshortname.$t}}%20{{masale.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -233,10 +233,10 @@
           <li class="list-group-item p-1 text-center" ng-if="eggs.length !=0">
             <img src="asset/images/category/egg.svg" class="every-day-fresh-image"> 
           </li>
-          <li class="list-group-item" ng-repeat="egg in eggs" ng-click="productDetail(egg.link[0].href)">
+          <li class="list-group-item" ng-repeat="egg in eggs" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(egg.link[0].href)">
                   <div class="col-7">
                     <h6>{{egg.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{egg.gsx$qty.$t}} {{egg.gsx$uom.$t}}</p>
@@ -247,7 +247,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(egg.link[0].href)">
                       <span class="text-muted"><s>{{egg.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{egg.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -255,7 +255,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{egg.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{egg.gsx$productname.$t}}%0AQuantity:{{egg.gsx$productshortname.$t}}%20{{egg.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{egg.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{egg.gsx$productname.$t}}%0AQuantity:{{egg.gsx$productshortname.$t}}%20{{egg.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -265,10 +265,10 @@
           <li class="list-group-item p-1 text-center" ng-if="halalmeats.length !=0">
             <img src="asset/images/category/halal.svg" class="every-day-fresh-image"> 
           </li>
-          <li class="list-group-item" ng-repeat="halal in halalmeats" ng-click="productDetail(halal.link[0].href)">
+          <li class="list-group-item" ng-repeat="halal in halalmeats" >
             <div class="media">
               <div class="media-body">
-                <div class="row">
+                <div class="row" ng-click="productDetail(halal.link[0].href)">
                   <div class="col-7">
                     <h6>{{halal.gsx$productname.$t}}</h6>
                     <p class="uom-font mb-0 text-muted">{{halal.gsx$qty.$t}} {{halal.gsx$uom.$t}}</p>
@@ -279,7 +279,7 @@
                 </div>
                 <div class="row">
                   <div class="col-7">
-                    <div class="mt-2">
+                    <div class="mt-2" ng-click="productDetail(halal.link[0].href)">
                       <span class="text-muted"><s>{{halal.gsx$sellingprice.$t}}</s></span>   
                       <span class="price-font"><b> {{halal.gsx$finalprice.$t}} &#8377</b></span>
                     </div>
@@ -287,7 +287,7 @@
                   <div class="col-5 px-1">
                     <div class="mt-2 text-center">
                       <a 
-                        href="https://wa.me/{{halal.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{halal.gsx$productname.$t}}%0AQuantity:{{halal.gsx$productshortname.$t}}%20{{halal.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                        href="https://wa.me/{{halal.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{halal.gsx$productname.$t}}%0AQuantity:{{halal.gsx$productshortname.$t}}%20{{halal.gsx$uom.$t}}%20." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                     </div>
                   </div>
                 </div>
@@ -335,5 +335,6 @@
         </div>
       </div>
     </div>
+    <div social-info></div>    
   </div>
 </div>

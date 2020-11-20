@@ -1,7 +1,7 @@
 <div ng-controller="seafoodCtrl">
    <div splash-screen show="welcomeScreen"></div>
    <!-- Chicken Screen --> 
-   <div ng-if="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Categories') ? 'mt-9' : 'mt-6' }}">
+   <div ng-show="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Categories') ? 'mt-9' : 'mt-6' }}">
       <nav class="navbar fixed-top-secondary-nav navbar-light bg-light shadow-sm" ng-if="(previousPage == 'Home' || previousPage == 'Categories')">
          <ul class="list-inline mb-0">
             <li class="list-inline-item">
@@ -40,7 +40,7 @@
                            <div class="col-5 px-1">
                               <div class="mt-2 text-center">
                                  <a 
-                                    href="https://wa.me/{{seafood.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}%0AQuantity:{{seafood.gsx$productshortname.$t}}%20{{seafood.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                                    href="https://wa.me/{{seafood.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{seafood.gsx$productname.$t}}." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                               </div>
                            </div>
                         </div>
@@ -126,5 +126,6 @@
          </div>
          <!--seafood Card -->
       </div>
+      <div social-info></div>  
    </div>
 </div>

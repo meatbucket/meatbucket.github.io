@@ -1,6 +1,6 @@
 <div ng-controller="ProductDetailCtrl">
   <div splash-screen show="welcomeScreen"></div>
-  <div ng-if="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Products' || previousPage == 'Fish' || previousPage == 'Chicken' || previousPage == 'Seafood' || previousPage == 'GoatMeat' || previousPage == 'Marinated' || previousPage == 'Kitchen' || previousPage == 'Eggs' || previousPage == 'Masale' || previousPage == 'HalalMeat') ? 'mt-6' : 'mt-4' }}">
+  <div ng-show="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Products' || previousPage == 'Fish' || previousPage == 'Chicken' || previousPage == 'Seafood' || previousPage == 'GoatMeat' || previousPage == 'Marinated' || previousPage == 'Kitchen' || previousPage == 'Eggs' || previousPage == 'Masale' || previousPage == 'HalalMeat') ? 'mt-6' : 'mt-4' }}">
     <nav class="navbar fixed-top-secondary-nav navbar-light bg-light shadow-sm" ng-if="(previousPage == 'Home' || previousPage == 'Products' || previousPage == 'Fish' || previousPage == 'Chicken' || previousPage == 'Seafood' || previousPage == 'GoatMeat' || previousPage == 'Marinated' || previousPage == 'Kitchen' || previousPage == 'Eggs' || previousPage == 'Masale'|| previousPage == 'HalalMeat' )"  >
       <ul class="list-inline mb-0">
         <li class="list-inline-item">
@@ -152,5 +152,6 @@
         </div>
       </div>
     </div>
+    <div social-info></div>    
   </div>
 </div>

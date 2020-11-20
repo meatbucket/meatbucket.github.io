@@ -678,7 +678,14 @@ app.directive("splashScreen", function () {
 		scope: {
 			show: '=?'
 		},
-		template: '<div ng-if="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-border brand-color" role="status"><span class="sr-only">Loading...</span></div></div></div>'
+		template: '<div ng-show="show" class="splash-screen"><div class="d-flex justify-content-around align-items-center" ><div><img src="asset/images/brand/bucket.svg" class="splash-screen-image" ></div></div><div class="text-center brand-color mt-3"><h5><b>FreshMeatBucket</b></h5><div class="spinner-border brand-color" role="status"><span class="sr-only">Loading...</span></div></div></div>'
+	}
+});
+
+app.directive("socialInfo", function () {
+	return {
+		restrict: 'A',
+		template: '<div  class="text-center bg-light p-1 mt-5 mb-7 shadow-lg border-sm" ><div class="d-flex flex-column justify-content-center"><div><img src="/asset/images/homepage/fssai.png" style="height:30px; width:60px;"></div><div class="mt-1">Lic No. 21420850003168</div><div class="p-2 bd-highlight"><a href="https://goo.gl/maps/nf1Ww4whCcbjMyb17" class="text-decoration-none text-reset text-center" target="_blank" >&copy; 2020 FreshMeatBucket by TTG Fish Center</a></div><div>Indore (M.P.)</div></div><div class="d-flex justify-content-around mt-2 mb-2 border-top"><div class="mt-3"><b>Follow Us On:</b></div><div class="mt-2"><a href="https://www.facebook.com/Fresh-Meat-Bucket-101676998300302/" target="_blank"><i class="fa fa-2x fa-facebook-square text-primary" aria-hidden="true"></i></a></div><div class="mt-2"><a href="https://www.instagram.com/freshmeatbucket/" target="_blank"><i class="fa fa-2x fa-instagram text-danger" aria-hidden="true"></i></a></div></div></div>'
 	}
 });
 

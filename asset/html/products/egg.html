@@ -1,7 +1,7 @@
 <div ng-controller="eggCtrl">
    <div splash-screen show="welcomeScreen"></div>
    <!-- Fish Screen --> 
-   <div ng-if="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Categories') ? 'mt-9' : 'mt-6' }}">
+   <div ng-show="showContent" class="{{ (previousPage == 'Home' || previousPage == 'Categories') ? 'mt-9' : 'mt-6' }}">
       <nav class="navbar fixed-top-secondary-nav navbar-light bg-light shadow-sm" ng-if="(previousPage == 'Home' || previousPage == 'Categories')">
          <ul class="list-inline mb-0">
             <li class="list-inline-item">
@@ -19,9 +19,9 @@
          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mb-5">
             <ul class="list-group list-group-flush">
                <li class="list-group-item" ng-repeat="egg in eggs" >
-                  <div class="media" ng-click="productDetail(egg.gsx$productshortname.$t)">
+                  <div class="media">
                      <div class="media-body">
-                        <div class="row">
+                        <div class="row" ng-click="productDetail(egg.gsx$productshortname.$t)">
                            <div class="col-7">
                               <h6>{{egg.gsx$productname.$t}}</h6>
                               <p class="uom-font mb-0 text-muted">{{egg.gsx$qty.$t}} {{egg.gsx$uom.$t}}</p>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="row">
                            <div class="col-7">
-                              <div class="mt-2">
+                              <div class="mt-2" ng-click="productDetail(egg.gsx$productshortname.$t)">
                                  <span class="text-muted"><s>{{egg.gsx$sellingprice.$t}}</s></span>   
                                  <span class="price-font"><b> {{egg.gsx$finalprice.$t}} &#8377</b></span>
                               </div>
@@ -40,7 +40,7 @@
                            <div class="col-5 px-1">
                               <div class="mt-2 text-center">
                                  <a 
-                                    href="https://wa.me/{{egg.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{egg.gsx$productname.$t}}%0AQuantity:{{egg.gsx$productshortname.$t}}%20{{egg.gsx$uom.$t}}%20." class="btn btn-outline-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
+                                    href="https://wa.me/{{egg.gsx$contactperson.$t}}?text=Hello%20FreshMeatBucket,%0AI%20would%20like%20to%20purchase%0A{{egg.gsx$productname.$t}}." class="btn btn-brand btn-sm shadow-sm"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i> ORDER NOW</a>
                               </div>
                            </div>
                         </div>
@@ -126,5 +126,6 @@
          </div>
          <!--egg Card -->
       </div>
+      <div social-info></div>   
    </div>
 </div>
