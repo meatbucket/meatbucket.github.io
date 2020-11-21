@@ -52,14 +52,14 @@
                <div class="card shadow h-100 border-warning">
                   <div class="d-flex justify-content-around">
                      <div>
-                        <img src="asset/images/products/bulkorder.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                        <img src="asset/images/products/eggs/noeggproduct.svg" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
                      </div>
                   </div>
-                  <h6 class="text-center mt-2"><b>Not Found Your Fish?</b></h6>
+                  <h6 class="text-center mt-2"><b>Not Found Your Egg Product?</b></h6>
                   <div class="card-body p-3">
                      <form  id="enquiryForm" name="enquiryForm" novalidate>
                         <div class="form-group">
-                           <label for="exampleFormControlSelect1">Which Fish You Want?</label>
+                           <label for="exampleFormControlSelect1">Which Product You Want?</label>
                            <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true" >
                               <option value="">Choose...</option>
                               <option value="{{egg.gsx$productname.$t}}" ng-repeat="egg in allEggProduct">{{egg.gsx$productname.$t}}</option>
