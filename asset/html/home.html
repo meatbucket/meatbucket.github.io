@@ -3,8 +3,7 @@
 <div splash-screen show="welcomeScreen"></div>
 <!-- Home Screen --> 
 <div ng-show="showContent">
-   <div class="container-fluid m-0 p-0">
-      <div class="container-fluid bg-white py-3 mt-6">
+      <div class="container bg-white py-3 mt-6">
          <a href="#kitchen" class="text-decoration-none">
             <div class="card  brand-background-color  border-0">
                <div class="row no-gutters shadow">
@@ -24,7 +23,7 @@
             </div>
          </a>
       </div>
-      <div class="container-fluid bg-white py-3 mt-3 ">
+      <div class="container bg-white py-3 mt-3 ">
          <div class="mb-2">
             <span class="text-monospace">EVERYDAY FRESH</span>
          </div>
@@ -125,12 +124,12 @@
             </div>
          </div>
       </div>
-      <div class="container-fluid bg-white py-3 mt-3 dod-group" ng-if="deals.length!=0">
+      <div class="container bg-white py-3 mt-3 dod-group" ng-if="deals.length!=0">
          <div class="mb-2">
             <span class="text-monospace">DEAL OF THE DAY</span>
          </div>
          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-            <div class="col-5 d-flex" ng-repeat="product in deals">
+            <div class="col-5 col-md-2 d-flex" ng-repeat="product in deals">
                <div class="card shadow-sm text-center" ng-click="productDetail(product.gsx$productshortname.$t)">
                   <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top dod-image-height" alt="...">
                   <div class="card-body p-1">
@@ -141,12 +140,12 @@
             </div>
          </div>
       </div>
-      <div class="container-fluid bg-white py-3 mt-3 " ng-if="todaySpecial.length !=0">
+      <div class="container bg-white py-3 mt-3 " ng-if="todaySpecial.length !=0">
          <div class="mb-2">
             <span class="text-monospace">TODAY's FMB KITCHEN SPECIAL</span>
          </div>
          <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4">
-            <div class="col-10 d-flex" ng-repeat="product in todaySpecial">
+            <div class="col-10 col-md-2 d-flex" ng-repeat="product in todaySpecial">
                <div class="card shadow-sm text-center" ng-click="productDetail(product.gsx$productshortname.$t)">
                   <img ng-src="{{product.gsx$imagepath.$t}}" class="card-img-top popular-kitchen-image" alt="...">
                   <div class="card-body p-1">
@@ -157,7 +156,7 @@
             </div>
          </div>
       </div>
-   </div>
+
     <div social-info></div> 
 </div>
    

@@ -112,11 +112,11 @@
             </div>
           </div>
         </div>
-        <div ng-if="singleProduct.length ==0" class="col mt-4 px-3half py-2">
+        <div ng-if="singleProduct.length ==0" class="col mt-5 px-3half py-2">
           <div class="card shadow border-danger h-100 mb-4">
             <div class="d-flex justify-content-around">
               <div>
-                <img src="asset/images/products/noproduct.png" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
+                <img src="/asset/images/products/noproductfound/noproduct.svg" class="card-img-top mt-2" alt="..." style="height:100px;width:120px;">
               </div>
             </div>
             <h6 class="text-center mt-2">No Product Found !</h6>
@@ -126,7 +126,7 @@
                   <label for="exampleFormControlSelect1">What Product You Want?</label>
                   <select ng-model="user.product" class="form-control" id="exampleFormControlSelect1"  ng-required="true">
                     <option selected>Choose...</option>
-                    <option ng-repeat="product in tools">                {{product.gsx$productname.$t}}
+                    <option ng-repeat="product in tools">       [{{product.gsx$category.$t}}] -         {{product.gsx$productname.$t}}
                     </option>
                   </select>
                   <div  class="invalid-feedback" ng-show="enquiryForm.user.product.$error.required && enquiryForm.user.product.$dirty">
